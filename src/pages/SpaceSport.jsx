@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import '../styles/establecimiento.css';
+import '../styles/spaceSport.css';
+import { LuHeart } from "react-icons/lu";
+import { FaStar } from "react-icons/fa";
+import { RiTimeFill } from "react-icons/ri";
+import Calendars from '../components/SpaceSport/Calendars';
 
 const Establecimiento = () => {
+    const [calendarsOpen, setCalendarsOpen] = useState(false);
     const [imagenPrincipal, setImagenPrincipal] = useState('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop');
 
     const imagenesGaleria = [
@@ -37,14 +42,12 @@ const Establecimiento = () => {
 
     const renderEstrellas = (calificacion) => {
         return Array.from({ length: 5 }, (_, index) => (
-            <span key={index} className={`estrella ${index < calificacion ? 'activa' : ''}`}>
-                ★
-            </span>
+            <FaStar key={index} className={`estrella ${index < calificacion ? 'activa' : ''}`} />
         ));
     };
 
     return (
-        <div className="establecimiento-container">
+        <div className="space-sport">
             <div className="contenido-principal">
                 {/* Sección de imágenes */}
                 <div className="seccion-imagenes">
@@ -83,7 +86,7 @@ const Establecimiento = () => {
                                 <span className="numero-calificacion">4.8 (127 reseñas)</span>
                             </div>
                             <div className="likes">
-                                <span className="icono-like">❤️</span>
+                                <LuHeart className='icono-like' />
                                 <span>234</span>
                             </div>
                         </div>
@@ -97,12 +100,8 @@ const Establecimiento = () => {
                                 <p>6:00 AM - 11:00 PM</p>
                             </div>
                             <div className="horario-item">
-                                <span>Sábados</span>
+                                <span>Sábados - Domingos</span>
                                 <p>7:00 AM - 12:00 AM</p>
-                            </div>
-                            <div className="horario-item">
-                                <span>Domingos</span>
-                                <p>8:00 AM - 10:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -130,8 +129,8 @@ const Establecimiento = () => {
                     </div>
 
                     <div className="botones-accion">
-                        <button className="btn-reservar-principal">
-                            Reservar Ahora
+                        <button onClick={() => setCalendarsOpen(true)} className="btn-reservar-principal">
+                            <RiTimeFill />Reservar Ahora
                         </button>
                         <button className="btn-consultar">
                             Consultar Disponibilidad
@@ -188,6 +187,10 @@ const Establecimiento = () => {
                     </div>
                 </div>
             </div>
+            <Calendars
+                open={calendarsOpen}
+                onClose={() => setCalendarsOpen(false)}
+            />
         </div>
     );
 };
