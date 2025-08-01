@@ -1,15 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
+import Home  from "./pages/home"
+// import Header from './components/layout/header/Header';
+// import Footer from './components/layout/footer/Footer';
+import Main from './components/layout/main/main';
+import "./index.css"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
-    const [count, setCount] = useState(0)
 
-    return (
-        <div>
-            <h2>Bienvenido a la aplicacion!!</h2>
-        </div>
-    )
+
+// Inicializacion de la Aplicacion
+const App = () => {
+  return (
+    // <div>
+    <BrowserRouter>
+      {/* <Header/> */}
+      <Routes>
+        <Route path="/" element={<Main component={<Home id="simio"/>}></Main>} />
+      </Routes>
+      {/* <Footer/> */}
+    </BrowserRouter>
+     
+
+  )
 }
 
 export default App
