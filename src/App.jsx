@@ -1,5 +1,6 @@
 import React from 'react'
-import Home  from "./pages/home"
+import Home  from "./pages/home";
+import SpaceSport from "./pages/SpaceSport";
 // import Header from './components/layout/header/Header';
 // import Footer from './components/layout/footer/Footer';
 import Main from './components/layout/main/main';
@@ -16,6 +17,7 @@ const App = () => {
       {/* <Header/> */}
       <Routes>
         <Route path="/" element={<Main component={<Home id="simio"/>}></Main>} />
+        <Route path="/space-sport" element={<Main component={<SpaceSport/>}></Main>} />
       </Routes>
       {/* <Footer/> */}
     </BrowserRouter>
