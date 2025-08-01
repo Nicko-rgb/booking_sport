@@ -17,6 +17,7 @@ const Header = ({ id = "" }) => {
                         <li><a href="establishments.html" className="nav-link">Establecimientos</a></li>
                         <li><a href="#about" className="nav-link">Acerca de</a></li>
                         <li><a href="/space-sport" className="nav-link">Pagina de Espacio</a></li>
+                        <li><a href="/login" className="nav-link">Login</a></li>
                     </ul>
                     <div className="nav-toggle">
                         <span></span>
