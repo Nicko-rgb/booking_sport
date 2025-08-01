@@ -1,11 +1,9 @@
 import React from 'react'
+import LoginRegisterComponent from '../components/auth/LoginRegister'
 
 const LoginRegister = () => {
   return (
-    <div>
-        <h1 style={{marginTop: 100}}>LoginRegister</h1>
-      
-    </div>
+    <LoginRegisterComponent />
   )
 }
 
