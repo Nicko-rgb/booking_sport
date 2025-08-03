@@ -2,15 +2,6 @@ import React, { createContext, useContext, useState } from 'react';
 import { esFechaValida } from '../data/horarios';
 import { obtenerHorariosPorDia } from '../data/Reservas/horariosApi';
 
-// Estados de horarios (mantenemos compatibilidad)
-export const ESTADO_HORARIO = {
-    DISPONIBLE: 'disponible',
-    OCUPADO: 'ocupado', 
-    RESERVADO: 'reservado',
-    MANTENIMIENTO: 'mantenimiento',
-    NO_DISPONIBLE: 'no_disponible'
-};
-
 // Crear el contexto
 const ReservationContext = createContext();
 

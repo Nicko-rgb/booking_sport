@@ -1,6 +1,6 @@
 import React from 'react';
 import { useReservationStore } from '../../context/ReservationContext';
-import '../../styles/reservationSummary.css';
+import '../../styles/SpaceSport/reservationSummary.css';
 import { IoIosArrowBack } from "react-icons/io";
 
 const ReservationSummary = ({ open, onClose, onConfirm, onBackToListTime }) => {
