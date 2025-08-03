@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/calendarReserv.css';
+import '../../styles/SpaceSport/calendarReserv.css';
 import { useReservationStore } from '../../context/ReservationContext';
 
 const Calendars = ({ open, onClose, onDateSelect }) => {
