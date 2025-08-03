@@ -1,79 +1,141 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/spaceSport.css';
 import { LuHeart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import { RiTimeFill } from "react-icons/ri";
+import { FaWhatsapp } from "react-icons/fa6";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import Calendars from '../components/SpaceSport/Calendars';
+import ListTime from '../components/SpaceSport/ListTime';
+import ReservationSummary from '../components/SpaceSport/ReservationSummary';
+import { ReservationProvider } from '../context/ReservationContext';
+import comentarios from '../data/Reservas/comentarios';
 
 const Establecimiento = () => {
     const [calendarsOpen, setCalendarsOpen] = useState(false);
+    const [listTimeOpen, setListTimeOpen] = useState(false);
+    const [reservationSummaryOpen, setReservationSummaryOpen] = useState(false);
+    const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
     const [imagenPrincipal, setImagenPrincipal] = useState('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop');
+    const [indiceDesplazamiento, setIndiceDesplazamiento] = useState(0);
 
     const imagenesGaleria = [
         'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop',
         'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop',
         'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&h=600&fit=crop',
+        'https://www.parqueygrama.com/wp-content/uploads/2019/04/tipos-de-canchas-cancha-de-futbol.jpg',
+        'https://mx.habcdn.com/photos/project/medium/canchas-deportivas-pasto-sintetico-183506.jpg',
+        'https://alfombras.net.pe/wp-content/uploads/2025/02/grass-sintetico-deportivo.jpg',
+        'https://portaljesusmaria.com/wp-content/uploads/2024/08/campo-deportivo-canchas-de-grass-sintetico-768x1000.jpg'
     ];
 
-    const comentarios = [
-        {
-            id: 1,
-            usuario: 'Carlos Mendoza',
-            calificacion: 5,
-            comentario: 'Excelente cancha, muy bien mantenida y con buenas instalaciones.',
-            fecha: '2024-01-15'
-        },
-        {
-            id: 2,
-            usuario: 'María González',
-            calificacion: 4,
-            comentario: 'Muy buen lugar para jugar fútbol. El césped está en perfectas condiciones.',
-            fecha: '2024-01-10'
-        },
-        {
-            id: 3,
-            usuario: 'Luis Rodríguez',
-            calificacion: 5,
-            comentario: 'Instalaciones modernas y personal muy amable. Totalmente recomendado.',
-            fecha: '2024-01-08'
-        }
-    ];
-
-    const renderEstrellas = (calificacion) => {
+    // Funcion para renderizar las estrellas
+    const renderStars = (calificacion) => {
         return Array.from({ length: 5 }, (_, index) => (
             <FaStar key={index} className={`estrella ${index < calificacion ? 'activa' : ''}`} />
         ));
     };
 
+    // Funcion para manejar el desplazamiento de las imagenes a la izquierda
+    const manejarDesplazamientoIzquierda = () => {
+        const nuevoIndice = Math.max(0, indiceDesplazamiento - 3);
+        setIndiceDesplazamiento(nuevoIndice);
+    };
+
+    // Funcion para manejar el desplazamiento de las imagenes a la derecha
+    const manejarDesplazamientoDerecha = () => {
+        const maxIndice = Math.max(0, imagenesGaleria.length - 3);
+        const nuevoIndice = Math.min(maxIndice, indiceDesplazamiento + 3);
+        setIndiceDesplazamiento(nuevoIndice);
+    };
+
+    // Cambio automático de imagen principal cada 3 segundos
+    useEffect(() => {
+        const intervalo = setInterval(() => {
+            const indiceActual = imagenesGaleria.indexOf(imagenPrincipal);
+            const siguienteIndice = (indiceActual + 1) % imagenesGaleria.length;
+            setImagenPrincipal(imagenesGaleria[siguienteIndice]);
+        }, 3000);
+
+        return () => clearInterval(intervalo);
+    }, [imagenPrincipal, imagenesGaleria]);
+
+    // Funcion para redirigir a whatsapp
+    const redirectWhatsApp = () => {
+        const phoneNumber = '+51925075598'; // Reemplaza con el número de teléfono
+        const message = 'Hola, ¿puedo reservar tu espacio deportivo?'; // Reemplaza con el mensaje que quieras enviar
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank', 'noopener noreferrer');
+    };
+
+    // Funciones para manejar la navegación entre modales
+    const manejarSeleccionFecha = (fecha) => {
+        setFechaSeleccionada(fecha);
+        setCalendarsOpen(false);
+        setListTimeOpen(true);
+    };
+
+    const manejarMostrarResumen = () => {
+        setListTimeOpen(false);
+        setReservationSummaryOpen(true);
+    };
+
+    const manejarVolverAListTime = () => {
+        setReservationSummaryOpen(false);
+        setListTimeOpen(true);
+    };
+
+    const manejarVolverACalendario = () => {
+        setListTimeOpen(false);
+        setCalendarsOpen(true);
+    };
+
+    const manejarConfirmarReserva = () => {
+        // Aquí se puede agregar lógica adicional después de confirmar
+        console.log('Reserva procesada exitosamente');
+        setReservationSummaryOpen(false);
+    };
+
     return (
-        <div className="space-sport">
-            <div className="contenido-principal">
+        <ReservationProvider>
+            <div className="space-sport">
+                <div className="contenido-principal">
                 {/* Sección de imágenes */}
                 <div className="seccion-imagenes">
                     <div className="imagen-principal">
                         <img src={imagenPrincipal} alt="Cancha principal" />
                     </div>
-                    <div className="galeria-imagenes">
-                        {imagenesGaleria.map((imagen, index) => (
-                            <div
-                                key={index}
-                                className={`imagen-miniatura ${imagen === imagenPrincipal ? 'activa' : ''}`}
-                                onClick={() => setImagenPrincipal(imagen)}
+                    <aside className='images'>
+                        <IoIosArrowBack 
+                            className='img-arrow-1' 
+                            onClick={manejarDesplazamientoIzquierda}
+                        />
+                        <div className="galeria-imagenes">
+                            <div 
+                                className="galeria-contenedor"
+                                style={{
+                                    transform: `translateX(-${indiceDesplazamiento * 110}px)`,
+                                    transition: 'transform 0.3s ease'
+                                }}
                             >
-                                <img src={imagen} alt={`Vista ${index + 1}`} />
+                                {imagenesGaleria.map((imagen, index) => (
+                                    <img
+                                        key={index}
+                                        className={`imagen-miniatura ${imagen === imagenPrincipal ? 'activa' : ''}`}
+                                        onClick={() => setImagenPrincipal(imagen)} 
+                                        src={imagen} 
+                                        alt={`Vista ${index + 1}`}
+                                    />
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                    <div className="descripcion">
-                        <h3>Descripción</h3>
-                        <p>
-                            Cancha de fútbol profesional con césped sintético de última generación.
-                            Perfecta para partidos de fútbol 11, entrenamientos y eventos deportivos.
-                            Cuenta con iluminación LED, vestuarios equipados, estacionamiento y
-                            área de espectadores techada.
-                        </p>
-                    </div>
+                        </div>
+                        <IoIosArrowForward 
+                            className='img-arrow-2' 
+                            onClick={manejarDesplazamientoDerecha}
+                        />
+                    </aside>
                 </div>
 
                 {/* Información del establecimiento */}
@@ -82,7 +144,7 @@ const Establecimiento = () => {
                         <h1>Cancha de Fútbol "El Verde"</h1>
                         <div className="calificacion-likes">
                             <div className="calificacion">
-                                {renderEstrellas(4)}
+                                {renderStars(4)}
                                 <span className="numero-calificacion">4.8 (127 reseñas)</span>
                             </div>
                             <div className="likes">
@@ -128,15 +190,35 @@ const Establecimiento = () => {
                         </div>
                     </div>
 
+                    {/* Ubicacion */}
+                    <div className="ubicacion">
+                        <h3>Dirección</h3>
+                        <p>
+                            Calle Principal 123, Colonia Centro, Ciudad de Ejemplo, CP 12345,
+                            País de Ejemplo
+                        </p>
+                    </div>
+
                     <div className="botones-accion">
                         <button onClick={() => setCalendarsOpen(true)} className="btn-reservar-principal">
                             <RiTimeFill />Reservar Ahora
                         </button>
-                        <button className="btn-consultar">
-                            Consultar Disponibilidad
+                        <button className="btn-consultar" onClick={redirectWhatsApp}>
+                            <FaWhatsapp />Contáctanos
                         </button>
                     </div>
                 </div>
+            </div>
+
+            {/* seccion descripcion */}
+            <div className="descripcion">
+                <h3>Descripción</h3>
+                <p>
+                    Cancha de fútbol profesional con césped sintético de última generación.
+                    Perfecta para partidos de fútbol 11, entrenamientos y eventos deportivos.
+                    Cuenta con iluminación LED, vestuarios equipados, estacionamiento y
+                    área de espectadores techada.
+                </p>
             </div>
 
             {/* Sección de comentarios */}
@@ -156,7 +238,7 @@ const Establecimiento = () => {
                                     </div>
                                 </div>
                                 <div className="calificacion-comentario">
-                                    {renderEstrellas(comentario.calificacion)}
+                                    {renderStars(comentario.calificacion)}
                                 </div>
                             </div>
                             <p className="comentario-texto">{comentario.comentario}</p>
@@ -190,8 +272,25 @@ const Establecimiento = () => {
             <Calendars
                 open={calendarsOpen}
                 onClose={() => setCalendarsOpen(false)}
+                onDateSelect={manejarSeleccionFecha}
             />
-        </div>
+            
+            <ListTime
+                open={listTimeOpen}
+                onClose={() => setListTimeOpen(false)}
+                fecha={fechaSeleccionada}
+                onShowReservation={manejarMostrarResumen}
+                onBackToCalendar={manejarVolverACalendario}
+            />
+            
+            <ReservationSummary
+                open={reservationSummaryOpen}
+                onClose={() => setReservationSummaryOpen(false)}
+                onConfirm={manejarConfirmarReserva}
+                onBackToListTime={manejarVolverAListTime}
+            />
+            </div>
+        </ReservationProvider>
     );
 };
 

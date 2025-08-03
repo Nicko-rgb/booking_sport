@@ -3,7 +3,8 @@
 :root {
     --primary-color: #4ec452;
     --secondary-color: #388E3C;
-    --accent-color: #66BB6A;
+    --tertiary-color: #4EC4527F;
+    --accent-color: rgb(51, 152, 253);
     --text-color: #333;
     --light-text: #767676;
     --gris-claro: rgb(246, 246, 246);
@@ -38,4 +39,25 @@ button {
     align-items: center;
     justify-content: center;
     gap: 3px;
+}
+
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
 }

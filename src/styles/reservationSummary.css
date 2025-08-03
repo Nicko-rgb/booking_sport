@@ -1,0 +1,188 @@
+/* ===== ESTILOS ESPECÍFICOS DE RESERVATION SUMMARY ===== */
+.reservation-details .reservation-summary {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-bottom: 10px;
+    background-color: white;
+}
+/* Summary stats */
+.reservation-details .summary-stats {
+    display: flex;
+    gap: 10px;
+}
+
+.reservation-details .stat-item {
+    width: 100%;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reservation-details .stat-item.total-price {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: #10b981;
+    min-width: 150px;
+}
+
+.reservation-details .stat-label {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.reservation-details .stat-value {
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.reservation-details .total-price .stat-value {
+    color: #059669;
+    font-size: 1.5rem;
+}
+
+/* Reservation details */
+.reservation-details .reservation-details {
+    margin-bottom: 24px;
+}
+
+.reservation-details .reservation-details h3 {
+    margin: 0 0 20px 0;
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+/* Fecha groups */
+.reservation-details .fecha-group {
+    margin-bottom: 20px;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.reservation-details .fecha-header {
+    background-color: #f9fafb;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.reservation-details .fecha-header h4 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.reservation-details .fecha-count {
+    background-color: #10b981;
+    color: white;
+    padding: 4px 8px;
+    /* border-radius: 12px; */
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Horarios list */
+.reservation-details .horarios-list {
+    padding: 7px;
+}
+
+.reservation-details .row-horario {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: #F3F3F3FF;
+}
+
+.reservation-details .row-horario:last-child {
+    margin-bottom: 0;
+}
+
+.reservation-details .row-horario .horario-time {
+    color: #1f2937;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.reservation-details .row-horario .horario-price {
+    color: #059669 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Fecha subtotal */
+.reservation-details .fecha-subtotal {
+    padding: 10px 15px;
+    background-color: #f0f9ff;
+    border-top: 1px solid #e5e7eb;
+    text-align: right;
+}
+
+.reservation-details .fecha-subtotal span {
+    color: #0c4a6e;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reservation-details .reservation-modal {
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .reservation-details .reservation-content {
+        padding: 16px;
+    }
+    
+    .reservation-details .summary-stats {
+        gap: 5px;
+    }
+    
+    .reservation-details .stat-item {
+        padding: 5px;
+    }
+    
+    .reservation-details .fecha-header {
+        gap: 5px;
+    }
+    
+    .reservation-details .horarios-list {
+        padding: 12px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .reservation-details .reservation-header {
+        padding: 16px;
+    }
+    
+    .reservation-details .reservation-header h2 {
+        font-size: 1.25rem;
+    }
+    
+    .reservation-details .stat-value {
+        font-size: 1.1rem;
+    }
+    
+    .reservation-details .total-price .stat-value {
+        font-size: 1.3rem;
+    }
+}
