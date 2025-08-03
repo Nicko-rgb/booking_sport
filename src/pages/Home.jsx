@@ -2,7 +2,7 @@ import React from "react";
 import  "../styles/header.css"
 import Header from "../components/layout/header/Header";
 {/* <styles /> */}
-const home = ({id=""}) => {
+const Home = ({id=""}) => {
   return (
     <div>
          {/* <!-- Hero Section --> */}
@@ -148,4 +148,4 @@ const home = ({id=""}) => {
   );
 };
 
-export default home;
+export default Home;
