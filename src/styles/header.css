@@ -839,37 +839,6 @@
     border-color: #ffcdd2;
 }
 
-/* Reservation Summary */
-.reservation-summary {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-top: 2rem;
-}
-
-.reservation-summary h4 {
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.summary-details {
-    margin-bottom: 1.5rem;
-}
-
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
-}
-
-.summary-item:last-child {
-    border-bottom: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
 /* Footer */
 .footer {
     background: var(--secondary-color);
@@ -1048,23 +1017,4 @@
 .feature-card,
 .sport-item {
     animation: fadeIn 0.6s ease-out;
-}
-
-/* Scrollbar personalizado */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
 }

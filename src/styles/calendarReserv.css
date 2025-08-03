@@ -1,77 +1,8 @@
-/* Modal del calendario de reservas */
-.calendar-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 20px;
-}
-
-.calendar-modal {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-}
-
-/* Header del modal */
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 30px;
-    border-bottom: 2px solid #f0f0f0;
-    background: linear-gradient(135deg, #4CAF50, #45a049);
-    color: white;
-    border-radius: 16px 16px 0 0;
-}
-
-.calendar-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.close-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-.close-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Contenido del modal */
-.calendar-content {
-    padding: 30px;
-}
+/* ===== ESTILOS ESPECÍFICOS DEL CALENDARIO ===== */
 
 /* Sección del calendario */
-.calendar-section {
-    width: 100%;
-}
 
-.calendar-navigation {
+.reservation-calendar .calendar-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,7 +10,7 @@
     padding: 0 10px;
 }
 
-.calendar-navigation button {
+.reservation-calendar .calendar-navigation button {
     background: #4CAF50;
     border: none;
     color: white;
@@ -94,12 +25,12 @@
     transition: all 0.3s ease;
 }
 
-.calendar-navigation button:hover {
+.reservation-calendar .calendar-navigation button:hover {
     background: #45a049;
     transform: scale(1.1);
 }
 
-.calendar-navigation h3 {
+.reservation-calendar .calendar-navigation h3 {
     margin: 0;
     font-size: 1.4rem;
     font-weight: 600;
@@ -107,20 +38,20 @@
 }
 
 /* Grid del calendario */
-.calendar-grid {
+.reservation-calendar .calendar-grid {
     border: 2px solid #e0e0e0;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.calendar-days-header {
+.reservation-calendar .calendar-days-header {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     background: #f8f9fa;
 }
 
-.day-header {
+.reservation-calendar .day-header {
     padding: 15px 8px;
     text-align: center;
     font-weight: 600;
@@ -129,16 +60,16 @@
     font-size: 0.9rem;
 }
 
-.day-header:last-child {
+.reservation-calendar .day-header:last-child {
     border-right: none;
 }
 
-.calendar-days {
+.reservation-calendar .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
 
-.calendar-day {
+.reservation-calendar .calendar-day {
     padding: 15px 8px;
     text-align: center;
     border: 1px solid #e0e0e0;
@@ -151,58 +82,58 @@
     font-weight: 500;
 }
 
-.calendar-day.empty {
+.reservation-calendar .calendar-day.empty {
     cursor: default;
     background: #fafafa;
 }
 
-.calendar-day.valid {
+.reservation-calendar .calendar-day.valid {
     background: white;
     color: #333;
 }
 
-.calendar-day.valid:hover {
+.reservation-calendar .calendar-day.valid:hover {
     background: #e8f5e8;
     color: #4CAF50;
     transform: scale(1.05);
 }
 
-.calendar-day.invalid {
+.reservation-calendar .calendar-day.invalid {
     background: #f5f5f5;
     color: #ccc;
     cursor: not-allowed;
 }
 
-.calendar-day.today {
+.reservation-calendar .calendar-day.today {
     background: #4CAF50;
     color: white;
     font-weight: 700;
 }
 
-.calendar-day.today:hover {
+.reservation-calendar .calendar-day.today:hover {
     background: #45a049;
 }
 
-.calendar-day.selected {
+.reservation-calendar .calendar-day.selected {
     background: #2196F3;
     color: white;
     font-weight: 700;
 }
 
-.calendar-day.previous-month {
+.reservation-calendar .calendar-day.previous-month {
     background: #fafafa;
     color: #bbb;
     cursor: default;
     font-weight: 400;
 }
 
-.calendar-day.previous-month:hover {
+ .reservation-calendar.calendar-day.previous-month:hover {
     background: #fafafa;
     color: #bbb;
     transform: none;
 }
 
-.calendar-day.past-date {
+.reservation-calendar .calendar-day.past-date {
     background: #f8f8f8;
     color: #ccc;
     cursor: not-allowed;
@@ -210,300 +141,59 @@
     font-weight: 400;
 }
 
-.calendar-day.past-date:hover {
+.reservation-calendar .calendar-day.past-date:hover {
     background: #f8f8f8;
     color: #ccc;
     transform: none;
 }
 
-/* Sección de horarios */
-.horarios-section {
-    width: 100%;
-}
-
-.horarios-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.back-btn {
-    background: #6c757d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-    background: #5a6268;
-    transform: translateY(-2px);
-}
-
-.horarios-header h3 {
-    margin: 0;
-    color: #333;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-/* Grid de horarios */
-.horarios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.horario-item {
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.horario-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.horario-item.libre {
-    border-color: #4CAF50;
-    background: #f8fff8;
-}
-
-.horario-item.libre:hover {
-    border-color: #45a049;
-    background: #e8f5e8;
-}
-
-.horario-item.libre.selected {
-    border-color: #2196F3;
-    background: #e3f2fd;
-    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
-}
-
-.horario-item.ocupado {
-    border-color: #f44336;
-    background: #fff5f5;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-.horario-item.no_disponible {
-    border-color: #9e9e9e;
-    background: #f5f5f5;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.horario-item.mantenimiento {
-    border-color: #ff9800;
-    background: #fff8e1;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-.horario-hora {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-.horario-precio {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #4CAF50;
-    margin-bottom: 5px;
-}
-
-.horario-estado {
-    font-size: 0.8rem;
-    color: #666;
-    font-weight: 500;
-}
-
-.horario-item.ocupado .horario-estado {
-    color: #f44336;
-}
-
-.horario-item.no_disponible .horario-estado {
-    color: #9e9e9e;
-}
-
-.horario-item.mantenimiento .horario-estado {
-    color: #ff9800;
-}
-
-/* Resumen de reserva */
-.reserva-resumen {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    border: 2px solid #4CAF50;
-    border-radius: 16px;
-    padding: 25px;
-    margin-top: 25px;
-}
-
-.horarios-lista {
-    margin: 10px 0;
-    padding-left: 20px;
-    list-style-type: none;
-}
-
-.horarios-lista li {
-    padding: 8px 12px;
-    margin: 5px 0;
-    background: white;
-    border-radius: 6px;
-    border-left: 4px solid #4CAF50;
-    font-weight: 500;
-    color: #333;
-}
-
-.reserva-resumen h4 {
-    margin: 0 0 20px 0;
-    color: #4CAF50;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-.resumen-detalles {
-    margin-bottom: 25px;
-}
-
-.resumen-detalles p {
-    margin: 8px 0;
-    font-size: 1rem;
-    color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.resumen-detalles strong {
-    color: #4CAF50;
-}
-
-.confirmar-btn {
-    width: 100%;
-    background: linear-gradient(135deg, #4CAF50, #45a049);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-}
-
-.confirmar-btn:hover {
-    background: linear-gradient(135deg, #45a049, #3d8b40);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-    .calendar-modal {
-        margin: 10px;
-        max-height: 95vh;
-    }
-    
-    .calendar-header {
+
+    .reservation-calendar .calendar-header {
         padding: 20px;
     }
     
-    .calendar-header h2 {
+    .reservation-calendar .calendar-header h2 {
         font-size: 1.3rem;
     }
     
-    .calendar-content {
-        padding: 20px;
-    }
-    
-    .calendar-navigation h3 {
+    .reservation-calendar .calendar-navigation h3 {
         font-size: 1.2rem;
     }
     
-    .calendar-day {
+    .reservation-calendar .calendar-day {
         padding: 10px 5px;
         min-height: 40px;
         font-size: 0.9rem;
     }
-    
-    .horarios-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
-    }
-    
-    .horario-item {
-        padding: 12px;
-    }
-    
-    .horario-hora {
-        font-size: 1rem;
-    }
-    
-    .horarios-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .reserva-resumen {
-        padding: 20px;
-    }
 }
 
 @media (max-width: 480px) {
-    .calendar-modal-overlay {
-        padding: 10px;
-    }
-    
-    .calendar-header {
+    .reservation-calendar .calendar-header {
         padding: 15px;
     }
     
-    .calendar-content {
+    .reservation-calendar .calendar-content {
         padding: 15px;
     }
-    
-    .calendar-navigation button {
-        width: 35px;
-        height: 35px;
+    .reservation-calendar .calendar-navigation {
+        margin-bottom: 10px;
+    }
+    .reservation-calendar .calendar-navigation button {
+        width: 40px;
+        height: 40px;
         font-size: 1.2rem;
     }
     
-    .day-header {
+    .reservation-calendar .day-header {
         padding: 10px 5px;
         font-size: 0.8rem;
     }
     
-    .calendar-day {
+    .reservation-calendar .calendar-day {
         padding: 8px 3px;
         min-height: 35px;
         font-size: 0.8rem;
-    }
-    
-    .horarios-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .resumen-detalles p {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
     }
 }
