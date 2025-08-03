@@ -12,7 +12,7 @@ import ReservationSummary from '../components/SpaceSport/ReservationSummary';
 import { ReservationProvider } from '../context/ReservationContext';
 import comentarios from '../data/Reservas/comentarios';
 
-const Establecimiento = () => {
+const SpaceSport = () => {
     const [calendarsOpen, setCalendarsOpen] = useState(false);
     const [listTimeOpen, setListTimeOpen] = useState(false);
     const [reservationSummaryOpen, setReservationSummaryOpen] = useState(false);
@@ -294,4 +294,4 @@ const Establecimiento = () => {
     );
 };
 
-export default Establecimiento;
+export default SpaceSport;
