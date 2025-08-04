@@ -1,0 +1,243 @@
+
+/* ===== ESTILOS ESPECÍFICOS DE LISTTIME ===== */
+
+.reservation-time .fecha-seleccionada {
+    text-align: center;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.reservation-time .fecha-seleccionada h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.reservation-time .contador-horas {
+    background-color: var(--tertiary-color);
+    font-weight: 700;
+    padding: 8px 15px;
+    border: var(--primary-color) solid 1px;
+    border-radius: 10px;
+}
+
+/* Table container */
+.reservation-time .horarios-tabla-container {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+/* Table */
+.reservation-time .horarios-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.reservation-time .horarios-tabla thead {
+    background-color: var(--tertiary-color);
+}
+
+.reservation-time .horarios-tabla th {
+    padding: 10px 10px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.reservation-time .horarios-tabla td {
+    padding: 12px 16px;
+    border: 1px solid #f3f4f6;
+    background-color: transparent;
+}
+
+/* Table rows */
+.reservation-time .horario-fila {
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.reservation-time .horario-fila.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.reservation-time .horario-fila:hover {
+    background-color: #f9fafb;
+}
+
+.reservation-time .horario-fila.seleccionado {
+    background-color: #ecfdf5;
+    border-left: 3px solid #10b981;
+}
+
+.reservation-time .horario-fila.seleccionado:hover {
+    background-color: #d1fae5;
+}
+
+.horario-fila.clickable:hover {
+    background-color: #f8fafc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.horario-fila.clickable.seleccionado:hover {
+    background-color: #bfdbfe;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+/* Checkbox */
+.reservation-time .check {
+    padding: 0 !important;
+    position: relative;
+    text-align: center;
+}
+.reservation-time .horario-checkbox {
+    cursor: pointer;
+    margin: auto;
+    width: 17px;
+    height: 17px;
+    accent-color: #10b981;
+}
+
+.reservation-time .horario-checkbox:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Time display */
+.reservation-time .horario-tiempo {
+    font-weight: 500;
+    color: #1f2937;
+    font-size: 0.95rem;
+}
+
+/* Estado badges */
+.reservation-time .estado-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.reservation-time .horario-estado.disponible .estado-badge {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.reservation-time .horario-estado.ocupado .estado-badge {
+
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.reservation-time .horario-estado.reservado .estado-badge {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.reservation-time .horario-estado.mantenimiento .estado-badge {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+.reservation-time .horario-estado.no-disponible .estado-badge {
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+/* Price */
+.reservation-time .horario-precio {
+    font-weight: 600;
+    color: #059669;
+    font-size: 0.95rem;
+}
+
+/* Los estilos de botones y acciones ahora están en spaceSport.css como estilos globales */
+
+/* Disabled states */
+.horario-fila.ocupado,
+.horario-fila.reservado,
+.horario-fila.mantenimiento,
+.horario-fila.no-disponible {
+    opacity: 0.6;
+}
+
+.horario-fila.ocupado:hover,
+.horario-fila.reservado:hover,
+.horario-fila.mantenimiento:hover,
+.horario-fila.no-disponible:hover {
+    background-color: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .listtime-content {
+        padding: 10px;
+    }
+    .reservation-time .listtime-header {
+        padding: 15px;
+    }
+    .reservation-time .listtime-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .reservation-time .horarios-tabla th,
+    .reservation-time .horarios-tabla td {
+        padding: 8px 12px;
+        font-size: 0.875rem;
+    }
+}
+
+/* Estilos para el indicador de carga */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}

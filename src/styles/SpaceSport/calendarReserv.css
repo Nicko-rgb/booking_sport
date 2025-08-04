@@ -1,0 +1,199 @@
+/* ===== ESTILOS ESPECÍFICOS DEL CALENDARIO ===== */
+
+/* Sección del calendario */
+
+.reservation-calendar .calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.reservation-calendar .calendar-navigation button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.reservation-calendar .calendar-navigation button:hover {
+    background: #45a049;
+    transform: scale(1.1);
+}
+
+.reservation-calendar .calendar-navigation h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Grid del calendario */
+.reservation-calendar .calendar-grid {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-calendar .calendar-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #f8f9fa;
+}
+
+.reservation-calendar .day-header {
+    padding: 15px 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.reservation-calendar .day-header:last-child {
+    border-right: none;
+}
+
+.reservation-calendar .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.reservation-calendar .calendar-day {
+    padding: 15px 8px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.reservation-calendar .calendar-day.empty {
+    cursor: default;
+    background: #fafafa;
+}
+
+.reservation-calendar .calendar-day.valid {
+    background: white;
+    color: #333;
+}
+
+.reservation-calendar .calendar-day.valid:hover {
+    background: #e8f5e8;
+    color: #4CAF50;
+    transform: scale(1.05);
+}
+
+.reservation-calendar .calendar-day.invalid {
+    background: #f5f5f5;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.reservation-calendar .calendar-day.today {
+    background: #4CAF50;
+    color: white;
+    font-weight: 700;
+}
+
+.reservation-calendar .calendar-day.today:hover {
+    background: #45a049;
+}
+
+.reservation-calendar .calendar-day.selected {
+    background: #2196F3;
+    color: white;
+    font-weight: 700;
+}
+
+.reservation-calendar .calendar-day.previous-month {
+    background: #fafafa;
+    color: #bbb;
+    cursor: default;
+    font-weight: 400;
+}
+
+ .reservation-calendar.calendar-day.previous-month:hover {
+    background: #fafafa;
+    color: #bbb;
+    transform: none;
+}
+
+.reservation-calendar .calendar-day.past-date {
+    background: #f8f8f8;
+    color: #ccc;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.reservation-calendar .calendar-day.past-date:hover {
+    background: #f8f8f8;
+    color: #ccc;
+    transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .reservation-calendar .calendar-header {
+        padding: 20px;
+    }
+    
+    .reservation-calendar .calendar-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .reservation-calendar .calendar-navigation h3 {
+        font-size: 1.2rem;
+    }
+    
+    .reservation-calendar .calendar-day {
+        padding: 10px 5px;
+        min-height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reservation-calendar .calendar-header {
+        padding: 15px;
+    }
+    
+    .reservation-calendar .calendar-content {
+        padding: 15px;
+    }
+    .reservation-calendar .calendar-navigation {
+        margin-bottom: 10px;
+    }
+    .reservation-calendar .calendar-navigation button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .reservation-calendar .day-header {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+    
+    .reservation-calendar .calendar-day {
+        padding: 8px 3px;
+        min-height: 35px;
+        font-size: 0.8rem;
+    }
+}

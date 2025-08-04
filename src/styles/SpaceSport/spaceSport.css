@@ -1,0 +1,744 @@
+/* Contenedor principal */
+.space-sport {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 80px;
+}
+
+/* Contenido principal */
+.space-sport .contenido-principal {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+/* Sección de imágenes */
+.space-sport .seccion-imagenes {
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.space-sport .imagen-principal {
+    width: 100%;
+}
+
+.space-sport .imagen-principal img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.space-sport .imagen-principal img:hover {
+    transform: scale(1.01);
+}
+
+.space-sport .images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* padding: 0 30px; */
+}
+.space-sport .galeria-imagenes {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    padding: 2px 0;
+}
+
+.space-sport .galeria-contenedor {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.space-sport .imagen-miniatura {
+    cursor: pointer;
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    height: 70px;
+    border: 3px solid transparent;
+    transition: 0.3s ease, transform 0.2s ease;
+}
+.space-sport .imagen-miniatura:nth-child(1) {
+    margin-left: 40px;
+}
+
+.space-sport .imagen-miniatura:hover {
+    transform: scale(1.05);
+}
+
+.space-sport .imagen-miniatura.activa {
+    border-color: var(--primary-color);
+}
+
+.space-sport .images svg {
+    color: var(--text-color);
+    position: absolute;
+    width: 30px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: .3s linear;
+    z-index: 10;
+    user-select: none;
+}
+.space-sport .images svg:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.space-sport .img-arrow-1 {
+    left: 0;
+    z-index: 2;
+}
+.space-sport .img-arrow-2 {
+    right: 0;
+}
+
+/* Información del establecimiento */
+.space-sport .info-establecimiento {
+    flex: 4;
+}
+
+.space-sport .header-info {
+    border-bottom: 2px solid rgb(213, 213, 213);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.space-sport .header-info h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.space-sport .calificacion-likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.space-sport .calificacion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.space-sport .estrella {
+    color: rgb(213, 213, 213);
+    font-size: 1.3rem;
+    transition: color 0.2s ease;
+}
+
+.space-sport .estrella.activa {
+    color: orangered;
+}
+
+.space-sport .numero-calificacion {
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+.space-sport .likes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.space-sport .icono-like {
+    font-size: 1.2rem;
+}
+
+/* Secciones de información */
+.space-sport .descripcion h3,
+.space-sport .horarios h3,
+.space-sport .caracteristicas h3,
+.space-sport .ubicacion h3 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Horarios */
+.space-sport .horarios-lista {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.space-sport .horario-item {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px 15px;
+    border-radius: 0;
+    background: var(--gris-claro);
+    border: 1px solid rgb(237, 237, 237);
+}
+.space-sport .horario-item:hover{
+    transform: translateY(-2px);
+}
+
+.space-sport .horario-item span {
+    font-size: .8rem;
+}
+
+.space-sport .horario-item p {
+    font-weight: 600;
+    font-size: .8rem;
+}
+
+.space-sport .horario-item span:last-child {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Características */
+.space-sport .caracteristicas h3 {
+    margin: 10px 0;
+}
+
+.space-sport .caracteristicas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.space-sport .caracteristica {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 5px;
+    color: var(--light-text);
+    background: rgb(246, 246, 246);
+    border: 1px solid rgb(237, 237, 237);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: default;
+}
+
+.space-sport .caracteristica:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.space-sport .caracteristica .icono {
+    font-size: 1rem;
+}
+
+.space-sport .caracteristica span:last-child {
+    font-weight: 500;
+    font-size: .8rem;
+    color: var(--negro);
+}
+
+/* Ubicacion */
+.space-sport .ubicacion h3{
+    margin: 10px 0;
+}
+.space-sport .ubicacion p {
+    color: var(--light-text);
+}
+
+/* Botones de acción */
+.space-sport .botones-accion {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.space-sport .botones-accion button {
+    width: 100%;
+    padding: 10px 0;
+    font-weight: 500;
+    font: optional;
+    font-size: .9rem;
+    transition: .2s ease;
+}
+.space-sport .botones-accion svg {
+    font-size: 1.2rem;
+}
+.space-sport .btn-reservar-principal {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.space-sport .btn-reservar-principal:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.space-sport .btn-consultar {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.space-sport .btn-consultar:hover {
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* seccion descripcion */
+.space-sport .descripcion {
+    margin-bottom: 20px;
+}
+
+.space-sport .descripcion p {
+    color: var(--light-text);
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Sección de comentarios */
+/* .space-sport .seccion-comentarios {
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.space-sport .seccion-comentarios h2 {
+    color: var(--verde-cesped);
+    font-size: 2rem;
+    padding-bottom: 15px;
+}
+
+.space-sport .comentarios-lista {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.space-sport .comentario-item {
+    background: var(--gris-claro);
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.space-sport .comentario-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.space-sport .comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.space-sport .usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.space-sport .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.space-sport .usuario-detalles h4 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.space-sport .usuario-detalles .fecha {
+    color: var(--light-text);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.space-sport .calificacion-comentario .estrella {
+    font-size: 1.1rem;
+}
+
+.space-sport .comentario-texto {
+    color: var(--light-text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Formulario de comentarios */
+.space-sport .agregar-comentario {
+    border-top: 2px solid var(--gris-claro);
+    padding-top: 20px;
+}
+
+.space-sport .agregar-comentario h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.space-sport .form-comentario textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--gris-medio);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.space-sport .form-comentario textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.space-sport .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.space-sport .calificacion-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.space-sport .estrellas-input {
+    display: flex;
+    gap: 5px;
+}
+
+.space-sport .estrella-input {
+    font-size: 1.5rem;
+    color: var(--gris-medio);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.space-sport .estrella-input:hover {
+    color: orangered;
+}
+
+.space-sport .btn-enviar-comentario {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.space-sport .btn-enviar-comentario:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .space-sport {
+        padding: 10px;
+    }
+
+    .space-sport .contenido-principal {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .space-sport .seccion-imagenes {
+        width: 100%;
+    }
+
+    .space-sport .info-establecimiento {
+        max-width: none;
+        /* min-width: none; */
+        width: 100%;
+    }
+
+    .space-sport .galeria-imagenes {
+        flex-wrap: nowrap;
+    }
+
+    .space-sport .imagen-miniatura {
+        min-width: 100px;
+    }
+
+    .space-sport .calificacion-likes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .space-sport .comentarios-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .space-sport .form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .space-sport .comentario-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media(max-width: 550px) {
+    .imagen-principal img {
+        max-height: 270px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .space-sport .header-info h1 {
+        font-size: 1.6rem;
+    }
+
+    .space-sport .seccion-comentarios h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+/* ===== ESTILOS GLOBALES DE MODALES ===== */
+
+/* Modal overlay */
+.space-sport .modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(3px);
+}
+
+/* Modal container */
+.space-sport .contenido-reserva {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Modal header */
+.space-sport .reservation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.space-sport .reservation-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.space-sport .close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.space-sport .close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Modal body */
+.space-sport .reservation-body {
+    padding: 20px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Modal footer/actions */
+.space-sport .footer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    gap: 15px;
+}
+
+/* Botones de acción */
+.space-sport .footer-actions button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    min-width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.space-sport .footer-actions .btn-volver {
+    background: #6b7280;
+    color: white;
+}
+
+.space-sport .footer-actions .btn-volver:hover {
+    background: #4b5563;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+}
+
+.space-sport .footer-actions .btn-cancelar {
+    background: #ef4444;
+    color: white;
+}
+
+.space-sport .footer-actions .btn-cancelar:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.space-sport .footer-actions .btn-confirmar,
+.space-sport .footer-actions .btn-reservar {
+    background: var(--primary-color);
+    color: white;
+}
+
+.space-sport .footer-actions .btn-confirmar:hover,
+.space-sport .footer-actions .btn-reservar:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.space-sport .footer-actions .btn-confirmar:disabled {
+    background: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive para modales */
+@media (max-width: 768px) {
+    .space-sport .modal {
+        padding: 10px;
+    }
+    
+    .space-sport .contenido-reserva {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 12px;
+    }
+    
+    .space-sport .reservation-header {
+        padding: 10px 20px;
+    }
+    
+    .space-sport .reservation-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .space-sport .reservation-body {
+        padding: 10px;
+        padding-bottom: 40px;
+    }
+
+    .space-sport .reservation-body .fecha-seleccionada {
+        padding: 5px 10px;
+    }
+    
+    .space-sport .footer-actions {
+        padding: 10px;
+        gap: 5px;
+    }
+    
+    .space-sport .footer-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .space-sport .modal {
+        padding: 0;
+    }
+    .space-sport .contenido-reserva {
+        max-height: 100vh;
+        border-radius: 0;
+        /* margin: 0; */
+    }
+    .space-sport .reservation-body {
+        padding: 5px;
+        padding-bottom: 40px;
+    }
+}
