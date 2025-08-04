@@ -106,7 +106,6 @@ const home = ({id=""}) => {
             </div>
         </div>
     </section>
-
     {/* <!-- Popular Sports Section --> */}
     <section class="popular-sports">
         <div class="container">
