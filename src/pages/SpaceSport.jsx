@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../styles/SpaceSport/spaceSport.css';
 import { LuHeart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
@@ -11,81 +11,36 @@ import ListTime from '../components/SpaceSport/ListTime';
 import ReservationSummary from '../components/SpaceSport/ReservationSummary';
 import { ReservationProvider } from '../context/ReservationContext';
 import comentarios from '../data/Reservas/comentarios';
-import { imagenesGaleria } from '../data/Reservas/galley';
+import { useStoreSpaceSport } from '../hooks/useStoreSpaceSport';
+import { imagenesGaleria } from '../data/Reservas/galley'
 
 const SpaceSport = () => {
-    const [calendarsOpen, setCalendarsOpen] = useState(false);
-    const [listTimeOpen, setListTimeOpen] = useState(false);
-    const [reservationSummaryOpen, setReservationSummaryOpen] = useState(false);
-    const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
-    const [imagenPrincipal, setImagenPrincipal] = useState('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop');
-    const [indiceDesplazamiento, setIndiceDesplazamiento] = useState(0);
+    const {
+        calendarsOpen,
+        setCalendarsOpen,
+        listTimeOpen,
+        setListTimeOpen,
+        reservationSummaryOpen,
+        setReservationSummaryOpen,
+        fechaSeleccionada,
+        manejarSeleccionFecha,
+        manejarMostrarResumen,
+        manejarVolverAListTime,
+        manejarVolverACalendario,
+        manejarConfirmarReserva,
+        manejarDesplazamientoIzquierda,
+        manejarDesplazamientoDerecha,
+        redirectWhatsApp,
+        imagenPrincipal,
+        setImagenPrincipal,
+        indiceDesplazamiento,
+    } = useStoreSpaceSport(imagenesGaleria);
 
     // Funcion para renderizar las estrellas
     const renderStars = (calificacion) => {
         return Array.from({ length: 5 }, (_, index) => (
             <FaStar key={index} className={`estrella ${index < calificacion ? 'activa' : ''}`} />
         ));
-    };
-
-    // Funcion para manejar el desplazamiento de las imagenes a la izquierda
-    const manejarDesplazamientoIzquierda = () => {
-        const nuevoIndice = Math.max(0, indiceDesplazamiento - 3);
-        setIndiceDesplazamiento(nuevoIndice);
-    };
-
-    // Funcion para manejar el desplazamiento de las imagenes a la derecha
-    const manejarDesplazamientoDerecha = () => {
-        const maxIndice = Math.max(0, imagenesGaleria.length - 3);
-        const nuevoIndice = Math.min(maxIndice, indiceDesplazamiento + 3);
-        setIndiceDesplazamiento(nuevoIndice);
-    };
-
-    // Cambio automático de imagen principal cada 3 segundos
-    useEffect(() => {
-        const intervalo = setInterval(() => {
-            const indiceActual = imagenesGaleria.indexOf(imagenPrincipal);
-            const siguienteIndice = (indiceActual + 1) % imagenesGaleria.length;
-            setImagenPrincipal(imagenesGaleria[siguienteIndice]);
-        }, 3000);
-
-        return () => clearInterval(intervalo);
-    }, [imagenPrincipal, imagenesGaleria]);
-
-    // Funcion para redirigir a whatsapp
-    const redirectWhatsApp = () => {
-        const phoneNumber = '+51925075598'; // Reemplaza con el número de teléfono
-        const message = 'Hola, ¿puedo reservar tu espacio deportivo?'; // Reemplaza con el mensaje que quieras enviar
-        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank', 'noopener noreferrer');
-    };
-
-    // Funciones para manejar la navegación entre modales
-    const manejarSeleccionFecha = (fecha) => {
-        setFechaSeleccionada(fecha);
-        setCalendarsOpen(false);
-        setListTimeOpen(true);
-    };
-
-    const manejarMostrarResumen = () => {
-        setListTimeOpen(false);
-        setReservationSummaryOpen(true);
-    };
-
-    const manejarVolverAListTime = () => {
-        setReservationSummaryOpen(false);
-        setListTimeOpen(true);
-    };
-
-    const manejarVolverACalendario = () => {
-        setListTimeOpen(false);
-        setCalendarsOpen(true);
-    };
-
-    const manejarConfirmarReserva = () => {
-        // Aquí se puede agregar lógica adicional después de confirmar
-        console.log('Reserva procesada exitosamente');
-        setReservationSummaryOpen(false);
     };
 
     return (
@@ -126,6 +81,12 @@ const SpaceSport = () => {
                             onClick={manejarDesplazamientoDerecha}
                         />
                     </aside>
+                    {/* selector de espacios */}
+                    <div className="spaces">
+                        <button className='active'>Fútbol</button>
+                        <button>Voley</button>
+                        <button>Piscina</button>
+                    </div>
                 </div>
 
                 {/* Información del establecimiento */}

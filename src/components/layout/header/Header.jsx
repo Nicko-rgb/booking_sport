@@ -1,32 +1,34 @@
 import React from 'react'
-import "../../../styles/header.css"
-const Header = ({ id = "" }) => {
+import { Link, useLocation } from 'react-router-dom'
+import "../../../styles/HeaderFooter/header.css";
+
+const Header = () => {
+    const location = useLocation();
+
+    const isActive = (path) => {
+        return location.pathname === path ? 'nav-link active' : 'nav-link';
+    };
 
     return (
-        <div>
-            {/* <!-- Header --> */}
-            <header className="header">
-                <nav className="navbar">
-                    <div className="nav-brand">
-                        <i className="fas fa-dumbbell"></i>
-                        <span>SportBooking</span>
-                        <p>{id}</p>
-                    </div>
-                    <ul className="nav-menu">
-                        <li><a href="#home" className="nav-link active">Inicio</a></li>
-                        <li><a href="establishments.html" className="nav-link">Establecimientos</a></li>
-                        <li><a href="#about" className="nav-link">Acerca de</a></li>
-                        <li><a href="/space-sport" className="nav-link">Pagina de Espacio</a></li>
-                        <li><a href="/login" className="nav-link">Login</a></li>
-                    </ul>
-                    <div className="nav-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </nav>
-            </header>
-        </div>
+        <header className="header">
+            <nav className="navbar">
+                <div className="nav-brand">
+                    <i className="fas fa-dumbbell"></i>
+                    <span>SportBooking</span>
+                </div>
+                <ul className="nav-menu">
+                    <li><Link to="/" className={isActive('/')}>Inicio</Link></li>
+                    <li><Link to="/facilityes" className={isActive('/facilityes')}>Establecimientos</Link></li>
+                    <li><Link to="/profile" className={isActive('/profile')}>Perfil</Link></li>
+                    <li><Link to="/login" className={isActive('/login')}>Login</Link></li>
+                </ul>
+                <div className="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
     )
 }
 

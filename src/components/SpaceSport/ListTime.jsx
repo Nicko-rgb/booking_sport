@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useReservationStore } from '../../context/ReservationContext';
+import { useReservationContext } from '../../context/ReservationContext';
 import '../../styles/SpaceSport/listTime.css';
 import { MdOutlineTouchApp } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
@@ -11,7 +11,7 @@ const ListTime = ({ open, onClose, fecha, onShowReservation, onBackToCalendar })
         removerHorario,
         estaSeleccionado,
         totalHorasSeleccionadas
-    } = useReservationStore();
+    } = useReservationContext();
 
     const [horarios, setHorarios] = useState([]);
     const [cargando, setCargando] = useState(false);
