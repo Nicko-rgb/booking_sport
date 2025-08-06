@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/SpaceSport/calendarReserv.css';
-import { useReservationStore } from '../../context/ReservationContext';
+import { useReservationContext } from '../../context/ReservationContext';
 
 const Calendars = ({ open, onClose, onDateSelect }) => {
     const {
@@ -12,7 +12,7 @@ const Calendars = ({ open, onClose, onDateSelect }) => {
         obtenerNombreMes,
         obtenerNombresDias,
         limpiarSeleccionCalendario
-    } = useReservationStore();
+    } = useReservationContext();
 
     if (!open) return null;
 

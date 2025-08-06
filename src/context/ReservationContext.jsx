@@ -6,10 +6,10 @@ import { obtenerHorariosPorDia } from '../data/Reservas/horariosApi';
 const ReservationContext = createContext();
 
 // Hook para usar el contexto
-export const useReservationStore = () => {
+export const useReservationContext = () => {
     const context = useContext(ReservationContext);
     if (!context) {
-        throw new Error('useReservationStore debe ser usado dentro de ReservationProvider');
+        throw new Error('useReservationContext debe ser usado dentro de ReservationProvider');
     }
     return context;
 };

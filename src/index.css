@@ -10,7 +10,6 @@
     --gris-claro: rgb(246, 246, 246);
     --gris-medio: rgb(220, 220, 220);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* --border-radius: 12px; */
     --transition: all 0.3s ease;
 }
 
@@ -20,6 +19,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {

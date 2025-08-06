@@ -1,6 +1,5 @@
 /* LoginRegister Styles */
-.auth-container {
-
+.authContainer {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -9,7 +8,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.auth-card {
+.authCard {
     position: relative;
     display: flex;
     background: var(--white);
@@ -22,7 +21,7 @@
     margin-top: 80px;
 }
 
-.form-section {
+.formSection {
     flex: 1;
     padding: 40px 50px;
     display: flex;
@@ -32,7 +31,7 @@
     overflow-y: auto;
 }
 
-.welcome-section {
+.welcomeSection {
     flex: 1;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--white);
@@ -46,42 +45,38 @@
 }
 
 /* Estilos exclusivos para Login */
-.login-welcome {
+.loginWelcome {
     background-color: #f0f0f0;
     border-radius: 50px 0 0 50px;
 }
 
 /* Estilos exclusivos para Registro */
-.register-welcome {
+.registerWelcome {
     background-color: #e0ffe0;
     border-radius: 0 50px 50px 0;
-}
-
-
-.register-welcome {
     order: -1;
 }
 
-.form-header {
+.formHeader {
     text-align: center;
     margin-bottom: 10px;
 }
 
-.form-header h2 {
+.formHeader h2 {
     font-size: 32px;
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 20px;
 }
 
-.social-icons {
+.socialIcons {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin: 20px 0;
 }
 
-.social-icon {
+.socialIcon {
     width: 40px;
     height: 40px;
     border: 1px solid rgba(78, 196, 82, 0.3);
@@ -95,26 +90,26 @@
     color: var(--light-text);
 }
 
-.social-icon:hover {
+.socialIcon:hover {
     background: rgba(78, 196, 82, 0.1);
     border-color: var(--primary-color);
     color: var(--primary-color);
     transform: translateY(-2px);
 }
 
-.form-header p {
+.formHeader p {
     color: var(--light-text);
     font-size: 14px;
     margin-top: 15px;
 }
 
-.auth-form {
+.authForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.auth-form input {
+.authForm input {
     padding: 15px 20px;
     border: 1px solid rgba(78, 196, 82, 0.2);
     background: var(--bg-color);
@@ -124,18 +119,18 @@
     transition: var(--transition);
 }
 
-.auth-form input:focus {
+.authForm input:focus {
     background: var(--bg-color);
     border-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(78, 196, 82, 0.2);
 }
 
-.auth-form input::placeholder {
+.authForm input::placeholder {
     color: #999;
 }
 
-.forgot-password {
+.forgotPassword {
     color: #666;
     text-decoration: none;
     font-size: 14px;
@@ -144,18 +139,17 @@
     transition: color 0.3s ease;
 }
 
-.forgot-password:hover {
+.forgotPassword:hover {
     color: var(--primary-color);
 }
 
-.button-container {
+.buttonContainer {
     width: 100%;
     display: flex;
     justify-content: center;
-
 }
 
-.auth-button {
+.authButton {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--white);
     border: none;
@@ -169,26 +163,26 @@
     margin-top: 10px;
 }
 
-.auth-button:hover {
+.authButton:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(78, 196, 82, 0.3);
     background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
 }
 
-.welcome-section h2 {
+.welcomeSection h2 {
     font-size: 26px;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
-.welcome-section p {
+.welcomeSection p {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 40px;
     opacity: 0.9;
 }
 
-.toggle-button {
+.toggleButton {
     background: transparent;
     color: var(--white);
     border: 2px solid var(--white);
@@ -201,7 +195,7 @@
     transition: var(--transition);
 }
 
-.toggle-button:hover {
+.toggleButton:hover {
     background: var(--white);
     color: var(--primary-color);
     transform: translateY(-2px);
@@ -209,51 +203,51 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .auth-card {
+    .authCard {
         flex-direction: column;
         max-width: 400px;
         margin: 20px;
     }
 
-    .welcome-section {
+    .welcomeSection {
         order: 0;
         padding: 40px 30px;
     }
 
-    .register-welcome {
+    .registerWelcome {
         order: 0;
     }
 
-    .form-section {
+    .formSection {
         padding: 40px 30px;
     }
 
-    .form-header h2 {
+    .formHeader h2 {
         font-size: 28px;
     }
 
-    .welcome-section h2 {
+    .welcomeSection h2 {
         font-size: 28px;
     }
 }
 
 @media (max-width: 480px) {
-    .auth-container {
+    .authContainer {
         padding: 10px;
     }
 
-    .form-section,
-    .welcome-section {
+    .formSection,
+    .welcomeSection {
         padding: 30px 20px;
     }
 
-    .auth-form input {
+    .authForm input {
         padding: 12px 16px;
         font-size: 14px;
     }
 
-    .auth-button,
-    .toggle-button {
+    .authButton,
+    .toggleButton {
         padding: 12px 30px;
         font-size: 14px;
     }

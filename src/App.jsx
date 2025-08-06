@@ -1,30 +1,23 @@
 import React from 'react'
-import Home from "./pages/Home";
-import SpaceSport from "./pages/SpaceSport";
-import LoginRegister from './pages/LoginRegister'
-// import Header from './components/layout/header/Header';
-// import Footer from './components/layout/footer/Footer';
-import Main from './components/layout/main/main';
 import "./index.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from "./pages/Home";
+import Facilityes from './pages/Facilityes';
+import SpaceSport from "./pages/SpaceSport";
+import LoginRegister from './pages/LoginRegister';
+import ScrollToTop from './components/ui/ScrollToTop';
 
-
-
-// Inicializacion de la Aplicacion
 const App = () => {
     return (
-        // <div>
         <BrowserRouter>
-            {/* <Header/> */}
+            <ScrollToTop />
             <Routes>
-                <Route path="/" element={<Main component={<Home id="simio" />}></Main>} />
-                <Route path="/space-sport" element={<Main component={<SpaceSport />}></Main>} />
-                <Route path="/login" element={<Main component={<LoginRegister />}></Main>} />
+                <Route path="/" element={<Home />}/>
+                <Route path="/facilityes" element={<Facilityes />}/>
+                <Route path="/space-sport" element={<SpaceSport />} />
+                <Route path="/login" element={<LoginRegister /> } />
             </Routes>
-            {/* <Footer/> */}
         </BrowserRouter>
-
-
     )
 }
 
