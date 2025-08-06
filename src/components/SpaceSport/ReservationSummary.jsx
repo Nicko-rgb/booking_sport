@@ -1,5 +1,5 @@
 import React from 'react';
-import { useReservationStore } from '../../context/ReservationContext';
+import { useReservationContext } from '../../context/ReservationContext';
 import '../../styles/SpaceSport/reservationSummary.css';
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -9,7 +9,7 @@ const ReservationSummary = ({ open, onClose, onConfirm, onBackToListTime }) => {
         calcularPrecioTotal,
         agruparHorariosPorFecha,
         limpiarSelecciones
-    } = useReservationStore();
+    } = useReservationContext();
 
     if (!open) return null;
 

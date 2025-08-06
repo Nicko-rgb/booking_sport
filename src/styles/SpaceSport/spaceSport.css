@@ -1,6 +1,6 @@
 /* Contenedor principal */
 .space-sport {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
     margin-top: 80px;
@@ -16,10 +16,17 @@
 
 /* Sección de imágenes */
 .space-sport .seccion-imagenes {
-    flex: 6;
+    /* flex: 6; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+/* Seccion de informacion */
+.space-sport .info-establecimiento {
+    /* flex: 4; */
+    max-width: 500px;
+    width: 100%;
 }
 
 .space-sport .imagen-principal {
@@ -103,12 +110,25 @@
 .space-sport .img-arrow-2 {
     right: 0;
 }
-
-/* Información del establecimiento */
-.space-sport .info-establecimiento {
-    flex: 4;
+.space-sport .spaces {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
-
+.space-sport .spaces button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.space-sport .spaces button.active {
+    background-color: var(--secondary-color);
+}
+/* Información del establecimiento */
 .space-sport .header-info {
     border-bottom: 2px solid rgb(213, 213, 213);
     padding-bottom: 20px;
