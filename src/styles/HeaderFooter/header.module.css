@@ -7,14 +7,16 @@
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid #e0e0e0;
+    height: 70px;
+    display: flex;
 }
 
 .header .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -27,9 +29,9 @@
     text-decoration: none;
 }
 
-.header .navBrand i {
+.header .logo {
     margin-right: 0.5rem;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
 }
 
 .header .navMenu {
@@ -75,13 +77,85 @@
     transition: 0.3s;
 }
 
+/* Overlay para cerrar el menú móvil */
+.header .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    backdrop-filter: blur(2px);
+}
+
+.header .navToggleOpen span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.header .navToggleOpen span:nth-child(2) {
+
+    opacity: 0;
+}
+.header .navToggleOpen span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.header .navToggleOpen span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* Responsive Design para Header */
 @media (max-width: 768px) {
+    .header .navbar {
+        padding: 1rem;
+    }
+
     .header .navMenu {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 80px 2rem 2rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
+        gap: 0;
+    }
+
+    .header .navMenu li {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 1rem;
+    }
+
+    .header .navMenu li:last-child {
+        border-bottom: none;
+    }
+
+    .header .navLink {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    .header .navMenuOpen {
+        right: 0;
     }
     
     .header .navToggle {
         display: flex;
+        z-index: 1001;
+    }
+
+    .header .navToggle span {
+        transition: all 0.3s ease;
     }
 }

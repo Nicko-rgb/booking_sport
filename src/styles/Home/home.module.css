@@ -49,138 +49,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 0 2rem;
 }
 
-/* Animación 3D de la cancha */
-.home .sportsField3d {
-    perspective: 1000px;
+/* Contenedor para animación Lottie */
+.home .lottieContainer {
+    /* width: 100%; */
+    /* max-width: 400px; */
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
-}
-
-.home .fieldContainer {
-    transform-style: preserve-3d;
-    animation: rotateField 20s infinite linear;
-}
-
-.home .soccerField {
-    width: 300px;
-    height: 200px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    border: 3px solid var(--secondary-color);
-    border-radius: 10px;
-    position: relative;
-    transform: rotateX(45deg) rotateY(15deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.home .fieldLine {
-    position: absolute;
-    background: white;
-}
-
-.home .centerCircle {
-    width: 60px;
-    height: 60px;
-    border: 2px solid white;
-    border-radius: 50%;
-    background: transparent;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.home .centerLine {
-    width: 2px;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.home .penaltyArea {
-    width: 60px;
-    height: 80px;
-    border: 2px solid white;
-    background: transparent;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.home .penaltyArea.left {
-    left: 0;
-    border-right: none;
-}
-
-.home .penaltyArea.right {
-    right: 0;
-    border-left: none;
-}
-
-.home .goalArea {
-    width: 30px;
-    height: 40px;
-    border: 2px solid white;
-    background: transparent;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.home .goalArea.left {
-    left: 0;
-    border-right: none;
-}
-
-.home .goalArea.right {
-    right: 0;
-    border-left: none;
-}
-
-.home .goal {
-    width: 8px;
-    height: 30px;
-    background: #FFF;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.home .goal.left {
-    left: -8px;
-}
-
-.home .goal.right {
-    right: -8px;
-}
-
-.home .ball {
-    width: 12px;
-    height: 12px;
-    background: #FFF;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: bounceBall 2s infinite ease-in-out;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes rotateField {
-    0% {
-        transform: rotateY(0deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
-}
-
-@keyframes bounceBall {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 /* Tarjetas de deportes mejoradas */
@@ -295,9 +176,9 @@
 
 .home .featureCard {
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 20px;
-    background: #f8f9fa;
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease;
 }
 
@@ -308,20 +189,15 @@
 .home .featureIcon {
     width: 80px;
     height: 80px;
-    background: var(--primary-color);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    color: white;
-    font-size: 2rem;
+    margin: 0 auto;
 }
 
 .home .featureCard h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--primary-color);
+    line-height: 1;
 }
 
 .home .featureCard p {
