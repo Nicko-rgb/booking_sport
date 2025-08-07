@@ -128,7 +128,7 @@ const LoginRegister = () => {
                         </div>
 
                         <div className={`${styles.welcomeSection} ${styles.loginWelcome}`}>
-                            <h2>Hola, Bienvenido!</h2>
+                            <h2 >Hola, Bienvenido!</h2>
                             <p>Regístrese con sus datos personales para utilizar todas las funciones del sitio.</p>
                             <button onClick={toggleMode} className={styles.toggleButton}>REGÍSTRESE</button>
                         </div>

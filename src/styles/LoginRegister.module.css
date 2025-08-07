@@ -1,3 +1,24 @@
+/* Variables CSS */
+:root {
+    /* Colores principales */
+    --primary-color: #4ec452;
+    --secondary-color: #45b049;
+    --accent-color: #5dd65f;
+    
+    /* Colores de texto */
+    --text-color: #333333;
+    --light-text: #666666;
+    --white: #ffffff;
+    
+    /* Colores de fondo */
+    --bg-color: #f8f9fa;
+    
+    /* Elementos de diseño */
+    --border-radius: 20px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
 /* LoginRegister Styles */
 .authContainer {
     min-height: 100vh;
@@ -6,6 +27,7 @@
     justify-content: center;
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
 }
 
 .authCard {
@@ -13,7 +35,7 @@
     display: flex;
     background: var(--white);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow), 5px 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow), 0 15px 35px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-width: 900px;
     width: 100%;
@@ -27,7 +49,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
+    background: var(--white);
     overflow-y: auto;
 }
 
@@ -41,32 +63,38 @@
     justify-content: center;
     text-align: center;
     padding: 40px 50px;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
 }
 
 /* Estilos exclusivos para Login */
 .loginWelcome {
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     border-radius: 50px 0 0 50px;
 }
 
 /* Estilos exclusivos para Registro */
 .registerWelcome {
-    background-color: #e0ffe0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     border-radius: 0 50px 50px 0;
     order: -1;
 }
 
 .formHeader {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .formHeader h2 {
     font-size: 32px;
     font-weight: 700;
     color: var(--text-color);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.formHeader p {
+    color: var(--light-text);
+    font-size: 14px;
+    margin-top: 15px;
 }
 
 .socialIcons {
@@ -88,6 +116,7 @@
     transition: var(--transition);
     font-weight: bold;
     color: var(--light-text);
+    text-decoration: none;
 }
 
 .socialIcon:hover {
@@ -97,16 +126,10 @@
     transform: translateY(-2px);
 }
 
-.formHeader p {
-    color: var(--light-text);
-    font-size: 14px;
-    margin-top: 15px;
-}
-
 .authForm {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .authForm input {
@@ -117,21 +140,22 @@
     font-size: 16px;
     outline: none;
     transition: var(--transition);
+    color: var(--text-color);
 }
 
 .authForm input:focus {
-    background: var(--bg-color);
+    background: var(--white);
     border-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(78, 196, 82, 0.2);
 }
 
 .authForm input::placeholder {
-    color: #999;
+    color: #999999;
 }
 
 .forgotPassword {
-    color: #666;
+    color: var(--light-text);
     text-decoration: none;
     font-size: 14px;
     text-align: center;
@@ -147,6 +171,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .authButton {
@@ -160,7 +185,7 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: var(--transition);
-    margin-top: 10px;
+    min-width: 150px;
 }
 
 .authButton:hover {
@@ -170,7 +195,7 @@
 }
 
 .welcomeSection h2 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -201,25 +226,47 @@
     transform: translateY(-2px);
 }
 
+/* Estados de loading y disabled */
+.authButton:disabled,
+.toggleButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.authButton:disabled:hover,
+.toggleButton:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .authCard {
         flex-direction: column;
         max-width: 400px;
         margin: 20px;
+        height: auto;
     }
 
     .welcomeSection {
         order: 0;
-        padding: 40px 30px;
+        padding: 30px 20px;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
 
     .registerWelcome {
         order: 0;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .loginWelcome {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
 
     .formSection {
-        padding: 40px 30px;
+        padding: 30px 20px;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
 
     .formHeader h2 {
@@ -227,7 +274,7 @@
     }
 
     .welcomeSection h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
 }
 
@@ -236,9 +283,13 @@
         padding: 10px;
     }
 
+    .authCard {
+        margin: 10px;
+    }
+
     .formSection,
     .welcomeSection {
-        padding: 30px 20px;
+        padding: 20px 15px;
     }
 
     .authForm input {
@@ -249,6 +300,18 @@
     .authButton,
     .toggleButton {
         padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .formHeader h2 {
+        font-size: 24px;
+    }
+
+    .welcomeSection h2 {
+        font-size: 22px;
+    }
+
+    .welcomeSection p {
         font-size: 14px;
     }
 }
