@@ -305,11 +305,6 @@
     .facility-card {
         padding-bottom: 25px;
     }
-    
-    .facility-card .card-image {
-        height: 180px;
-    }
-    
     .facility-card .card-header {
         flex-direction: column;
         align-items: flex-start;
@@ -337,8 +332,7 @@
     }
     
     .facility-card .location {
-        margin-bottom: 15px;
-        font-size: 1rem;
+        font-size: .9rem;
     }
     
     .facility-card .sports,
@@ -348,8 +342,7 @@
     
     .facility-card .sports h4,
     .facility-card .services h4 {
-        font-size: 1.05rem;
-        margin-bottom: 8px;
+        margin-bottom: 2px;
     }
     
     .facility-card .sports-list {
@@ -428,7 +421,7 @@
     }
     
     .facility-card .location {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .facility-card .sports h4,

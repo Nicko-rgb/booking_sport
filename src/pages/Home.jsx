@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
 import Header from "../components/layout/header/Header";
 import Footer from '../components/layout/footer/Footer';
 import Style from '../styles/Home/home.module.css';
+import footballerAnimation from '../assets/animations/footballer.json';
+import GPSLocation from '../assets/animations/GPSLocation.json';
+import BookingIco from '../assets/animations/booking.json';
+import ResponsiveIco from '../assets/animations/Responsive.json';
+import RatingIco from '../assets/animations/Rating.json';
 
 const Home = () => {
     return (
@@ -22,20 +28,14 @@ const Home = () => {
                 </div>
 
                 <div className={Style.heroImage}>
-                    <div className={Style.sportsField3d}>
-                        <div className={Style.fieldContainer}>
-                            <div className={Style.soccerField}>
-                                <div className={`${Style.fieldLine} ${Style.centerCircle}`}></div>
-                                <div className={`${Style.fieldLine} ${Style.centerLine}`}></div>
-                                <div className={`${Style.fieldLine} ${Style.penaltyArea} ${Style.left}`}></div>
-                                <div className={`${Style.fieldLine} ${Style.penaltyArea} ${Style.right}`}></div>
-                                <div className={`${Style.fieldLine} ${Style.goalArea} ${Style.left}`}></div>
-                                <div className={`${Style.fieldLine} ${Style.goalArea} ${Style.right}`}></div>
-                                <div className={`${Style.goal} ${Style.left}`}></div>
-                                <div className={`${Style.goal} ${Style.right}`}></div>
-                                <div className={Style.ball}></div>
-                            </div>
-                        </div>
+                    {/* Lottie Animation */}
+                    <div className={Style.lottieContainer}>
+                        <Lottie 
+                            animationData={footballerAnimation}
+                            loop={true}
+                            autoplay={true}
+                            style={{ width: '100%', height: '400px' }}
+                        />
                     </div>
 
                     <div className={Style.heroCards}>
@@ -51,22 +51,50 @@ const Home = () => {
                     <h2 className={Style.sectionTitle}>¿Por qué elegir SportBooking?</h2>
                     <div className={Style.featuresGrid}>
                         <div className={Style.featureCard}>
-                            <div className={Style.featureIcon}><i className="fas fa-search"></i></div>
+                            <div className={Style.featureIcon}>
+                                <Lottie 
+                                    animationData={GPSLocation}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '100%', height: '100%' }}
+                                />
+                            </div>
                             <h3>Búsqueda Fácil</h3>
                             <p>Encuentra establecimientos deportivos cerca de ti con filtros avanzados</p>
                         </div>
                         <div className={Style.featureCard}>
-                            <div className={Style.featureIcon}><i className="fas fa-calendar-alt"></i></div>
+                            <div className={Style.featureIcon}>
+                                <Lottie 
+                                    animationData={BookingIco}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '100%', height: '100%' }}
+                                />
+                            </div>
                             <h3>Reserva Instantánea</h3>
                             <p>Sistema de reservas en tiempo real con calendario interactivo</p>
                         </div>
                         <div className={Style.featureCard}>
-                            <div className={Style.featureIcon}><i className="fas fa-star"></i></div>
+                            <div className={Style.featureIcon}>
+                                <Lottie 
+                                    animationData={RatingIco}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '100%', height: '100%' }}
+                                />
+                            </div>
                             <h3>Calificaciones</h3>
                             <p>Lee reseñas y calificaciones de otros usuarios</p>
                         </div>
                         <div className={Style.featureCard}>
-                            <div className={Style.featureIcon}><i className="fas fa-mobile-alt"></i></div>
+                            <div className={Style.featureIcon}>
+                                <Lottie 
+                                    animationData={ResponsiveIco}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '100%', height: '100%' }}
+                                />
+                            </div>
                             <h3>Acceso Móvil</h3>
                             <p>Reserva desde cualquier dispositivo, en cualquier momento</p>
                         </div>
