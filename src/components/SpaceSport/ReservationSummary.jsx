@@ -1,3 +1,4 @@
+// Componente para mostrar un resumen de la reserva seleccionada.
 import React from 'react';
 import { useReservationContext } from '../../context/ReservationContext';
 import '../../styles/SpaceSport/reservationSummary.css';
@@ -123,7 +124,7 @@ const ReservationSummary = ({ open, onClose, onConfirm, onBackToListTime }) => {
                         onClick={manejarConfirmarReserva}
                         disabled={totalHoras === 0}
                     >
-                        CONFIRMAR
+                        Continuar
                     </button>
                 </div>
             </div>

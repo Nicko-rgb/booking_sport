@@ -16,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
+    padding: 0 20px;
     width: 100%;
     margin: 0 auto;
 }
@@ -44,10 +45,16 @@
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
+    font-size: .9rem;
     transition: color 0.3s ease;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
-
+header .navLink svg {
+    font-size: 1.1rem;
+}
 .header .navLink:hover,
 .header .navLink.active {
     color: var(--primary-color);
@@ -128,11 +135,12 @@
         gap: 0;
     }
 
-    .header .navMenu li {
+    .header .navMenu .navLink {
         width: 100%;
         margin-bottom: 1.5rem;
         border-bottom: 1px solid #f0f0f0;
         padding-bottom: 1rem;
+        display: flex;
     }
 
     .header .navMenu li:last-child {
@@ -153,6 +161,7 @@
     .header .navToggle {
         display: flex;
         z-index: 1001;
+        padding: 5px;
     }
 
     .header .navToggle span {

@@ -175,17 +175,14 @@
 @media (max-width: 1200px) {
     .facilityes .cards-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
+        gap: 15px;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 992px) {
     .facilityes .filters-container {
         gap: 7px;
-    }
-
-    .facilityes .cards-grid {
-        padding: 0 20px;
     }
 }
 
@@ -246,8 +243,7 @@
 
     .facilityes .cards-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 15px;
+        gap: 15px;
     }
 
     .facilityes .results-header h3 {
@@ -276,8 +272,7 @@
     }
 
     .facilityes .cards-grid {
-        gap: 15px;
-        padding: 0 10px;
+        gap: 10px;
     }
 
     .facilityes .results-header h3 {

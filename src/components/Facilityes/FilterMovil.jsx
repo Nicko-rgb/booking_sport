@@ -1,3 +1,4 @@
+// Componente de Filtro para vista en disposición moviles.
 import React from 'react';
 import '../../styles/Facilityes/filterMovil.css';
 import { IoClose } from "react-icons/io5";
