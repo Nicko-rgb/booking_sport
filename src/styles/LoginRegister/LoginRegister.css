@@ -1,0 +1,537 @@
+/* ===== CONTENEDOR PRINCIPAL DE AUTENTICACIÓN ===== */
+/* Contenedor principal que ocupa toda la pantalla con fondo degradado */
+.auth-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+/* Textura de fondo sutil con patrón de puntos */
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+    pointer-events: none;
+}
+
+/* ===== TARJETA DE AUTENTICACIÓN ===== */
+/* Tarjeta principal con efecto de cristal y sombra */
+.auth-container .auth-card {
+    position: relative;
+    display: flex;
+    background: var(--gris-claro);
+    border-radius: 10px;
+    box-shadow: var(--shadow), 5px 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    height: 580px;
+
+}
+
+/* ===== SECCIONES DE FORMULARIO Y BIENVENIDA ===== */
+/* Sección del formulario con fondo blanco */
+.auth-container .form-section {
+    flex: 1;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sección de bienvenida con gradiente */
+.auth-container .welcome-section {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--gris-claro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== SECCIONES DE BIENVENIDA ESPECÍFICAS ===== */
+/* Sección de bienvenida para login con gradiente púrpura */
+.auth-container .login .welcome-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Patrón de puntos para la sección de login */
+.auth-container .login .welcome-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+    pointer-events: none;
+}
+
+/* Sección de bienvenida para registro con gradiente azul */
+.auth-container .register .welcome-section {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Patrón de ondas para la sección de registro */
+.auth-container .register .welcome-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="waves" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20 Q10 10 20 20 T40 20" stroke="%23ffffff" stroke-width="0.5" fill="none" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23waves)"/></svg>') repeat;
+    pointer-events: none;
+}
+
+/* Estilos exclusivos para Login */
+.auth-container .login-welcome {
+    background-color: #f0f0f0;
+    border-radius: 50px 0 0 50px;
+}
+
+/* Estilos exclusivos para Registro */
+.auth-container .register-welcome {
+    background-color: #e0ffe0;
+    border-radius: 0 50px 50px 0;
+}
+
+.auth-container .register-welcome {
+    order: -1;
+}
+
+/* ===== CLASES DE TRANSICIÓN ===== */
+/* Estado de transición para elementos que están cambiando */
+.auth-container .transitioning {
+    opacity: 0.95;
+    transform: scale(0.99);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animación de entrada suave */
+.auth-container .slide-in {
+    animation: slideInSmooth 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframes para la animación de entrada */
+@keyframes slideInSmooth {
+    0% {
+        opacity: 0;
+        transform: translateX(20px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Transición suave para el cambio de orden en registro */
+.auth-container .register-welcome {
+    transition: order 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== ENCABEZADOS DE FORMULARIO ===== */
+/* Encabezado principal del formulario */
+.auth-container .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Título principal del formulario */
+.auth-container .form-header h2 {
+    color: #333;
+    font-size: 32px;
+    font-weight: 700;
+    text-decoration: underline;
+    letter-spacing: -0.8px;
+}
+
+/* Subtítulo descriptivo */
+.auth-container .form-header p {
+    color: #666;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* ===== ICONOS SOCIALES ===== */
+/* Contenedor de iconos de redes sociales */
+.auth-container .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Botón base para redes sociales */
+.auth-container .social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e1e5e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+/* Efecto hover para botones sociales */
+.auth-container .social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Iconos SVG dentro de los botones */
+.auth-container .social-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Colores específicos para cada red social */
+.auth-container .social-btn.google {
+    color: #db4437;
+    border-color: #db4437;
+}
+
+.auth-container .social-btn.facebook {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
+.auth-container .social-btn.twitter {
+    color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+.auth-container .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(36, 128, 39, 0.185);
+    padding: 8px 10px;
+    border-radius: 20px;
+}
+
+.auth-container .auth-form input {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid rgba(78, 196, 82, 0.322);
+    background: rgba(240, 240, 240, 0.842);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.auth-container .auth-form input:focus {
+    background: var(--bg-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 196, 82, 0.2);
+}
+
+.auth-container .auth-form input::placeholder {
+    color: #999;
+}
+
+.auth-container .forgot-password {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+    text-decoration: underline;
+}
+
+.auth-container .forgot-password:hover {
+    color: var(--primary-color);
+}
+
+.auth-container .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.auth-container .auth-button {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--gris-claro);
+    border: none;
+    padding: 10px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* margin-top: 10px; */
+}
+
+.auth-container .auth-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(78, 196, 82, 0.4);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+}
+
+.auth-container .welcome-section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.auth-container .welcome-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.auth-container .toggle-button {
+    background: transparent;
+    color: var(--gris-claro);
+    border: 2px solid var(--gris-claro);
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-container .toggle-button:hover {
+    background: var(--gris-claro);
+    color: var(--primary-color);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== DISEÑO RESPONSIVO ===== */
+/* Tablets y dispositivos medianos (768px o menos) */
+@media (max-width: 768px) {
+    .auth-container .auth-card {
+        flex-direction: column;
+        max-width: 400px;
+        margin: 20px;
+        min-height: auto;
+    }
+
+    .auth-container .welcome-section {
+        order: 0;
+        padding: 40px 30px;
+        min-height: 200px;
+    }
+
+    .auth-container .register-welcome {
+        order: 0;
+    }
+
+    .auth-container .form-section {
+        padding: 40px 30px;
+    }
+
+    .auth-container .form-header h2 {
+        font-size: 28px;
+    }
+
+    .auth-container .welcome-section h2 {
+        font-size: 28px;
+    }
+
+    .auth-container .social-icons {
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .auth-container .social-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .auth-container .social-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Dispositivos móviles pequeños (480px o menos) */
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 10px;
+    }
+    
+    .auth-container .auth-card {
+        border-radius: 15px;
+        max-width: 100%;
+    }
+    
+    .auth-container .form-section, .auth-container .welcome-section {
+        padding: 30px 20px;
+    }
+    
+    .auth-container .welcome-section {
+        padding: 25px 20px;
+        min-height: 180px;
+    }
+    
+    .auth-container .welcome-section h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .auth-container .welcome-section p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .auth-container .form-header {
+        margin-bottom: 30px;
+    }
+    
+    .auth-container .form-header h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    
+    .auth-container .form-header p {
+        font-size: 14px;
+    }
+    
+    .auth-container .social-icons {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .auth-container .social-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .auth-container .social-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .auth-container .auth-form input {
+        padding: 12px 16px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+    
+    .auth-container .auth-button {
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    
+    .auth-container .forgot-password {
+        font-size: 13px;
+    }
+}
+
+/* ===== ESTILOS PARA VALIDACIONES Y CONTRASEÑAS ===== */
+/* Contenedor de input con validación */
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de contraseña con botón de mostrar/ocultar */
+.input-container.password-container {
+    position: relative;
+}
+
+.input-container.password-container input {
+    padding-right: 45px !important;
+}
+
+/* Botón para mostrar/ocultar contraseña */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    font-size: 16px;
+}
+
+.password-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para inputs con error */
+.input-container input:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+}
+
+/* Estilos para inputs válidos */
+.input-container input:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .input-container {
+        margin-bottom: 15px;
+    }
+    
+    .password-toggle {
+        right: 12px;
+        font-size: 16px;
+    }
+    
+    .error-message {
+        font-size: 11px;
+    }
+}
