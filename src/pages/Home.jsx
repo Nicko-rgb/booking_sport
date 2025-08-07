@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import Header from "../components/layout/header/Header";
 import Footer from '../components/layout/footer/Footer';
@@ -9,12 +9,20 @@ import GPSLocation from '../assets/animations/GPSLocation.json';
 import BookingIco from '../assets/animations/booking.json';
 import ResponsiveIco from '../assets/animations/Responsive.json';
 import RatingIco from '../assets/animations/Rating.json';
+import { TbMapPinSearch } from "react-icons/tb";
+import { HiSquaresPlus } from "react-icons/hi2";
+import { Button1, Button2 } from "../components/ui/Buttons";
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const handleExplore = () => {
+        navigate('/facilityes')
+    }
+
     return (
         <div className={Style.home}>
             <Header />
-
             <section className={Style.hero}>
                 <div className={Style.heroContent}>
                     <h1 className={Style.heroTitle}>Reserva tu espacio deportivo favorito</h1>
@@ -22,8 +30,8 @@ const Home = () => {
                         Encuentra y reserva canchas, gimnasios y espacios deportivos de manera fácil y rápida
                     </p>
                     <div className={Style.heroButtons}>
-                        <Link to='/facilityes' className={Style.btnPrimary}>Explorar Establecimientos</Link>
-                        <a href="#features" className={Style.btnSecondary}>Conocer más</a>
+                        <Button1 Icon={TbMapPinSearch} onClick={handleExplore} text="Explorar Establecimientos" />
+                        <Button2 Icon={HiSquaresPlus} text="Conocer más" />
                     </div>
                 </div>
 

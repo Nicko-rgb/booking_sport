@@ -1,10 +1,15 @@
 /* ===== ESTILOS ESPECÍFICOS DE RESERVATION SUMMARY ===== */
+.reservation-details .reservation-body {
+    padding-top: 0;
+
+}
 .reservation-details .reservation-summary {
     position: sticky;
     top: 0;
     z-index: 10;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     background-color: white;
+    padding: 10px 0;
 }
 /* Summary stats */
 .reservation-details .summary-stats {
@@ -144,7 +149,6 @@
 @media (max-width: 768px) {
     .reservation-details .reservation-modal {
         margin: 10px;
-        max-height: 95vh;
     }
     
     .reservation-details .reservation-content {

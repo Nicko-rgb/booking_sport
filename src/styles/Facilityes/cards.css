@@ -250,39 +250,12 @@
     width: 100%;
 }
 
-.facility-card .btn {
-    flex: 1;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.9rem;
+.facility-card button {
+    width: 100%;
+    padding: 10px;
+    border: var(--primary-color) solid 2px;
 }
-
-.facility-card .btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.facility-card .btn-primary:hover {
-    transform: translateY(-2px);
-    background-color: var(--secondary-color);
-}
-
-.facility-card .btn-secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.facility-card .btn-secondary:hover {
-    color: var(--secondary-color);
-    transform: translateY(-2px);
+.facility-card button:hover {
     border-color: var(--secondary-color);
 }
 

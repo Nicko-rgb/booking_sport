@@ -1,20 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/SpaceSport/spaceSport.css';
 import { LuHeart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import { RiTimeFill } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa6";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { } from "react-icons/fa6";
+import AddReview from '../components/SpaceSport/AddReview';
 import Calendars from '../components/SpaceSport/Calendars';
 import ListTime from '../components/SpaceSport/ListTime';
 import ReservationSummary from '../components/SpaceSport/ReservationSummary';
+import { Button1, Button2 } from '../components/ui/Buttons';
 import { ReservationProvider } from '../context/ReservationContext';
-import comentarios from '../data/Reservas/comentarios';
+import { sportFacility, reviews } from '../data/Reservas/dataSpace';
 import { useStoreSpaceSport } from '../hooks/useStoreSpaceSport';
-import { imagenesGaleria } from '../data/Reservas/galley'
 
 const SpaceSport = () => {
+    // Estados para manejo de deportes y espacios
+    const [selectedSport, setSelectedSport] = useState(0);
+    const [selectedSpace, setSelectedSpace] = useState(0);
+    const [currentGallery, setCurrentGallery] = useState([]);
+
+    // Obtener el deporte y espacio actualmente seleccionados
+    const currentSportData = sportFacility.sports_available[selectedSport];
+    const currentSpaceData = currentSportData?.spaces[selectedSpace];
+
+    // Inicializar galería al montar el componente
+    useEffect(() => {
+        const initialSpaceData = sportFacility.sports_available[0]?.spaces[0];
+        if (initialSpaceData?.gallery) {
+            setCurrentGallery(initialSpaceData.gallery);
+        }
+    }, []);
+
+    // Actualizar galería cuando cambie la selección
+    useEffect(() => {
+        if (currentSpaceData?.gallery) {
+            setCurrentGallery(currentSpaceData.gallery);
+        }
+    }, [currentSpaceData]);
+
     const {
         calendarsOpen,
         setCalendarsOpen,
@@ -34,7 +59,12 @@ const SpaceSport = () => {
         imagenPrincipal,
         setImagenPrincipal,
         indiceDesplazamiento,
-    } = useStoreSpaceSport(imagenesGaleria);
+    } = useStoreSpaceSport(currentGallery);
+
+    // Función para cambiar de espacio
+    const handleSpaceChange = (spaceIndex) => {
+        setSelectedSpace(spaceIndex);
+    };
 
     // Funcion para renderizar las estrellas
     const renderStars = (calificacion) => {
@@ -46,200 +76,248 @@ const SpaceSport = () => {
     return (
         <ReservationProvider>
             <div className="space-sport">
+                {/* Contenido principal arriba */}
                 <div className="contenido-principal">
-                {/* Sección de imágenes */}
-                <div className="seccion-imagenes">
-                    <div className="imagen-principal">
-                        <img src={imagenPrincipal} alt="Cancha principal" />
-                    </div>
-                    <aside className='images'>
-                        <IoIosArrowBack 
-                            className='img-arrow-1' 
-                            onClick={manejarDesplazamientoIzquierda}
-                        />
-                        <div className="galeria-imagenes">
-                            <div 
-                                className="galeria-contenedor"
-                                style={{
-                                    transform: `translateX(-${indiceDesplazamiento * 110}px)`,
-                                    transition: 'transform 0.3s ease'
-                                }}
-                            >
-                                {imagenesGaleria.map((imagen, index) => (
-                                    <img
-                                        key={index}
-                                        className={`imagen-miniatura ${imagen === imagenPrincipal ? 'activa' : ''}`}
-                                        onClick={() => setImagenPrincipal(imagen)} 
-                                        src={imagen} 
-                                        alt={`Vista ${index + 1}`}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                        <IoIosArrowForward 
-                            className='img-arrow-2' 
-                            onClick={manejarDesplazamientoDerecha}
-                        />
-                    </aside>
-                    {/* selector de espacios */}
-                    <div className="spaces">
-                        <button className='active'>Fútbol</button>
-                        <button>Voley</button>
-                        <button>Piscina</button>
-                    </div>
-                </div>
-
-                {/* Información del establecimiento */}
-                <div className="info-establecimiento">
-                    <div className="header-info">
-                        <h1>Cancha de Fútbol "El Verde"</h1>
+                    {/* Header para movil */}
+                    <div className="header-info header-info-movil">
+                        <h1>{sportFacility.name_facility}</h1>
                         <div className="calificacion-likes">
                             <div className="calificacion">
-                                {renderStars(4)}
-                                <span className="numero-calificacion">4.8 (127 reseñas)</span>
+                                <span>
+                                    {renderStars(sportFacility.calification)}
+                                </span>
+                                <span className="numero-calificacion">{sportFacility.calification} ({reviews.length} reseñas)</span>
                             </div>
-                            <div className="likes">
-                                <LuHeart className='icono-like' />
-                                <span>234</span>
-                            </div>
+                            <button className='likes'><LuHeart strokeWidth={2} /> {sportFacility.like} </button>
                         </div>
                     </div>
-
-                    <div className="horarios">
-                        <h3>Horarios de Atención</h3>
-                        <div className="horarios-lista">
-                            <div className="horario-item">
-                                <span>Lunes - Viernes</span>
-                                <p>6:00 AM - 11:00 PM</p>
-                            </div>
-                            <div className="horario-item">
-                                <span>Sábados - Domingos</span>
-                                <p>7:00 AM - 12:00 AM</p>
-                            </div>
+                    {/* Sección de imágenes */}
+                    <div className="seccion-imagenes">
+                        <div className="imagen-principal">
+                            <img src={imagenPrincipal} alt="Cancha principal" />
                         </div>
-                    </div>
-
-                    <div className="caracteristicas">
-                        <h3>Características</h3>
-                        <div className="caracteristicas-grid">
-                            <div className="caracteristica">
-                                <span className="icono">⚽</span>
-                                <span>Césped Sintético</span>
-                            </div>
-                            <div className="caracteristica">
-                                <span className="icono">💡</span>
-                                <span>Iluminación LED</span>
-                            </div>
-                            <div className="caracteristica">
-                                <span className="icono">🚿</span>
-                                <span>Vestuarios</span>
-                            </div>
-                            <div className="caracteristica">
-                                <span className="icono">🅿️</span>
-                                <span>Estacionamiento</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Ubicacion */}
-                    <div className="ubicacion">
-                        <h3>Dirección</h3>
-                        <p>
-                            Calle Principal 123, Colonia Centro, Ciudad de Ejemplo, CP 12345,
-                            País de Ejemplo
-                        </p>
-                    </div>
-
-                    <div className="botones-accion">
-                        <button onClick={() => setCalendarsOpen(true)} className="btn-reservar-principal">
-                            <RiTimeFill />Reservar Ahora
-                        </button>
-                        <button className="btn-consultar" onClick={redirectWhatsApp}>
-                            <FaWhatsapp />Contáctanos
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            {/* seccion descripcion */}
-            <div className="descripcion">
-                <h3>Descripción</h3>
-                <p>
-                    Cancha de fútbol profesional con césped sintético de última generación.
-                    Perfecta para partidos de fútbol 11, entrenamientos y eventos deportivos.
-                    Cuenta con iluminación LED, vestuarios equipados, estacionamiento y
-                    área de espectadores techada.
-                </p>
-            </div>
-
-            {/* Sección de comentarios */}
-            <div className="seccion-comentarios">
-                <h2>Comentarios de Usuarios</h2>
-                <div className="comentarios-lista">
-                    {comentarios.map(comentario => (
-                        <div key={comentario.id} className="comentario-item">
-                            <div className="comentario-header">
-                                <div className="usuario-info">
-                                    <div className="avatar">
-                                        {comentario.usuario.charAt(0)}
-                                    </div>
-                                    <div className="usuario-detalles">
-                                        <h4>{comentario.usuario}</h4>
-                                        <span className="fecha">{comentario.fecha}</span>
-                                    </div>
-                                </div>
-                                <div className="calificacion-comentario">
-                                    {renderStars(comentario.calificacion)}
-                                </div>
-                            </div>
-                            <p className="comentario-texto">{comentario.comentario}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="agregar-comentario">
-                    <h3>Deja tu comentario</h3>
-                    <div className="form-comentario">
-                        <textarea
-                            placeholder="Comparte tu experiencia en este establecimiento..."
-                            rows="4"
-                        ></textarea>
-                        <div className="form-footer">
-                            <div className="calificacion-input">
-                                <span>Tu calificación:</span>
-                                <div className="estrellas-input">
-                                    {Array.from({ length: 5 }, (_, index) => (
-                                        <span key={index} className="estrella-input">★</span>
+                        <div className='images'>
+                            <IoIosArrowBack
+                                className='img-arrow-1'
+                                onClick={manejarDesplazamientoIzquierda}
+                            />
+                            <div className="galeria-imagenes">
+                                <div
+                                    className="galeria-contenedor"
+                                    style={{
+                                        transform: `translateX(-${indiceDesplazamiento * 110}px)`,
+                                        transition: 'transform 0.3s ease'
+                                    }}
+                                >
+                                    {currentGallery.map((imagen, index) => (
+                                        <img
+                                            key={index}
+                                            className={`imagen-miniatura ${imagen === imagenPrincipal ? 'activa' : ''}`}
+                                            onClick={() => setImagenPrincipal(imagen)}
+                                            src={imagen}
+                                            alt={`Vista ${index + 1}`}
+                                        />
                                     ))}
                                 </div>
                             </div>
-                            <button className="btn-enviar-comentario">
-                                Enviar Comentario
-                            </button>
+                            <IoIosArrowForward
+                                className='img-arrow-2'
+                                onClick={manejarDesplazamientoDerecha}
+                            />
+                        </div>
+                        {/* selector de deportes disponibles */}
+                        <div className="spaces">
+                            {sportFacility.sports_available.map((sport, index) => (
+                                <button
+                                    key={index}
+                                    className={selectedSport === index ? 'active' : ''}
+                                    onClick={() => {
+                                        setSelectedSport(index);
+                                        setSelectedSpace(0); // Reset space selection when sport changes
+                                    }}
+                                >
+                                    {sport.sport_type}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Información del establecimiento */}
+                    <div className="info-establecimiento">
+                        <div className="header-info">
+                            <h1>{sportFacility.name_facility}</h1>
+                            <div className="calificacion-likes">
+                                <div className="calificacion">
+                                    <span>
+                                        {renderStars(sportFacility.calification)}
+                                    </span>
+                                    <span className="numero-calificacion">{sportFacility.calification} ({reviews.length} reseñas)</span>
+                                </div>
+                                <button className='likes'><LuHeart strokeWidth={2} /> {sportFacility.like} </button>
+                            </div>
+                        </div>
+
+                        <div className="horarios">
+                            <h3>Horarios de Atención</h3>
+                            <div className="horarios-lista">
+                                {sportFacility.hours.map((schedule, index) => (
+                                    <div key={index} className="item-info">
+                                        <span>{schedule.days}</span>
+                                        <p>{schedule.hour}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="caracteristicas">
+                            <h3>Características</h3>
+                            <div className="caracteristicas-grid">
+                                {sportFacility.general_characteristics.map((characteristic, index) => {
+                                    const getIcon = (char) => {
+                                        if (char.includes('Iluminación')) return '💡';
+                                        if (char.includes('Vestuarios')) return '🚿';
+                                        if (char.includes('Estacionamiento')) return '🅿️';
+                                        if (char.includes('espectadores')) return '👥';
+                                        if (char.includes('Restaurante')) return '🍽️';
+                                        return '⭐';
+                                    };
+                                    return (
+                                        <div key={index} className="item-info">
+                                            <span>{getIcon(characteristic)} </span>
+                                            <span>{characteristic}</span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        <div className="horarios">
+                            <h3>Precios</h3>
+                            <div className="horarios-lista">
+                                {sportFacility.prices.map((price, index) => (
+                                    <div key={index} className="item-info">
+                                        <span>{index === 1 ? 'Hasta' : 'Desde'} </span>
+                                        <p>{price}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Ubicacion */}
+                        <div className="ubicacion">
+                            <h3>Dirección</h3>
+                            <p>{sportFacility.address}</p>
+                        </div>
+                        <div className="botones-accion">
+                            <Button1 Icon={RiTimeFill} text='ReservarAhora' onClick={() => setCalendarsOpen(true)} />
+                            <Button2 Icon={FaWhatsapp} text='Contáctamos' onClick={redirectWhatsApp} />
                         </div>
                     </div>
                 </div>
-            </div>
-            <Calendars
-                open={calendarsOpen}
-                onClose={() => setCalendarsOpen(false)}
-                onDateSelect={manejarSeleccionFecha}
-            />
-            
-            <ListTime
-                open={listTimeOpen}
-                onClose={() => setListTimeOpen(false)}
-                fecha={fechaSeleccionada}
-                onShowReservation={manejarMostrarResumen}
-                onBackToCalendar={manejarVolverACalendario}
-            />
-            
-            <ReservationSummary
-                open={reservationSummaryOpen}
-                onClose={() => setReservationSummaryOpen(false)}
-                onConfirm={manejarConfirmarReserva}
-                onBackToListTime={manejarVolverAListTime}
-            />
+
+                {/* Sección de selección de espacios */}
+                <div className="spaces-selection">
+                    <h3>Espacios de {currentSportData?.sport_type}</h3>
+                    <div className="spaces-grid">
+                        {currentSportData?.spaces.map((space, index) => (
+                            <div
+                                key={space.id}
+                                className={`space-card ${selectedSpace === index ? 'selected' : ''}`}
+                                onClick={() => handleSpaceChange(index)}
+                            >
+                                <div className="space-card-header">
+                                    <h4>{space.name}</h4>
+                                    <span className="space-pricee">${space.price_per_hour}/hora</span>
+                                </div>
+                                <div className="space-details">
+                                    <p><strong>Dimensiones:</strong> {space.dimensions}</p>
+                                    <p><strong>Capacidad:</strong> {space.capacity} personas</p>
+                                    <p><strong>Superficie:</strong> {space.surface_type}</p>
+                                    <span className={`availability-status ${space.available ? 'available' : 'unavailable'}`}>
+                                        {space.available ? 'Disponible' : 'No disponible'}
+                                    </span>
+                                </div>
+                                <div className="body-space">
+                                    {space.equipment && space.equipment.length > 0 && (
+                                        <div className="space-equipment">
+                                            <strong>Equipamiento:</strong>
+                                            <ul>
+                                                {space.equipment.map((item, idx) => (
+                                                    <li key={idx}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {space.features && space.features.length > 0 && (
+                                        <div className="space-features">
+                                            <strong>Características:</strong>
+                                            <ul>
+                                                {space.features.map((feature, idx) => (
+                                                    <li key={idx}>{feature}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* seccion descripcion */}
+                <div className="descripcion">
+                    <h3>Descripción</h3>
+                    <p>
+                        Cancha de fútbol profesional con césped sintético de última generación.
+                        Perfecta para partidos de fútbol 11, entrenamientos y eventos deportivos.
+                        Cuenta con iluminación LED, vestuarios equipados, estacionamiento y
+                        área de espectadores techada.
+                    </p>
+                </div>
+
+                {/* Sección de comentarios */}
+                <div className="seccion-comentarios">
+                    <h2>Comentarios de Usuarios</h2>
+                    <div className="comentarios-lista">
+                        {reviews.map((review, index) => (
+                            <div key={index} className="comentario-item">
+                                <div className="comentario-header">
+                                    <div className="usuario-info">
+                                        <div className="avatar">{review.name.charAt(0)}</div>
+                                        <div className="usuario-detalles">
+                                            <h4>{review.name}</h4>
+                                            <span className="fecha">{review.date}</span>
+                                        </div>
+                                    </div>
+                                    <div className="calificacion-comentario">{renderStars(review.calification)}</div>
+                                </div>
+                                <p className="comentario-texto">{review.opinion}</p>
+                            </div>
+                        ))}
+                    </div>
+                    {/* Add Review */}
+                    <AddReview />
+                </div>
+                <Calendars
+                    open={calendarsOpen}
+                    onClose={() => setCalendarsOpen(false)}
+                    onDateSelect={manejarSeleccionFecha}
+                />
+
+                <ListTime
+                    open={listTimeOpen}
+                    onClose={() => setListTimeOpen(false)}
+                    fecha={fechaSeleccionada}
+                    onShowReservation={manejarMostrarResumen}
+                    onBackToCalendar={manejarVolverACalendario}
+                />
+
+                <ReservationSummary
+                    open={reservationSummaryOpen}
+                    onClose={() => setReservationSummaryOpen(false)}
+                    onConfirm={manejarConfirmarReserva}
+                    onBackToListTime={manejarVolverAListTime}
+                />
             </div>
         </ReservationProvider>
     );

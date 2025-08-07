@@ -1,9 +1,11 @@
+// Componente de Tarjeta para mostrar información de un establecimiento.
 import React from 'react'
-import { Link } from 'react-router-dom'
-import '../../styles/Facilityes/cards.css'
+import { useNavigate } from 'react-router-dom';
+import '../../styles/Facilityes/cards.css';
+import { Button1, Button2 } from '../ui/Buttons';
 
 const Card = ({ facility }) => {
-
+    const navigate = useNavigate()
     // Función para renderizar las estrellas de calificación
     const renderStars = (rating) => {
         const stars = [];
@@ -34,6 +36,12 @@ const Card = ({ facility }) => {
     };
 
     const availability = getAvailabilityStatus(facility.available, facility.isPremium);
+
+    // Funcion para ver mas sobre la instalacion
+    const handleView = () => {
+        console.log('Viendo...');
+        navigate(`/space-sport?facility=${facility.id}`)
+    }
 
     return (
         <div className="facility-card">
@@ -109,18 +117,8 @@ const Card = ({ facility }) => {
 
             {/* Botones de acción */}
             <div className="card-actions">
-                <Link
-                    to={`/space-sport?facility=${facility.id}`}
-                    className="btn btn-primary"
-                >
-                    Ver detalles
-                </Link>
-                <button
-                    className="btn btn-secondary"
-                    onClick={() => console.log('Reservar:', facility.name)}
-                >
-                    Reservar
-                </button>
+                <Button1 text='Ver Detalles' onClick={handleView} />
+                <Button2 text='Reservar' />
             </div>
         </div>
     )
