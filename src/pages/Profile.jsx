@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/layout/header/Header'
+import ClientProfile from '../components/Perfil/ClientProfile'
 
 
 const Profile = () => {
@@ -7,7 +8,8 @@ const Profile = () => {
     <div className="profile">
         <Header />
         <div >
-            <h1>Perfil</h1>
+          <ClientProfile />
+
         </div>      
     </div>
   )

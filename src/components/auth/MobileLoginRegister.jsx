@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../../styles/LoginRegister/MobileLoginRegister.css"
-import { users } from "../../data/users.js"
+import { usersLogin } from "../../data/users/usersLogin.js"
 import SuccessModal from './SuccessModal'
 
 const MobileLoginRegister = () => {
@@ -24,7 +24,7 @@ const MobileLoginRegister = () => {
 
     const validateField = (name, value) => {
         const newErrors = { ...errors }
-        
+
         switch (name) {
             case 'nombre':
             case 'apellido':
@@ -53,13 +53,13 @@ const MobileLoginRegister = () => {
             default:
                 delete newErrors[name]
         }
-        
+
         setErrors(newErrors)
     }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target
-        
+
         // Para el campo de número, limitar a 9 dígitos y solo números
         if (name === 'numero') {
             const numericValue = value.replace(/[^0-9]/g, '').slice(0, 9)
@@ -82,7 +82,7 @@ const MobileLoginRegister = () => {
 
         if (currentView === 'login') {
             // Validar credenciales
-            const user = users.find(u => u.gmail === formData.email && u.password === formData.password)
+            const user = usersLogin.find(u => u.gmail === formData.email && u.password === formData.password)
             if (user) {
                 setModal({
                     isOpen: true,
@@ -110,7 +110,7 @@ const MobileLoginRegister = () => {
 
             // Simular registro
             const newUser = {
-                id: users.length + 1,
+                id: usersLogin.length + 1,
                 gmail: formData.email,
                 password: formData.password,
                 nombre: formData.nombre,

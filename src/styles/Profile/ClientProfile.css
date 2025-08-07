@@ -1,0 +1,1020 @@
+.profile-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 5px 20px;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+
+.profile-container .profile-content {
+  max-width: 1400px;
+  margin: 15px auto;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 25px;
+  height: calc(100vh - 40px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar Styles */
+.profile-container .profile-sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: fit-content;
+  position: relative;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.profile-container .user-card {
+  padding: 15px 25px;
+  text-align: center;
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.profile-container .user-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-container .user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  z-index: 2;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.profile-container .user-name {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-container .member-since {
+  margin: 0 0 25px;
+  opacity: 0.95;
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+}
+
+.profile-container .user-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-container .stat {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+.profile-container .stat-number {
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-container .stat-label {
+  display: block;
+  font-size: 11px;
+  opacity: 0.9;
+  margin-top: 5px;
+  font-weight: 300;
+}
+
+/* Navigation Styles */
+.profile-container .profile-nav {
+  padding: 20px 0;
+}
+
+.profile-container .nav-item {
+  width: calc(100% - 20px);
+  margin: 0 10px 8px;
+  padding: 12px 20px;
+  border: none;
+  background: rgba(108, 117, 125, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(108, 117, 125, 0.2);
+  border-radius: 15px;
+  text-align: left;
+  font-size: 15px;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container .nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.profile-container .nav-item:hover::before {
+  left: 100%;
+}
+
+.profile-container .nav-item:hover {
+  background: rgba(108, 117, 125, 0.2);
+  color: #212529;
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container .nav-item.active {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  transform: translateX(8px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+.profile-container .nav-item.active::before {
+  display: none;
+}
+
+/* Main Content Styles */
+.profile-container .profile-main {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+  overflow-y: auto;
+  animation: slideInRight 0.8s ease-out;
+  min-height: 100vh;
+  max-height: none;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.profile-container .content-header {
+  padding: 10px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.8) 0%, rgba(233, 236, 239, 0.8) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container .content-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+  pointer-events: none;
+}
+
+.profile-container .content-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  color: #212529;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container .content-header p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+}
+
+/* Personal Information Section */
+.profile-container .personal-info-section {
+  padding: 40px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.profile-container .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.profile-container .section-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #212529;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container .edit-btn {
+  padding: 12px 25px;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container .edit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.profile-container .edit-btn:hover::before {
+  left: 100%;
+}
+
+.profile-container .edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+}
+
+.profile-container .info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.profile-container .info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-container .info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  background: rgba(248, 249, 250, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container .info-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #28a745, #20c997, #28a745);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    background-position: 200% 0;
+  }
+
+  50% {
+    background-position: -200% 0;
+  }
+}
+
+.profile-container .info-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container .info-item label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-container .info-item span {
+  font-size: 17px;
+  color: #212529;
+  font-weight: 500;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Content */
+.profile-container .section-content {
+  padding: 40px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+  border: green solid 3px;
+}
+
+.profile-container .section-content h2 {
+  margin: 0 0 20px;
+  font-size: 26px;
+  color: #212529;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container .section-content p {
+  margin: 0;
+  color: #495057;
+  font-size: 18px;
+  font-weight: 300;
+  background: rgba(248, 249, 250, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profile-container .profile-content {
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    height: auto;
+    min-height: calc(100vh - 40px);
+  }
+
+  .profile-container .info-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .profile-container .profile-main {
+    height: auto;
+    overflow: visible;
+  }
+
+  .profile-container .profile-sidebar {
+    height: 90%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .profile-container .profile-content {
+    grid-template-columns: 280px 1fr;
+    gap: 15px;
+  }
+
+  .profile-container .profile-sidebar {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .profile-container .profile-nav {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .profile-container .nav-item {
+    margin: 0 8px 6px;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .profile-container .profile-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: auto;
+    min-height: auto;
+  }
+
+  .profile-container .profile-sidebar {
+    order: 2;
+    animation: slideInUp 0.8s ease-out;
+    height: auto;
+    max-height: none;
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .profile-container .profile-main {
+    order: 1;
+    height: auto;
+    overflow: visible;
+  }
+
+  .profile-container .user-card {
+    padding: 30px 20px;
+  }
+
+  .profile-container .content-header {
+    padding: 20px 25px;
+  }
+
+  .profile-container .content-header h1 {
+    font-size: 28px;
+  }
+
+  .profile-container .content-header p {
+    font-size: 16px;
+  }
+
+  .profile-container .personal-info-section {
+    padding: 30px 25px;
+  }
+
+  .profile-container .section-content {
+    padding: 30px 25px;
+  }
+
+  .profile-container .info-grid {
+    gap: 20px;
+  }
+
+  .profile-container .info-group {
+    gap: 18px;
+  }
+
+  .profile-container .info-item {
+    padding: 20px;
+  }
+
+  .profile-container .nav-item {
+    margin: 0 5px 6px;
+    padding: 15px 18px;
+  }
+
+  .profile-container .user-avatar {
+    width: 90px;
+    height: 90px;
+    font-size: 24px;
+  }
+
+  .profile-container .stat {
+    padding: 12px 8px;
+  }
+
+  .profile-container .stat-number {
+    font-size: 24px;
+  }
+
+  .profile-container .profile-nav {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* Reservations Section Styles */
+.profile-container .reservations-section {
+  padding: 40px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.profile-container .count-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.profile-container .reservations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.profile-container .reservation-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.profile-container .reservation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.profile-container .reservation-card.active {
+  border-left: 4px solid #10b981;
+}
+
+.profile-container .reservation-card.pending {
+  border-left: 4px solid #f59e0b;
+}
+
+.profile-container .reservation-card.history.completada {
+  border-left: 4px solid #6b7280;
+}
+
+.profile-container .reservation-card.history.cancelada {
+  border-left: 4px solid #ef4444;
+}
+
+.profile-container .card-header {
+  padding: 20px 20px 15px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-container .card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.profile-container .status-badge {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-container .status-badge.confirmada {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.profile-container .status-badge.pendiente_pago {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.profile-container .status-badge.pendiente_confirmacion {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.profile-container .status-badge.completada {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.profile-container .status-badge.cancelada {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.profile-container .card-body {
+  padding: 20px;
+}
+
+.profile-container .reservation-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-container .info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.profile-container .info-row .icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.profile-container .info-row.price {
+  font-weight: 700;
+  color: #10b981;
+  font-size: 16px;
+}
+
+.profile-container .info-row.deadline {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.profile-container .info-row.rating {
+  color: #f59e0b;
+}
+
+.profile-container .review {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border-left: 3px solid #10b981;
+}
+
+.profile-container .review p {
+  margin: 0;
+  font-style: italic;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.profile-container .cancel-reason {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fef2f2;
+  border-radius: 8px;
+  border-left: 3px solid #ef4444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #991b1b;
+}
+
+.profile-container .card-actions {
+  padding: 15px 20px;
+  background: #f8fafc;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.profile-container .btn-primary,
+.profile-container .btn-secondary,
+.profile-container .btn-danger {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 100px;
+}
+
+.profile-container .btn-primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.profile-container .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.profile-container .btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.profile-container .btn-secondary:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.profile-container .btn-danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.profile-container .btn-danger:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+}
+
+/* Preferences Section Styles */
+.profile-container .preferences-section {
+  padding: 40px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.profile-container .preferences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.profile-container .preference-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.profile-container .preference-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.profile-container .preference-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #10b981;
+}
+
+.profile-container .preference-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-container .option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.profile-container .option-row:last-child {
+  border-bottom: none;
+}
+
+.profile-container .option-row label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.profile-container .option-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #10b981;
+  cursor: pointer;
+}
+
+.profile-container .option-row span {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-container .favorite-locations,
+.profile-container .preferred-times {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-container .location-item,
+.profile-container .time-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border-left: 3px solid #10b981;
+}
+
+.profile-container .payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-container .payment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.profile-container .payment-item:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+.profile-container .payment-item.default {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+}
+
+.profile-container .payment-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-container .payment-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-container .payment-type {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.profile-container .payment-details {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.profile-container .default-badge {
+  background: #10b981;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.profile-container .preferences-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 25px 0;
+  border-top: 2px solid #e5e7eb;
+  margin-top: 30px;
+}
+
+.profile-container .preferences-actions .btn-primary,
+.profile-container .preferences-actions .btn-secondary {
+  min-width: 150px;
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* Additional Responsive Design for New Sections */
+@media (max-width: 768px) {
+  .profile-container .reservations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-container .preferences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-container .card-actions {
+    flex-direction: column;
+  }
+
+  .profile-container .btn-primary,
+  .profile-container .btn-secondary,
+  .profile-container .btn-danger {
+    flex: none;
+    width: 100%;
+  }
+
+  .profile-container .preferences-actions {
+    flex-direction: column;
+  }
+
+  .profile-container .preferences-actions .btn-primary,
+  .profile-container .preferences-actions .btn-secondary {
+    width: 100%;
+  }
+
+  .profile-container .reservations-section,
+  .profile-container .preferences-section {
+    padding: 30px 25px;
+  }
+}

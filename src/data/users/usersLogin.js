@@ -1,4 +1,4 @@
-const users = [
+const usersLogin = [
     {
         id: 1,
         gmail: "admin@gmail.com",
@@ -16,4 +16,4 @@ const users = [
     }
 ]
 
-export { users }
+export { usersLogin }

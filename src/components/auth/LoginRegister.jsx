@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "../../styles/LoginRegister/LoginRegister.css"
-import { users } from "../../data/users.js"
+import { usersLogin } from "../../data/users/usersLogin.js"
 import SuccessModal from './SuccessModal'
 import MobileLoginRegister from './MobileLoginRegister'
 
@@ -27,7 +27,7 @@ const LoginRegister = () => {
 
     const validateField = (name, value) => {
         const newErrors = { ...errors }
-        
+
         switch (name) {
             case 'nombre':
             case 'apellido':
@@ -56,13 +56,13 @@ const LoginRegister = () => {
             default:
                 delete newErrors[name]
         }
-        
+
         setErrors(newErrors)
     }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target
-        
+
         // Para el campo de número, limitar a 9 dígitos y solo números
         if (name === 'numero') {
             const numericValue = value.replace(/[^0-9]/g, '').slice(0, 9)
@@ -83,8 +83,8 @@ const LoginRegister = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (isLogin) {
-            // Validar credenciales con los datos de users.js
-            const user = users.find(u => u.gmail === formData.email && u.password === formData.password)
+            // Validar credenciales con los datos de usersLogin.js
+            const user = usersLogin.find(u => u.gmail === formData.email && u.password === formData.password)
             if (user) {
                 setModal({
                     isOpen: true,
@@ -113,7 +113,7 @@ const LoginRegister = () => {
 
             // Simular registro de nuevo usuario
             const newUser = {
-                id: users.length + 1,
+                id: usersLogin.length + 1,
                 gmail: formData.email,
                 password: formData.password,
                 nombre: formData.nombre,
