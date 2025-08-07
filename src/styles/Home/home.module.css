@@ -1,3 +1,7 @@
+/* Home Component Styles */
+.home {
+    width: 100%;
+}
 
 .home .hero {
     background: white;
@@ -7,38 +11,39 @@
     height: calc(100vh - 70px);
     border-bottom: 2px solid var(--gris-medio);
 }
+
 .home .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.home .hero-content {
+.home .heroContent {
     flex: 1;
     max-width: 600px;
     padding: 0 2rem;
 }
 
-.home .hero-title {
+.home .heroTitle {
     font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
     line-height: 1.2;
 }
 
-.home .hero-subtitle {
+.home .heroSubtitle {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
 }
 
-.home .hero-buttons {
+.home .heroButtons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.home .hero-image {
+.home .heroImage {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -49,17 +54,17 @@
 }
 
 /* Animación 3D de la cancha */
-.home .sports-field-3d {
+.home .sportsField3d {
     perspective: 1000px;
     margin-bottom: 2rem;
 }
 
-.home .field-container {
+.home .fieldContainer {
     transform-style: preserve-3d;
     animation: rotateField 20s infinite linear;
 }
 
-.home .soccer-field {
+.home .soccerField {
     width: 300px;
     height: 200px;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -70,12 +75,12 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.home .field-line {
+.home .fieldLine {
     position: absolute;
     background: white;
 }
 
-.home .center-circle {
+.home .centerCircle {
     width: 60px;
     height: 60px;
     border: 2px solid white;
@@ -86,14 +91,14 @@
     transform: translate(-50%, -50%);
 }
 
-.home .center-line {
+.home .centerLine {
     width: 2px;
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.home .penalty-area {
+.home .penaltyArea {
     width: 60px;
     height: 80px;
     border: 2px solid white;
@@ -102,17 +107,17 @@
     transform: translateY(-50%);
 }
 
-.home .penalty-area.left {
+.home .penaltyArea.left {
     left: 0;
     border-right: none;
 }
 
-.home .penalty-area.right {
+.home .penaltyArea.right {
     right: 0;
     border-left: none;
 }
 
-.home .goal-area {
+.home .goalArea {
     width: 30px;
     height: 40px;
     border: 2px solid white;
@@ -121,12 +126,12 @@
     transform: translateY(-50%);
 }
 
-.home .goal-area.left {
+.home .goalArea.left {
     left: 0;
     border-right: none;
 }
 
-.home .goal-area.right {
+.home .goalArea.right {
     right: 0;
     border-left: none;
 }
@@ -179,14 +184,14 @@
 }
 
 /* Tarjetas de deportes mejoradas */
-.home .hero-cards {
+.home .heroCards {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.home .hero-card {
+.home .heroCard {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
     padding: 1.5rem;
@@ -199,27 +204,13 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.home .hero-card:hover {
+.home .heroCard:hover {
     transform: translateY(-10px) scale(1.05);
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.home .card-image {
-    margin-bottom: 1rem;
-}
-
-.home .sport-svg {
-    width: 60px;
-    height: 60px;
-    transition: transform 0.3s ease;
-}
-
-.home .hero-card:hover .sport-svg {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.home .hero-card h3 {
+.home .heroCard h3 {
     font-size: 1rem;
     font-weight: 600;
     color: #4CAF50;
@@ -241,7 +232,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.home .btn-primary {
+.home .btnPrimary {
     background: var(--primary-color);
     color: white;
     border: none;
@@ -254,13 +245,13 @@
     box-shadow: var(--shadow);
 }
 
-.home .btn-primary:hover {
+.home .btnPrimary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
     background: var(--secondary-color);
 }
 
-.home .btn-secondary {
+.home .btnSecondary {
     background: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
@@ -272,7 +263,7 @@
     transition: var(--transition);
 }
 
-.home .btn-secondary:hover {
+.home .btnSecondary:hover {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
@@ -288,21 +279,21 @@
     width: 100%;
 }
 
-.home .section-title {
+.home .sectionTitle {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
     color: #333;
 }
 
-.home .features-grid {
+.home .featuresGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     width: 100%;
 }
 
-.home .feature-card {
+.home .featureCard {
     text-align: center;
     padding: 2rem;
     border-radius: 20px;
@@ -310,11 +301,11 @@
     transition: transform 0.3s ease;
 }
 
-.home .feature-card:hover {
+.home .featureCard:hover {
     transform: translateY(-5px);
 }
 
-.home .feature-icon {
+.home .featureIcon {
     width: 80px;
     height: 80px;
     background: var(--primary-color);
@@ -327,30 +318,30 @@
     font-size: 2rem;
 }
 
-.home .feature-card h3 {
+.home .featureCard h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     color: #333;
 }
 
-.home .feature-card p {
+.home .featureCard p {
     color: #666;
     line-height: 1.6;
 }
 
 /* Popular Sports */
-.home .popular-sports {
+.home .popularSports {
     padding: 4rem 0;
     background: #f8f9fa;
 }
 
-.home .sports-grid {
+.home .sportsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
 }
 
-.home .sport-item {
+.home .sportItem {
     background: white;
     padding: 2rem 1rem;
     border-radius: 15px;
@@ -359,17 +350,17 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.home .sport-item:hover {
+.home .sportItem:hover {
     transform: translateY(-5px);
 }
 
-.home .sport-item i {
+.home .sportItem i {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.home .sport-item span {
+.home .sportItem span {
     font-weight: 600;
     color: #333;
 }
@@ -380,40 +371,54 @@
         flex-direction: column;
         text-align: center;
         padding: 100px 0 60px;
+        height: auto;
     }
 
-    .home .hero-title {
+    .home .heroTitle {
         font-size: 2.5rem;
     }
 
-    .home .hero-image {
+    .home .heroImage {
         margin-top: 2rem;
     }
 
-    .home .hero-buttons {
+    .home .heroButtons {
         justify-content: center;
     }
 
-    .home .features-grid {
+    .home .featuresGrid {
         grid-template-columns: 1fr;
     }
 
-    .home .sports-grid {
+    .home .sportsGrid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home .heroContent {
+        padding: 0 1rem;
+    }
+
+    .home .heroImage {
+        padding: 0 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .home .hero-title {
+    .home .heroTitle {
         font-size: 2rem;
     }
 
-    .home .section-title {
+    .home .sectionTitle {
         font-size: 2rem;
     }
 
-    .home .sports-grid {
+    .home .sportsGrid {
         grid-template-columns: 1fr;
+    }
+
+    .home .heroCard {
+        min-width: 100px;
+        padding: 1rem;
     }
 }
 
@@ -429,7 +434,7 @@
     }
 }
 
-.home .feature-card,
-.home .sport-item {
+.home .featureCard,
+.home .sportItem {
     animation: fadeIn 0.6s ease-out;
 }

@@ -9,6 +9,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 
 const Facilityes = () => {
+    // Estados de cada filtro
+
     const [facilities, setFacilities] = useState(facilitiesApi);
     const [viewFilter, setViewFilter] = useState(false);
     const [filters, setFilters] = useState({

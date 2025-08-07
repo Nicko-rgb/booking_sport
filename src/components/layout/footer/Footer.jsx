@@ -1,19 +1,19 @@
-import React from 'react'
-import "../../../styles/HeaderFooter/footer.css"
+import React from 'react';
+import styles from "../../../styles/HeaderFooter/footer.module.css";
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            <div className="container">
-                <div className="footer-content">
-                    <div className="footer-section">
-                        <div className="footer-brand">
+        <footer className={styles.footer}>
+            <div className={styles.container}>
+                <div className={styles.footerContent}>
+                    <div className={styles.footerSection}>
+                        <div className={styles.footerBrand}>
                             <i className="fas fa-dumbbell"></i>
                             <span>SportBooking</span>
                         </div>
                         <p>Tu plataforma de confianza para reservar espacios deportivos</p>
                     </div>
-                    <div className="footer-section">
+                    <div className={styles.footerSection}>
                         <h4>Enlaces</h4>
                         <ul>
                             <li><a href="#home">Inicio</a></li>
@@ -22,22 +22,18 @@ const Footer = () => {
                             <li><a href="#contact">Contacto</a></li>
                         </ul>
                     </div>
-                    <div className="footer-section">
+                    <div className={styles.footerSection}>
                         <h4>Contacto</h4>
                         <p><i className="fas fa-envelope"></i> info@sportbooking.com</p>
                         <p><i className="fas fa-phone"></i> +1 234 567 890</p>
                     </div>
                 </div>
-                <div className="footer-bottom">
+                <div className={styles.footerBottom}>
                     <p>&copy; 2025 SportBooking. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>
+    );
+};
 
-    )
-}
-
-export default Footer
-
-
-
+export default Footer;

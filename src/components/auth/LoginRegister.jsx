@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../../styles/LoginRegister.css"
+import styles from "../../styles/LoginRegister.module.css"
 import { users } from "../../data/users.js"
 import SuccessModal from './SuccessModal'
 
@@ -14,7 +14,7 @@ const LoginRegister = () => {
     })
     const [modal, setModal] = useState({
         isOpen: false,
-        message: '',
+        message: '', 
         type: 'success'
     })
 
@@ -92,17 +92,17 @@ const LoginRegister = () => {
     }
 
     return (
-        <div className="auth-container">
-            <div className="auth-card">
+        <div className={styles.authContainer}>
+            <div className={styles.authCard}>
                 {isLogin ? (
                     // Login Form
                     <>
-                        <div className="form-section">
-                            <div className="form-header">
+                        <div className={styles.formSection}>
+                            <div className={styles.formHeader}>
                                 <h2>Inicia Sesión</h2>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="auth-form">
+                            <form onSubmit={handleSubmit} className={styles.authForm}>
                                 <input
                                     type="email"
                                     name="email"
@@ -119,35 +119,35 @@ const LoginRegister = () => {
                                     onChange={handleInputChange}
                                     required
                                 />
-                                <a href="#" className="forgot-password">Forgot Your Password?</a>
+                                <a href="#" className={styles.forgotPassword}>Forgot Your Password?</a>
                                 {/* metemos dentro de un div al boton */}
-                                <div className="button-container">
-                                    <button type="submit" className="auth-button">INICIAR SESIÓN</button>
+                                <div className={styles.buttonContainer}>
+                                    <button type="submit" className={styles.authButton}>INICIAR SESIÓN</button>
                                 </div>
                             </form>
                         </div>
 
-                        <div className="welcome-section login-welcome">
-                            <h2>Hola, Bienvenido!</h2>
+                        <div className={`${styles.welcomeSection} ${styles.loginWelcome}`}>
+                            <h2 >Hola, Bienvenido!</h2>
                             <p>Regístrese con sus datos personales para utilizar todas las funciones del sitio.</p>
-                            <button onClick={toggleMode} className="toggle-button">REGÍSTRESE</button>
+                            <button onClick={toggleMode} className={styles.toggleButton}>REGÍSTRESE</button>
                         </div>
                     </>
                 ) : (
                     // Register Form
                     <>
-                        <div className="welcome-section register-welcome">
+                        <div className={`${styles.welcomeSection} ${styles.registerWelcome}`}>
                             <h2>Bienvenidos nuevamente!</h2>
                             <p>Ingrese sus datos personales para utilizar todas las funciones del sitio.</p>
-                            <button onClick={toggleMode} className="toggle-button">INICIA SESIÓN</button>
+                            <button onClick={toggleMode} className={styles.toggleButton}>INICIA SESIÓN</button>
                         </div>
 
-                        <div className="form-section">
-                            <div className="form-header">
+                        <div className={styles.formSection}>
+                            <div className={styles.formHeader}>
                                 <h2>Crear una cuenta</h2>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="auth-form">
+                            <form onSubmit={handleSubmit} className={styles.authForm}>
                                 <input
                                     type="text"
                                     name="nombre"
@@ -188,8 +188,8 @@ const LoginRegister = () => {
                                     onChange={handleInputChange}
                                     required
                                 />
-                                <div className="button-container">
-                                    <button type="submit" className="auth-button">REGÍSTRESE</button>
+                                <div className={styles.buttonContainer}>
+                                    <button type="submit" className={styles.authButton}>REGÍSTRESE</button>
                                 </div>
                             </form>
                         </div>
@@ -204,8 +204,6 @@ const LoginRegister = () => {
             />
 
             </div>
-            
-           
         </div>
     )
 }

@@ -18,7 +18,7 @@
     margin: 0 auto;
 }
 
-.header .nav-brand {
+.header .navBrand {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
@@ -27,18 +27,18 @@
     text-decoration: none;
 }
 
-.header .nav-brand i {
+.header .navBrand i {
     margin-right: 0.5rem;
     font-size: 1.8rem;
 }
 
-.header .nav-menu {
+.header .navMenu {
     display: flex;
     list-style: none;
     gap: 2rem;
 }
 
-.header .nav-link {
+.header .navLink {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
@@ -46,12 +46,12 @@
     position: relative;
 }
 
-.header .nav-link:hover,
-.header .nav-link.active {
+.header .navLink:hover,
+.header .navLink.active {
     color: var(--primary-color);
 }
 
-.header .nav-link.active::after {
+.header .navLink.active::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -61,13 +61,13 @@
     background-color: var(--primary-color);
 }
 
-.header .nav-toggle {
+.header .navToggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
 }
 
-.header .nav-toggle span {
+.header .navToggle span {
     width: 25px;
     height: 3px;
     background: var(--text-color);
@@ -77,11 +77,11 @@
 
 /* Responsive Design para Header */
 @media (max-width: 768px) {
-    .header .nav-menu {
+    .header .navMenu {
         display: none;
     }
-
-    .header .nav-toggle {
+    
+    .header .navToggle {
         display: flex;
     }
 }
