@@ -2,6 +2,8 @@ import React from 'react'
 import "./index.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
+import Profile from './pages/Profile';
+
 import Facilityes from './pages/Facilityes';
 import SpaceSport from "./pages/SpaceSport";
 import LoginRegister from './pages/LoginRegister';
@@ -16,6 +18,8 @@ const App = () => {
                 <Route path="/facilityes" element={<Facilityes />}/>
                 <Route path="/space-sport" element={<SpaceSport />} />
                 <Route path="/login" element={<LoginRegister /> } />
+                <Route path="/profile" element={<Profile />} />
+
             </Routes>
         </BrowserRouter>
     )
