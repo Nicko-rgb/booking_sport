@@ -1,3 +1,13 @@
+// Componente principal para la página de espacios deportivos
+// 
+// Este componente maneja:
+// - Visualización de instalaciones deportivas
+// - Galería de imágenes
+// - Selección de deportes y espacios
+// - Flujo completo de reservas (calendario, horarios, resumen, pago)
+// - Reseñas y calificaciones
+// - Integración con WhatsApp
+
 import React, { useState, useEffect } from 'react';
 import '../styles/SpaceSport/spaceSport.css';
 import { LuHeart } from "react-icons/lu";
@@ -15,6 +25,8 @@ import { ReservationProvider } from '../modules/reservations/context/Reservation
 import { sportFacility, reviews } from '../modules/reservations/data/dataSpace';
 import { useStoreSpaceSport } from '../modules/reservations/hooks/useStoreSpaceSport';
 
+// Componente principal de la página de espacios deportivos
+// Maneja la visualización de instalaciones y el flujo completo de reservas
 const SpaceSport = () => {
     // Estados para manejo de deportes y espacios
     const [selectedSport, setSelectedSport] = useState(0);
