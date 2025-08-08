@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-import Header from "../components/layout/header/Header";
-import Footer from '../components/layout/footer/Footer';
+import Header from "../shared/components/ui/Header";
+import Footer from '../shared/components/ui/Footer';
 import Style from '../styles/Home/home.module.css';
 import footballerAnimation from '../assets/animations/footballer.json';
 import GPSLocation from '../assets/animations/GPSLocation.json';
@@ -11,7 +11,7 @@ import ResponsiveIco from '../assets/animations/Responsive.json';
 import RatingIco from '../assets/animations/Rating.json';
 import { TbMapPinSearch } from "react-icons/tb";
 import { HiSquaresPlus } from "react-icons/hi2";
-import { Button1, Button2 } from "../components/ui/Buttons";
+import { Button1, Button2 } from "../shared/components/ui/Buttons";
 
 const Home = () => {
     const navigate = useNavigate();

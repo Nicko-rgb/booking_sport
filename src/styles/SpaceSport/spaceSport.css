@@ -14,7 +14,6 @@
 .space-sport .contenido-principal {
     display: flex;
     gap: 15px;
-    position: relative;
 }
 .space-sport .header-info-movil {
     display: none;
@@ -412,6 +411,9 @@
 .space-sport .modal {
     position: fixed;
     inset: 0;
+    max-width: 100%;
+    margin-top: 0;
+    top: 0;
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;

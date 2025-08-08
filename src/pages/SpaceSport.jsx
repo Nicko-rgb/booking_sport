@@ -5,15 +5,15 @@ import { FaStar } from "react-icons/fa";
 import { RiTimeFill } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { } from "react-icons/fa6";
-import AddReview from '../components/SpaceSport/AddReview';
-import Calendars from '../components/SpaceSport/Calendars';
-import ListTime from '../components/SpaceSport/ListTime';
-import ReservationSummary from '../components/SpaceSport/ReservationSummary';
-import { Button1, Button2 } from '../components/ui/Buttons';
-import { ReservationProvider } from '../context/ReservationContext';
-import { sportFacility, reviews } from '../data/Reservas/dataSpace';
-import { useStoreSpaceSport } from '../hooks/useStoreSpaceSport';
+import AddReview from '../modules/reservations/components/AddReview';
+import Calendars from '../modules/reservations/components/Calendars';
+import ListTime from '../modules/reservations/components/ListTime';
+import ReservationSummary from '../modules/reservations/components/ReservationSummary';
+import PaymentMethods from '../modules/reservations/components/PaymentMethods';
+import { Button1, Button2 } from '../shared/components/ui/Buttons';
+import { ReservationProvider } from '../modules/reservations/context/ReservationContext';
+import { sportFacility, reviews } from '../modules/reservations/data/dataSpace';
+import { useStoreSpaceSport } from '../modules/reservations/hooks/useStoreSpaceSport';
 
 const SpaceSport = () => {
     // Estados para manejo de deportes y espacios
@@ -47,12 +47,17 @@ const SpaceSport = () => {
         setListTimeOpen,
         reservationSummaryOpen,
         setReservationSummaryOpen,
+        paymentMethodsOpen,
+        setPaymentMethodsOpen,
         fechaSeleccionada,
+        reservationData,
         manejarSeleccionFecha,
         manejarMostrarResumen,
         manejarVolverAListTime,
         manejarVolverACalendario,
         manejarConfirmarReserva,
+        manejarContinuarAPago,
+        manejarVolverAResumen,
         manejarDesplazamientoIzquierda,
         manejarDesplazamientoDerecha,
         redirectWhatsApp,
@@ -317,6 +322,14 @@ const SpaceSport = () => {
                     onClose={() => setReservationSummaryOpen(false)}
                     onConfirm={manejarConfirmarReserva}
                     onBackToListTime={manejarVolverAListTime}
+                    onContinueToPayment={manejarContinuarAPago}
+                />
+
+                <PaymentMethods
+                    open={paymentMethodsOpen}
+                    onClose={() => setPaymentMethodsOpen(false)}
+                    onBackToSummary={manejarVolverAResumen}
+                    reservationData={reservationData}
                 />
             </div>
         </ReservationProvider>

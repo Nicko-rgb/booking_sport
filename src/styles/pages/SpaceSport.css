@@ -1,0 +1,29 @@
+/* Estilos para la página de Espacio Deportivo */
+.space-sport-page {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenido principal */
+.space-sport-main {
+    flex: 1;
+    padding: 2rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .space-sport-main {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .space-sport-main {
+        padding: 0.5rem;
+    }
+}

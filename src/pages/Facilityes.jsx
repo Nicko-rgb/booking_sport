@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/Facilityes/facilityes.css';
-import Header from '../components/layout/header/Header';
-import Footer from '../components/layout/footer/Footer';
-import Card from '../components/Facilityes/Card';
-import FilterMovil from '../components/Facilityes/FilterMovil';
-import { facilitiesApi } from '../data/Facilityes/facilityesApi';
+import Header from '../shared/components/ui/Header';
+import Footer from '../shared/components/ui/Footer';
+import Card from '../modules/facilities/components/Card';
+import FilterMovil from '../modules/facilities/components/FilterMovil';
+import { facilitiesApi } from '../modules/facilities/data/facilityesApi';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 

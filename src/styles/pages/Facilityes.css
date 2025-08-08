@@ -1,0 +1,75 @@
+/* Estilos para la página de Establecimientos */
+.facilityes {
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+/* Sección de búsqueda */
+.search-section {
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+}
+
+.search-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Contenedor principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Filtros laterales */
+.filters-sidebar {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+/* Lista principal */
+.facilities-main {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .filters-sidebar {
+        position: static;
+        order: 2;
+    }
+
+    .search-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .search-section h2 {
+        font-size: 1.8rem;
+    }
+}
