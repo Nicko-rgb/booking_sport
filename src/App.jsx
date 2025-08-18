@@ -6,6 +6,7 @@ import Facilityes from './pages/Facilityes';
 import SpaceSport from "./pages/SpaceSport";
 import LoginRegister from './pages/LoginRegister';
 import ScrollToTop from './components/ui/ScrollToTop';
+import Admin from './pages/Admin';
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path="/facilityes" element={<Facilityes />}/>
                 <Route path="/space-sport" element={<SpaceSport />} />
                 <Route path="/login" element={<LoginRegister /> } />
+                <Route path="/administrador" element={<Admin/> } />
             </Routes>
         </BrowserRouter>
     )

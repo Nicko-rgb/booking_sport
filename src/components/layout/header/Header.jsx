@@ -23,6 +23,7 @@ const Header = () => {
                     <li><Link to="/facilityes" className={isActive('/facilityes')}>Establecimientos</Link></li>
                     <li><Link to="/profile" className={isActive('/profile')}>Perfil</Link></li>
                     <li><Link to="/login" className={isActive('/login')}>Login</Link></li>
+                    <li><Link to="/administrador" className={isActive('/administrador')}>Administrador</Link></li>
                 </ul>
                 <div className={styles.navToggle}>
                     <span></span>
