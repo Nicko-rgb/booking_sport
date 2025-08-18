@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import '../../../styles/Profile/SuccessModal.css'
+import '../styles/SuccessModal.css'
 
 const SuccessModal = ({ isOpen, onClose, message, type = 'success' }) => {
     useEffect(() => {

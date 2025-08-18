@@ -1,7 +1,7 @@
 // Componente para listar y seleccionar horarios disponibles para una fecha específica.
 import React, { useState, useEffect } from 'react';
 import { useReservationContext } from '../context/ReservationContext';
-import '../../../styles/SpaceSport/listTime.css';
+import '../styles/listTime.css';
 import { MdOutlineTouchApp } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 

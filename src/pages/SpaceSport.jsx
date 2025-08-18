@@ -9,7 +9,7 @@
 // - Integración con WhatsApp
 
 import React, { useState, useEffect } from 'react';
-import '../styles/SpaceSport/spaceSport.css';
+import '../modules/reservations/styles/spaceSport.css';
 import { LuHeart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import { RiTimeFill } from "react-icons/ri";

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../../../styles/LoginRegister/MobileLoginRegister.css"
+import "../styles/MobileLoginRegister.css"
 import { usersLogin } from "../data/usersLogin.js"
 import SuccessModal from './SuccessModal'
 

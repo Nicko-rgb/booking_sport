@@ -8,7 +8,7 @@ import { createFacilitySlice } from '../modules/facilities/store/facilityStore';
 import { createUserSlice } from '../modules/users/store/userStore';
 import { createAdminSlice } from '../modules/admin/store/adminStore';
 import { createAuthSlice } from '../modules/auth/store/authStore';
-import { createSystemSlice } from '../modules/system/store/systemStore';
+
 
 // Main store combining all module stores
 export const useAppStore = create(
@@ -30,8 +30,7 @@ export const useAppStore = create(
                 // Auth module
                 ...createAuthSlice(set, get, api),
 
-                // System module
-                ...createSystemSlice(set, get, api),
+
 
                 // Global actions that affect multiple modules
                 resetAllStores: () => {
@@ -42,39 +41,23 @@ export const useAppStore = create(
                         const userSlice = createUserSlice(set, get, api);
                         const adminSlice = createAdminSlice(set, get, api);
                         const authSlice = createAuthSlice(set, get, api);
-                        const systemSlice = createSystemSlice(set, get, api);
                         
                         if (reservationSlice.reservations) state.reservations = reservationSlice.reservations;
                         if (facilitySlice.facilities) state.facilities = facilitySlice.facilities;
                         if (userSlice.user) state.user = userSlice.user;
                         if (adminSlice.admin) state.admin = adminSlice.admin;
                         if (authSlice.auth) state.auth = authSlice.auth;
-                        if (systemSlice.system) state.system = systemSlice.system;
                     });
                 },
 
-                // Global error handler
-                setError: (error) => {
-                    set((state) => {
-                        if (state.system && state.system.errors) {
-                            state.system.errors.global = error;
-                        }
-                    });
-                },
+
 
                 // Cross-module actions
                 initializeApp: async () => {
                     try {
                         const store = get();
                         
-                        // Check if system slice is properly initialized
-                        if (!store.system || !store.initializeSystem) {
-                            console.error('System slice not properly initialized');
-                            return;
-                        }
-                        
-                        // Initialize system first
-                        await store.initializeSystem();
+
 
                         // Then initialize auth if available
                         if (store.initializeAuth) {
@@ -94,10 +77,6 @@ export const useAppStore = create(
                         }
                     } catch (error) {
                         console.error('Error initializing app:', error);
-                        const store = get();
-                        if (store.setError) {
-                            store.setError('Failed to initialize application');
-                        }
                     }
                 }
             })),
@@ -108,10 +87,6 @@ export const useAppStore = create(
                     return {
                         ...currentState,
                         ...persistedState,
-                        system: {
-                            ...currentState.system,
-                            ...persistedState.system
-                        },
                         auth: {
                             ...currentState.auth,
                             ...persistedState.auth
@@ -128,16 +103,6 @@ export const useAppStore = create(
                         isAuthenticated: state.auth.isAuthenticated,
                         user: state.auth.user,
                         token: state.auth.token
-                    },
-                    system: {
-                        theme: state.system?.theme,
-                        config: state.system?.config,
-                        notifications: {
-                            enabled: state.system?.notifications?.enabled,
-                            position: state.system?.notifications?.position,
-                            duration: state.system?.notifications?.duration,
-                            types: state.system?.notifications?.types
-                        }
                     },
                     user: {
                         profile: state.user?.profile,
@@ -158,14 +123,14 @@ export const useFacilityStore = () => useAppStore((state) => state.facilities);
 export const useUserStore = () => useAppStore((state) => state.user);
 export const useAdminStore = () => useAppStore((state) => state.admin);
 export const useAuthStore = () => useAppStore((state) => state.auth);
-export const useSystemStore = () => useAppStore((state) => state.system);
+
 
 // Cached selectors to prevent infinite loops
 let cachedReservationActions = null;
 let cachedFacilityActions = null;
 let cachedUserActions = null;
 let cachedAuthActions = null;
-let cachedSystemActions = null;
+
 let cachedGlobalActions = null;
 
 const reservationActionsSelector = (state) => {
@@ -230,21 +195,7 @@ const authActionsSelector = (state) => {
     return cachedAuthActions;
 };
 
-const systemActionsSelector = (state) => {
-    if (!cachedSystemActions ||
-        cachedSystemActions.updateTheme !== state.updateTheme ||
-        cachedSystemActions.addNotification !== state.addNotification ||
-        cachedSystemActions.removeNotification !== state.removeNotification ||
-        cachedSystemActions.setGlobalLoading !== state.setGlobalLoading) {
-        cachedSystemActions = {
-            updateTheme: state.updateTheme,
-            addNotification: state.addNotification,
-            removeNotification: state.removeNotification,
-            setGlobalLoading: state.setGlobalLoading
-        };
-    }
-    return cachedSystemActions;
-};
+
 
 const globalActionsSelector = (state) => {
     if (!cachedGlobalActions ||
@@ -263,5 +214,5 @@ export const useReservationActions = () => useAppStore(reservationActionsSelecto
 export const useFacilityActions = () => useAppStore(facilityActionsSelector);
 export const useUserActions = () => useAppStore(userActionsSelector);
 export const useAuthActions = () => useAppStore(authActionsSelector);
-export const useSystemActions = () => useAppStore(systemActionsSelector);
+
 export const useGlobalActions = () => useAppStore(globalActionsSelector);

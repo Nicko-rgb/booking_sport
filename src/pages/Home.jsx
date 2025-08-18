@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import Header from "../shared/components/ui/Header";
 import Footer from '../shared/components/ui/Footer';
-import Style from '../styles/Home/home.module.css';
+import Style from '../shared/styles/home.module.css';
 import footballerAnimation from '../assets/animations/footballer.json';
 import GPSLocation from '../assets/animations/GPSLocation.json';
 import BookingIco from '../assets/animations/booking.json';

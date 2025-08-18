@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import Facilityes from './pages/Facilityes';
 import SpaceSport from "./pages/SpaceSport";
 import LoginRegister from './pages/LoginRegister';
+import Admin from './pages/Admin';
 
 // Components
 import ScrollToTop from './shared/components/ui/ScrollToTop';
@@ -41,6 +42,7 @@ const App = () => {
                     <Route path="/space-sport" element={<SpaceSport />} />
                     <Route path="/login" element={<LoginRegister />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path='/admin' element={<Admin />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

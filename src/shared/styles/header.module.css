@@ -2,8 +2,8 @@
 .header {
     background: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid #e0e0e0;
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1300px;
     padding: 0 20px;
     width: 100%;
     margin: 0 auto;
@@ -38,6 +38,7 @@
 .header .navMenu {
     display: flex;
     list-style: none;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -45,30 +46,34 @@
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
-    font-size: .9rem;
-    transition: color 0.3s ease;
+    font-size: .85rem;
+    transition: 0.3s linear;
     position: relative;
     display: flex;
     align-items: center;
     gap: 4px;
+    padding: 3px 7px;
+    border-radius: 10px;
 }
 header .navLink svg {
     font-size: 1.1rem;
 }
-.header .navLink:hover,
-.header .navLink.active {
+.header .navLink:hover {
     color: var(--primary-color);
 }
-
-.header .navLink.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
+.header .navLink.active {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
 }
+/* Reestylo de button login */
+header .navMenu button {
+    padding: 8px 10px;
+    flex-direction: row-reverse;
+}
+header .navMenu button svg {
+    font-size: .9rem;
+}
+
 
 .header .navToggle {
     display: none;

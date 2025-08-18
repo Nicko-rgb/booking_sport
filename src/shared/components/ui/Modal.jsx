@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../styles/ui/Modal.css'
+import '../../styles/Modal.css'
 
 const Modal = ({ isOpen, onClose, title, children, size = 'medium' }) => {
   const handleBackdropClick = (e) => {

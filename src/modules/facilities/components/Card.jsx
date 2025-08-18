@@ -1,7 +1,7 @@
 // Componente de Tarjeta para mostrar información de un establecimiento.
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../../../styles/Facilityes/cards.css';
+import '../styles/cards.css';
 import { Button1, Button2 } from '../../../shared/components/ui/Buttons';
 
 const Card = ({ facility }) => {

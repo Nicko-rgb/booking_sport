@@ -2,7 +2,7 @@
 // acerca de la instalcion deportiva
 
 import React from 'react';
-import '../../../styles/SpaceSport/addReview.css';
+import '../styles/addReview.css';
 import { Button1 } from '../../../shared/components/ui/Buttons';
 import { FaTelegramPlane } from "react-icons/fa";
 

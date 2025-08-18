@@ -87,7 +87,7 @@
 }
 
 .facility-card .facility-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-color);
     margin: 0;
@@ -109,13 +109,13 @@
 
 .facility-card .stars i {
     color: #ffc107;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .facility-card .rating-number {
     font-size: 0.8rem;
     color: var(--light-text);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* Ubicación */
@@ -125,7 +125,7 @@
     gap: 8px;
     margin-bottom: 10px;
     color: var(--light-text);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
 }
 
 .facility-card .location i {
@@ -139,7 +139,7 @@
 }
 
 .facility-card .sports h4 {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 5px;
@@ -156,7 +156,7 @@
     color: var(--text-color);
     padding: 4px 12px;
     border-radius: 15px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 500;
     text-transform: capitalize;
 }
@@ -167,7 +167,7 @@
 }
 
 .facility-card .services h4 {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 5px;
@@ -183,7 +183,7 @@
     display: flex;
     align-items: center;
     gap: 3px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #555;
 }
 
@@ -205,7 +205,7 @@
 
 .facility-card .price {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 4px;
 }
 
@@ -216,7 +216,7 @@
 }
 
 .facility-card .price-amount {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-color);
 }
@@ -237,7 +237,6 @@
 .facility-card .schedule i {
     color: var(--accent-color);
 }
-
 
 /* Botones de acción */
 .facility-card .card-actions {

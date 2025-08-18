@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../../../styles/Profile/EditProfile.css'
+import '../styles/EditProfile.css'
 import userData from '../data/userProfile.js'
 
 const EditProfile = ({ onSave, onCancel }) => {

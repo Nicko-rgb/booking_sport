@@ -1,7 +1,7 @@
 // Componente para mostrar un resumen de la reserva seleccionada.
 import React from 'react';
 import { useReservationContext } from '../context/ReservationContext';
-import '../../../styles/SpaceSport/reservationSummary.css';
+import '../styles/reservationSummary.css';
 import { IoIosArrowBack } from "react-icons/io";
 
 const ReservationSummary = ({ open, onClose, onConfirm, onBackToListTime, onContinueToPayment }) => {

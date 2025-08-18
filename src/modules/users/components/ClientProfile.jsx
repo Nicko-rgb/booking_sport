@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../../../styles/Profile/ClientProfile.css'
+import '../styles/ClientProfile.css'
 import EditProfile from './EditProfile.jsx'
 import Modal from '../../../shared/components/ui/Modal.jsx'
 import userData from '../data/userProfile.js'

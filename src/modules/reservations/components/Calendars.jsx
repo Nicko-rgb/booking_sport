@@ -1,6 +1,6 @@
 // Componente de Calendario para seleccionar fechas de reserva.
 import React from 'react';
-import '../../../styles/SpaceSport/calendarReserv.css';
+import '../styles/calendarReserv.css';
 import { useReservationContext } from '../context/ReservationContext';
 
 const Calendars = ({ open, onClose, onDateSelect }) => {

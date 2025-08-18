@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useReservationContext } from '../context/ReservationContext';
-import '../../../styles/SpaceSport/paymentMethods.css';
+import '../styles/paymentMethods.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { FaCreditCard, FaPaypal, FaUniversity, FaMobileAlt } from "react-icons/fa";
 import { SiVisa, SiMastercard } from "react-icons/si";

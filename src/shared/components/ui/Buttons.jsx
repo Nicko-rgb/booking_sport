@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../../styles/ui/btns.module.css';
+import style from '../../styles/btns.module.css';
 
 export const Button1 = ({ text = '', onClick, Icon }) => {
     return (

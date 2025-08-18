@@ -1,12 +1,12 @@
 // Componente de Filtro para vista en disposición moviles.
 import React from 'react';
-import '../../../styles/Facilityes/filterMovil.css';
+import '../styles/filterMovil.css';
 import { IoClose } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const FilterMovil = ({ 
     viewFilter, 
-    setViewFilter, 
+    setViewFilter,
     filters, 
     setFilters, 
     handleFilterChange, 

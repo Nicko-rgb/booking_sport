@@ -1,0 +1,819 @@
+/* ===== SCHEDULE MANAGEMENT COMPONENT STYLES ===== */
+
+/* ===== MAIN CONTAINER ===== */
+.schedule-management {
+    padding: 0;
+    background-color: var(--background-color, #f8fafc);
+    min-height: 100vh;
+}
+
+/* ===== SECTION HEADER ===== */
+.schedule-management .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.schedule-management .header-content h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.schedule-management .header-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-secondary, #64748b);
+    line-height: 1.5;
+}
+
+.schedule-management .header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* ===== BUTTONS ===== */
+.schedule-management .btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.schedule-management .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.schedule-management .btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: white;
+    color: var(--text-primary, #1e293b);
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.schedule-management .btn-secondary:hover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
+    transform: translateY(-1px);
+}
+
+/* ===== FILTERS SECTION ===== */
+.schedule-management .schedule-filters {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    margin-bottom: 2rem;
+}
+
+.schedule-management .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.schedule-management .filter-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.schedule-management .filter-group select {
+    padding: 1rem;
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: white;
+    color: var(--text-primary, #1e293b);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.schedule-management .filter-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+/* ===== DAYS SELECTOR ===== */
+.schedule-management .days-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.schedule-management .day-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--border-color, #e2e8f0);
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.schedule-management .day-btn:hover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
+    transform: translateY(-2px);
+}
+
+.schedule-management .day-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.schedule-management .day-short {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.schedule-management .day-full {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+/* ===== COURTS SUMMARY ===== */
+.schedule-management .courts-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.schedule-management .court-summary {
+    background: white;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.schedule-management .court-summary .court-header {
+    margin: 0;
+}
+
+.schedule-management .court-summary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.schedule-management .court-summary.maintenance {
+    border-color: #fbbf24;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+}
+
+.schedule-management .court-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: white;
+    flex-shrink: 0;
+}
+.schedule-management .court-status {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.schedule-management .status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.schedule-management .status.active {
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803d;
+}
+
+.schedule-management .status.maintenance {
+    background: rgba(251, 191, 36, 0.1);
+    color: #d97706;
+}
+
+.schedule-management .court-schedules-count {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #64748b);
+    font-weight: 600;
+}
+
+/* ===== SCHEDULES SECTION ===== */
+.schedule-management .schedules-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.schedule-management .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+
+.schedule-management .section-title h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+}
+
+.schedule-management .schedules-count {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #64748b);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 20px;
+}
+
+.schedule-management .schedules-grid {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.schedule-management .schedule-card {
+    background: white;
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.schedule-management .schedule-card:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.schedule-management .schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.schedule-management .time-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+}
+
+.schedule-management .time-range svg {
+    color: #667eea;
+    font-size: 1.25rem;
+}
+
+.schedule-management .schedule-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.schedule-management .action-btn {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-management .action-btn.edit {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.schedule-management .action-btn.edit:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: scale(1.1);
+}
+
+.schedule-management .action-btn.delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+.schedule-management .action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
+}
+
+.schedule-management .schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.schedule-management .court-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.schedule-management .sport-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.schedule-management .court-details {
+    flex: 1;
+}
+
+.schedule-management .court-name {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 0.25rem;
+}
+
+.schedule-management .sport-name {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #64748b);
+    font-weight: 500;
+}
+
+.schedule-management .schedule-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-management .price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.schedule-management .price-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary, #64748b);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.schedule-management .price-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #059669;
+}
+
+.schedule-management .availability {
+    display: flex;
+    align-items: center;
+}
+
+.schedule-management .availability-status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.schedule-management .availability-status.available {
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803d;
+}
+
+.schedule-management .availability-status.unavailable {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+/* ===== NO SCHEDULES STATE ===== */
+.schedule-management .no-schedules {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary, #64748b);
+}
+
+.schedule-management .no-schedules-icon {
+    font-size: 4rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+}
+
+.schedule-management .no-schedules h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+}
+
+.schedule-management .no-schedules p {
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    color: var(--text-secondary, #64748b);
+}
+
+/* ===== QUICK CONFIG SECTION ===== */
+.schedule-management .quick-config {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    margin-bottom: 2rem;
+}
+
+.schedule-management .quick-config h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+}
+
+.schedule-management .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.schedule-management .quick-action-btn {
+    padding: 2rem;
+    border: 2px solid var(--border-color, #e2e8f0);
+    background: white;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.schedule-management .quick-action-btn:hover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.02);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.schedule-management .quick-action-btn svg {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.schedule-management .quick-action-btn span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 0.5rem;
+}
+
+.schedule-management .quick-action-btn p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary, #64748b);
+    line-height: 1.5;
+}
+
+/* ===== MODAL STYLES ===== */
+.schedule-management .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.schedule-management .modal {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.schedule-management .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.schedule-management .modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+}
+
+.schedule-management .modal-close {
+    padding: 0.5rem;
+    border: none;
+    background: rgba(148, 163, 184, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary, #64748b);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-management .modal-close:hover {
+    background: rgba(148, 163, 184, 0.2);
+    color: var(--text-primary, #1e293b);
+}
+
+.schedule-management .modal-content {
+    padding: 2rem;
+}
+
+.schedule-management .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.schedule-management .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.schedule-management .form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.schedule-management .form-group input,
+.schedule-management .form-group select {
+    padding: 1rem;
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: white;
+    color: var(--text-primary, #1e293b);
+    transition: all 0.3s ease;
+}
+
+.schedule-management .form-group input:focus,
+.schedule-management .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.schedule-management .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 1rem;
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.schedule-management .checkbox-label:hover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.02);
+}
+
+.schedule-management .checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: #667eea;
+}
+
+.schedule-management .modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1rem 2rem 2rem 2rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .schedule-management .section-header {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .schedule-management .header-actions {
+        justify-content: center;
+    }
+    
+    .schedule-management .courts-summary {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .schedule-management .schedules-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .schedule-management .section-header,
+    .schedule-management .schedule-filters,
+    .schedule-management .schedules-section,
+    .schedule-management .quick-config {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .schedule-management .header-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .schedule-management .days-selector {
+        justify-content: center;
+    }
+    
+    .schedule-management .courts-summary {
+        grid-template-columns: 1fr;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .schedule-management .court-summary {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .schedule-management .schedules-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    
+    .schedule-management .quick-actions {
+        grid-template-columns: 1fr;
+    }
+    
+    .schedule-management .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .schedule-management .modal-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-management .section-header,
+    .schedule-management .schedule-filters,
+    .schedule-management .schedules-section,
+    .schedule-management .quick-config {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .schedule-management .header-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .schedule-management .courts-summary {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .schedule-management .court-summary {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .schedule-management .court-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+    
+    .schedule-management .court-info h4 {
+        font-size: 1.125rem;
+    }
+    
+    .schedule-management .court-info p {
+        font-size: 0.8rem;
+    }
+    
+    .schedule-management .day-btn {
+        min-width: 60px;
+        padding: 0.75rem 1rem;
+    }
+    
+    .schedule-management .schedule-card {
+        padding: 1rem;
+    }
+    
+    .schedule-management .modal {
+        margin: 0.5rem;
+        max-width: calc(100vw - 1rem);
+    }
+    
+    .schedule-management .modal-header,
+    .schedule-management .modal-content,
+    .schedule-management .modal-actions {
+        padding: 1rem;
+    }
+}
