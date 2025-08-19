@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../components/layout/header/Header'
-import ClientProfile from '../components/Perfil/ClientProfile'
+import Header from '../shared/components/ui/Header'
+import ClientProfile from '../modules/users/components/ClientProfile'
 
 
 const Profile = () => {

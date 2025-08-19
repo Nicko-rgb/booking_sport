@@ -1,20 +1,32 @@
+// Componente principal para la página de espacios deportivos
+// 
+// Este componente maneja:
+// - Visualización de instalaciones deportivas
+// - Galería de imágenes
+// - Selección de deportes y espacios
+// - Flujo completo de reservas (calendario, horarios, resumen, pago)
+// - Reseñas y calificaciones
+// - Integración con WhatsApp
+
 import React, { useState, useEffect } from 'react';
-import '../styles/SpaceSport/spaceSport.css';
+import '../modules/reservations/styles/spaceSport.css';
 import { LuHeart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import { RiTimeFill } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { } from "react-icons/fa6";
-import AddReview from '../components/SpaceSport/AddReview';
-import Calendars from '../components/SpaceSport/Calendars';
-import ListTime from '../components/SpaceSport/ListTime';
-import ReservationSummary from '../components/SpaceSport/ReservationSummary';
-import { Button1, Button2 } from '../components/ui/Buttons';
-import { ReservationProvider } from '../context/ReservationContext';
-import { sportFacility, reviews } from '../data/Reservas/dataSpace';
-import { useStoreSpaceSport } from '../hooks/useStoreSpaceSport';
+import AddReview from '../modules/reservations/components/AddReview';
+import Calendars from '../modules/reservations/components/Calendars';
+import ListTime from '../modules/reservations/components/ListTime';
+import ReservationSummary from '../modules/reservations/components/ReservationSummary';
+import PaymentMethods from '../modules/reservations/components/PaymentMethods';
+import { Button1, Button2 } from '../shared/components/ui/Buttons';
+import { ReservationProvider } from '../modules/reservations/context/ReservationContext';
+import { sportFacility, reviews } from '../modules/reservations/data/dataSpace';
+import { useStoreSpaceSport } from '../modules/reservations/hooks/useStoreSpaceSport';
 
+// Componente principal de la página de espacios deportivos
+// Maneja la visualización de instalaciones y el flujo completo de reservas
 const SpaceSport = () => {
     // Estados para manejo de deportes y espacios
     const [selectedSport, setSelectedSport] = useState(0);
@@ -47,12 +59,17 @@ const SpaceSport = () => {
         setListTimeOpen,
         reservationSummaryOpen,
         setReservationSummaryOpen,
+        paymentMethodsOpen,
+        setPaymentMethodsOpen,
         fechaSeleccionada,
+        reservationData,
         manejarSeleccionFecha,
         manejarMostrarResumen,
         manejarVolverAListTime,
         manejarVolverACalendario,
         manejarConfirmarReserva,
+        manejarContinuarAPago,
+        manejarVolverAResumen,
         manejarDesplazamientoIzquierda,
         manejarDesplazamientoDerecha,
         redirectWhatsApp,
@@ -317,6 +334,14 @@ const SpaceSport = () => {
                     onClose={() => setReservationSummaryOpen(false)}
                     onConfirm={manejarConfirmarReserva}
                     onBackToListTime={manejarVolverAListTime}
+                    onContinueToPayment={manejarContinuarAPago}
+                />
+
+                <PaymentMethods
+                    open={paymentMethodsOpen}
+                    onClose={() => setPaymentMethodsOpen(false)}
+                    onBackToSummary={manejarVolverAResumen}
+                    reservationData={reservationData}
                 />
             </div>
         </ReservationProvider>

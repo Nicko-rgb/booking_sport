@@ -1,0 +1,20 @@
+/* ===== ADMIN PANEL STYLES ===== */
+
+/* Admin Layout */
+.admin {
+    padding: 6px;
+    background-color: white;
+}
+
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 240px;
+    transition: 0.3s ease;
+    position:  relative;
+}
+
+.admin .admin-main-collapse {
+    margin-left: 70px;
+}

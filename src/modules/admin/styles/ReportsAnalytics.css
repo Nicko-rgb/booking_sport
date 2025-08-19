@@ -1,0 +1,647 @@
+/* ReportsAnalytics Component Styles */
+
+.reports-analytics {
+    padding: 0;
+}
+
+.reports-analytics .analytics-filters {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gris-medio);
+    margin-bottom: 1.5rem;
+}
+
+.reports-analytics .filters-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.reports-analytics .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.reports-analytics .filter-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.reports-analytics .filter-group select,
+.reports-analytics .filter-group input {
+    padding: 0.75rem;
+    border: 1px solid var(--gris-medio);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    background: white;
+}
+
+.reports-analytics .filter-group select:focus,
+.reports-analytics .filter-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--tertiary-color);
+}
+
+.reports-analytics .main-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.reports-analytics .main-stat {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    transition: transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-stat:hover {
+    transform: translateY(-2px);
+}
+
+.main-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.main-stat.revenue::before {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.main-stat.reservations::before {
+    background: linear-gradient(90deg, #f093fb, #f5576c);
+}
+
+.main-stat.clients::before {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+.main-stat.occupancy::before {
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+}
+
+.reports-analytics .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 auto 1rem auto;
+}
+
+.reports-analytics .stat-icon.revenue {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.reports-analytics .stat-icon.reservations {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.reports-analytics .stat-icon.clients {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.reports-analytics .stat-icon.occupancy {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.reports-analytics .main-stat h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.reports-analytics .main-stat p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.chart-header {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.chart-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.chart-content {
+    padding: 1.5rem;
+}
+
+/* Revenue Chart */
+.revenue-chart {
+    height: 300px;
+    display: flex;
+    align-items: end;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.reports-analytics .revenue-bar {
+    flex: 1;
+    background: linear-gradient(to top, #667eea, #764ba2);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    min-height: 20px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.reports-analytics .revenue-bar:hover {
+    opacity: 0.8;
+    transform: scaleY(1.05);
+}
+
+.reports-analytics .revenue-bar::after {
+    content: attr(data-month);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.reports-analytics .revenue-bar::before {
+    content: attr(data-value);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1f2937;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.revenue-bar:hover::before {
+    opacity: 1;
+}
+
+/* Court Occupancy */
+.occupancy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.occupancy-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.occupancy-item:hover {
+    background: white;
+    border-color: #667eea;
+}
+
+.occupancy-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.occupancy-info {
+    flex: 1;
+}
+
+.occupancy-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.occupancy-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.occupancy-percentage {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.analytics-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.analytics-header {
+    background: #f9fafb;
+    padding: 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.analytics-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.analytics-content {
+    padding: 1.25rem;
+}
+
+/* Popular Sports */
+.reports-analytics .sports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.reports-analytics .sport-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.reports-analytics .sport-item:hover {
+    background: white;
+    border-color: #667eea;
+}
+
+.reports-analytics .sport-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.reports-analytics .sport-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.reports-analytics .sport-details h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.reports-analytics .sport-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.reports-analytics .sport-percentage {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Popular Times */
+.reports-analytics .times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+}
+
+.reports-analytics .time-slot {
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.reports-analytics .time-slot:hover {
+    border-color: #667eea;
+    background-color: #f0f4ff;
+}
+
+.reports-analytics .time-slot.high {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border-color: #ef4444;
+}
+
+.reports-analytics .time-slot.medium {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border-color: #f59e0b;
+}
+
+.reports-analytics .time-slot.low {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-color: #10b981;
+}
+
+.reports-analytics .time-slot-time {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.reports-analytics .time-slot-level {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+/* Top Clients */
+.reports-analytics .clients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.reports-analytics .client-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.reports-analytics .client-item:hover {
+    background: white;
+    border-color: #667eea;
+}
+
+.reports-analytics .client-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.reports-analytics .client-details {
+    flex: 1;
+}
+
+.reports-analytics .client-details h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.reports-analytics .client-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.reports-analytics .client-stats {
+    text-align: right;
+}
+
+.reports-analytics .client-reservations {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.reports-analytics .client-revenue {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.reports-analytics .quick-actions {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.reports-analytics .quick-actions h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.reports-analytics .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.reports-analytics .action-btn {
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.reports-analytics .action-btn:hover {
+    border-color: #667eea;
+    background-color: #f0f4ff;
+    transform: translateY(-1px);
+}
+
+.reports-analytics .action-btn svg {
+    font-size: 1.5rem;
+    color: #667eea;
+}
+
+.reports-analytics .action-btn span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .reports-analytics .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .reports-analytics .analytics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .reports-analytics .main-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .reports-analytics .filters-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .reports-analytics .main-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .reports-analytics .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reports-analytics .revenue-chart {
+        height: 200px;
+    }
+    
+    .reports-analytics .times-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+    
+    .reports-analytics .actions-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .reports-analytics .filters-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .reports-analytics .main-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .reports-analytics .main-stat {
+        padding: 1.25rem;
+    }
+    
+    .reports-analytics .main-stat h3 {
+        font-size: 1.5rem;
+    }
+    
+    .reports-analytics .chart-content,
+    .reports-analytics .analytics-content {
+        padding: 1rem;
+    }
+    
+    .reports-analytics .revenue-chart {
+        height: 150px;
+    }
+    
+    .reports-analytics .times-grid {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 0.25rem;
+    }
+    
+    .reports-analytics .time-slot {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .reports-analytics .time-slot-time {
+        font-size: 0.7rem;
+    }
+    
+    .reports-analytics .time-slot-level {   
+        font-size: 0.6rem;
+    }
+    
+    .reports-analytics .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reports-analytics .occupancy-item,
+    .reports-analytics .sport-item,
+    .reports-analytics .client-item {
+        padding: 0.5rem;
+    }
+}

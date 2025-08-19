@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginRegisterComponent from '../components/auth/LoginRegister'
-import Header from '../components/layout/header/Header'
+import LoginRegisterComponent from '../modules/auth/components/LoginRegister'
+import Header from '../shared/components/ui/Header'
 
 const LoginRegister = () => {
   return (
