@@ -1,0 +1,115 @@
+.select-phone {
+    display: flex;
+    flex-direction: row;
+    gap: 10px !important;
+    /* border: red solid 1px; */
+}
+.select-phone .select-country {
+    position: relative;
+    max-width: 100px;
+    width: 100%;
+}
+.select-phone .select-country button {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: .8rem;
+    background: white;
+    padding-right: 10px;
+}
+
+.select-phone .select-country .arrow {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.select-phone .country-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 120px;
+    padding: 3px;
+    background: white;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.select-phone .country-dropdown .search-country {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #667eea;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    outline: none;
+    margin-bottom: 5px;
+}
+.select-phone .country-option {
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 500;
+    font-size: .9rem;
+}
+.select-phone .country-option:hover {
+    background: #efefef;
+}
+.select-phone .country-option.selected {
+    background: #667eea;
+    color: white;
+}
+.select-phone .country-option.selected:hover {
+    background: #667eea;
+}
+
+/* stylos de scroll */
+.select-phone .country-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.select-phone .country-dropdown::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+.select-phone .country-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #667eea;
+}
+
+.select-phone .input-group {
+    width: 100%;
+}
+
+.select-phone .input-group input {
+    padding-left: 3rem !important;
+}
+.select-phone .input-group label {
+    left: 2.5rem !important;
+
+}
+
+.select-phone .input-group .icon-tel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+}
+.select-phone .input-group .phone-input:focus + label,
+.select-phone .input-group .phone-input:not(:placeholder-shown) + label {
+    font-size: 0.8rem;
+    color: #667eea;
+}
+
+/* Dropdown Overlay */
+.select-phone .dropdown-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: transparent;
+}

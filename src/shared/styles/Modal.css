@@ -2,18 +2,15 @@
 
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 1rem;
   animation: fadeIn 0.3s ease-out;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
 }
 
 .modal-container {
@@ -26,9 +23,10 @@
   flex-direction: column;
   animation: slideIn 0.3s ease-out;
   position: relative;
-  border: 2px solid rgba(16, 185, 129, 0.1);
+  border: none !important;
 }
 
+/* Definicion de tamaño del modal */
 .modal-small {
   width: 100%;
   max-width: 400px;
@@ -45,15 +43,13 @@
 }
 
 .modal-header {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   position: relative;
-  overflow: hidden;
+  margin: 0 !important;
 }
 
 .modal-header::before {
@@ -102,11 +98,11 @@
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
-.modal-content {
-  padding: 2rem;
+.modal-body {
+  padding: 0 !important;
   overflow-y: auto;
   flex: 1;
-  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  margin: 0 !important;
 }
 
 /* Animations */
@@ -180,11 +176,11 @@
   }
   
   .modal-header {
-    padding: 1rem;
+    padding: 1rem !important;
   }
   
   .modal-content {
-    padding: 1rem;
+    padding: 1rem !important;
   }
 }
 
@@ -205,4 +201,41 @@
 
 .modal-content::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* Header Color Variants */
+.modal-header-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 100%) !important;
+}
+
+.modal-header-secondary {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%) !important;
+}
+
+.modal-header-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.modal-header-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.modal-header-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+.modal-header-info {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+}
+
+.modal-header-dark {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%) !important;
+}
+
+.modal-header-purple {
+  background: linear-gradient(135deg, #667eea 0%, #667eea 100%) !important;
+}
+
+.modal-header-pink {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%) !important;
 }

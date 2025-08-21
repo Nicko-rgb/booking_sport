@@ -234,7 +234,7 @@ const SpaceSport = () => {
 
                 {/* Sección de selección de espacios */}
                 <div className="spaces-selection">
-                    <h3>Espacios de {currentSportData?.sport_type}</h3>
+                    <h3>Seleccione Espacios de {currentSportData?.sport_type}</h3>
                     <div className="spaces-grid">
                         {currentSportData?.spaces.map((space, index) => (
                             <div

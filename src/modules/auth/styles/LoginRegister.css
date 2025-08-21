@@ -1,537 +1,472 @@
-/* ===== CONTENEDOR PRINCIPAL DE AUTENTICACIÓN ===== */
-/* Contenedor principal que ocupa toda la pantalla con fondo degradado */
-.auth-container {
-    min-height: 80vh;
+/* LoginRegister.css */
+.login-register {
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: relative;
+    align-items: center;
+    height: calc(100vh - 100px);
+    font-family: 'Arial', sans-serif;
 }
 
-/* Textura de fondo sutil con patrón de puntos */
-.auth-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-    pointer-events: none;
-}
-
-/* ===== TARJETA DE AUTENTICACIÓN ===== */
-/* Tarjeta principal con efecto de cristal y sombra */
-.auth-container .auth-card {
+.login-register main {
     position: relative;
-    display: flex;
-    background: var(--gris-claro);
-    border-radius: 10px;
-    box-shadow: var(--shadow), 5px 15px 35px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    height: 500px;
+    background: white;
+    /* border-radius: 20px; */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    max-width: 900px;
+}
+
+/* Fondo que se desplaza */
+.login-register .fondo-translate {
+    position: absolute;
+    top: 0;
+    width: 45%;
+    height: 100%;
+    background: var(--color1);
+    transition: all 0.6s ease-in-out;
+    z-index: 1;
+    border: 0;
+}
+
+/* Posiciones del fondo */
+.login-register .fondo-translate.login-position {
+    left: 55%;
+    border-radius: 70px 0 0 70px;
+}
+
+.login-register .fondo-translate.register-position {
+    left: 0;
+    border-radius: 0 70px 70px 0;
+}
+
+/* Contenedor principal */
+.login-register .content-container {
+    position: relative;
     width: 100%;
-    height: 580px;
-
+    height: 100%;
+    display: flex;
+    z-index: 2;
 }
 
-/* ===== SECCIONES DE FORMULARIO Y BIENVENIDA ===== */
-/* Sección del formulario con fondo blanco */
-.auth-container .form-section {
-    flex: 1;
-    padding: 0 40px;
+/* Secciones de formulario y bienvenida */
+.login-register .form-section,
+.login-register .welcome-section {
+    position: absolute;
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-y: auto;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Sección de bienvenida con gradiente */
-.auth-container .welcome-section {
-    flex: 1;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: var(--gris-claro);
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 50px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px;
+    box-sizing: border-box;
+    transition: all 0.6s ease-in-out;
+}
+.login-register .welcome-section {
+    width: 45%;
 }
 
-/* ===== SECCIONES DE BIENVENIDA ESPECÍFICAS ===== */
-/* Sección de bienvenida para login con gradiente púrpura */
-.auth-container .login .welcome-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Formularios */
+.login-register .form-section {
+    background: white;
+    width: 55%;
 }
 
-/* Patrón de puntos para la sección de login */
-.auth-container .login .welcome-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+.login-register .form-section.active {
+    opacity: 1;
+    transform: translateX(0);
+    padding: 30px;
+}
+
+.login-register .form-section.inactive {
+    opacity: 0;
+    transform: translateX(-100%);
     pointer-events: none;
 }
 
-/* Sección de bienvenida para registro con gradiente azul */
-.auth-container .register .welcome-section {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+/* Posicionamiento de formularios */
+.login-register .login-form {
+    left: 0;
 }
 
-/* Patrón de ondas para la sección de registro */
-.auth-container .register .welcome-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.login-register .register-form {
     right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="waves" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20 Q10 10 20 20 T40 20" stroke="%23ffffff" stroke-width="0.5" fill="none" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23waves)"/></svg>') repeat;
+}
+
+.login-register .register-form.inactive {
+    transform: translateX(100%);
+}
+
+/* Secciones de bienvenida */
+.login-register .welcome-section {
+    color: white;
+    text-align: center;
+}
+
+.login-register .welcome-section.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.login-register .welcome-section.inactive {
+    opacity: 0;
+    transform: translateX(100%);
     pointer-events: none;
 }
 
-/* Estilos exclusivos para Login */
-.auth-container .login-welcome {
-    background-color: #f0f0f0;
-    border-radius: 50px 0 0 50px;
+/* Posicionamiento de secciones de bienvenida */
+.login-register .login-welcome {
+    right: 0;
 }
 
-/* Estilos exclusivos para Registro */
-.auth-container .register-welcome {
-    background-color: #e0ffe0;
-    border-radius: 0 50px 50px 0;
+.login-register .register-welcome {
+    left: 0;
 }
 
-.auth-container .register-welcome {
-    order: -1;
+.login-register .register-welcome.inactive {
+    transform: translateX(-100%);
 }
 
-/* ===== CLASES DE TRANSICIÓN ===== */
-/* Estado de transición para elementos que están cambiando */
-.auth-container .transitioning {
-    opacity: 0.95;
-    transform: scale(0.99);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+/* Títulos */
+.login-register .form-section h2,
+.login-register .welcome-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-/* Animación de entrada suave */
-.auth-container .slide-in {
-    animation: slideInSmooth 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Keyframes para la animación de entrada */
-@keyframes slideInSmooth {
-    0% {
-        opacity: 0;
-        transform: translateX(20px) scale(0.98);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-    }
-}
-
-/* Transición suave para el cambio de orden en registro */
-.auth-container .register-welcome {
-    transition: order 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ===== ENCABEZADOS DE FORMULARIO ===== */
-/* Encabezado principal del formulario */
-.auth-container .form-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Título principal del formulario */
-.auth-container .form-header h2 {
+.login-register .form-section h2 {
     color: #333;
-    font-size: 32px;
-    font-weight: 700;
-    text-decoration: underline;
-    letter-spacing: -0.8px;
 }
 
-/* Subtítulo descriptivo */
-.auth-container .form-header p {
-    color: #666;
-    font-size: 16px;
-    font-weight: 400;
+.login-register .welcome-section h2 {
+    color: white;
 }
 
-/* ===== ICONOS SOCIALES ===== */
-/* Contenedor de iconos de redes sociales */
-.auth-container .social-icons {
+/* Párrafos */
+.login-register .form-section p,
+.login-register .welcome-section p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.login-register .form-section p {
+    color: #8c8c8c;
+}
+
+.login-register .welcome-section p {
+    color: white;
+}
+
+/* Iconos sociales */
+.login-register .opcions-icons {
     display: flex;
-    justify-content: center;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
-/* Botón base para redes sociales */
-.auth-container .social-btn {
-    width: 50px;
-    height: 50px;
+.login-register .opcions-icons svg {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 50%;
-    border: 2px solid #e1e5e9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    color: #666;
+}
+
+.login-register .opcions-icons svg:hover {
+    background: var(--color1);
+    color: white;
+    border-color: var(--color1);
+    transform: translateY(-2px);
+}
+
+/* Formularios */
+.login-register form {
+    width: 100%;
+}
+.login-register form>* {
+    margin-bottom: 15px;
+}
+.login-register form aside {
+    display: flex;
+    gap: 15px;
+}
+.login-register .input-group {
+    position: relative;
+}
+
+.login-register .input-group input {
+    width: 100%;
+    padding: 18px 10px 8px 10px;
+    border: 2px solid #ebebeb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.login-register .input-txt {
+    text-transform: capitalize;
+}
+
+.login-register .input-group input:focus {
+    outline: none;
+    border-color: var(--color1);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.login-register .input-group input::placeholder {
+    color: transparent;
+}
+
+/* Labels flotantes */
+.login-register .input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    padding: 0 4px;
+}
+
+.login-register .input-group input:focus + label,
+.login-register .input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: var(--color1);
+    background: white;
+}
+.login-register .input-group input:not(:placeholder-shown) {
     background: white;
 }
 
-/* Efecto hover para botones sociales */
-.auth-container .social-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Iconos SVG dentro de los botones */
-.auth-container .social-btn svg {
-    width: 24px;
-    height: 24px;
-}
-
-/* Colores específicos para cada red social */
-.auth-container .social-btn.google {
-    color: #db4437;
-    border-color: #db4437;
-}
-
-.auth-container .social-btn.facebook {
-    color: #3b5998;
-    border-color: #3b5998;
-}
-
-.auth-container .social-btn.twitter {
-    color: #1da1f2;
-    border-color: #1da1f2;
-}
-
-.auth-container .auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    border: 1px solid rgba(36, 128, 39, 0.185);
-    padding: 8px 10px;
-    border-radius: 20px;
-}
-
-.auth-container .auth-form input {
-    width: 100%;
-    padding: 10px 20px;
-    border: 1px solid rgba(78, 196, 82, 0.322);
-    background: rgba(240, 240, 240, 0.842);
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-    transition: var(--transition);
-    box-sizing: border-box;
-}
-
-.auth-container .auth-form input:focus {
-    background: var(--bg-color);
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(78, 196, 82, 0.2);
-}
-
-.auth-container .auth-form input::placeholder {
-    color: #999;
-}
-
-.auth-container .forgot-password {
-    color: #666;
-    text-decoration: none;
-    font-size: 14px;
-    text-align: center;
-    margin: 10px 0;
-    transition: color 0.3s ease;
-    text-decoration: underline;
-}
-
-.auth-container .forgot-password:hover {
-    color: var(--primary-color);
-}
-
-.auth-container .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-}
-
-.auth-container .auth-button {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: var(--gris-claro);
-    border: none;
-    padding: 10px 40px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    /* margin-top: 10px; */
-}
-
-.auth-container .auth-button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(78, 196, 82, 0.4);
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
-}
-
-.auth-container .welcome-section h2 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.auth-container .welcome-section p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    opacity: 0.9;
-}
-
-.auth-container .toggle-button {
-    background: transparent;
-    color: var(--gris-claro);
-    border: 2px solid var(--gris-claro);
-    padding: 12px 40px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.auth-container .toggle-button:hover {
-    background: var(--gris-claro);
-    color: var(--primary-color);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-}
-
-/* ===== DISEÑO RESPONSIVO ===== */
-/* Tablets y dispositivos medianos (768px o menos) */
-@media (max-width: 768px) {
-    .auth-container .auth-card {
-        flex-direction: column;
-        max-width: 400px;
-        margin: 20px;
-        min-height: auto;
-    }
-
-    .auth-container .welcome-section {
-        order: 0;
-        padding: 40px 30px;
-        min-height: 200px;
-    }
-
-    .auth-container .register-welcome {
-        order: 0;
-    }
-
-    .auth-container .form-section {
-        padding: 40px 30px;
-    }
-
-    .auth-container .form-header h2 {
-        font-size: 28px;
-    }
-
-    .auth-container .welcome-section h2 {
-        font-size: 28px;
-    }
-
-    .auth-container .social-icons {
-        gap: 12px;
-        margin-bottom: 25px;
-    }
-
-    .auth-container .social-btn {
-        width: 45px;
-        height: 45px;
-    }
-
-    .auth-container .social-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-/* Dispositivos móviles pequeños (480px o menos) */
-@media (max-width: 480px) {
-    .auth-container {
-        padding: 10px;
-    }
-    
-    .auth-container .auth-card {
-        border-radius: 15px;
-        max-width: 100%;
-    }
-    
-    .auth-container .form-section, .auth-container .welcome-section {
-        padding: 30px 20px;
-    }
-    
-    .auth-container .welcome-section {
-        padding: 25px 20px;
-        min-height: 180px;
-    }
-    
-    .auth-container .welcome-section h2 {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-    
-    .auth-container .welcome-section p {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-    
-    .auth-container .form-header {
-        margin-bottom: 30px;
-    }
-    
-    .auth-container .form-header h2 {
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
-    
-    .auth-container .form-header p {
-        font-size: 14px;
-    }
-    
-    .auth-container .social-icons {
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    
-    .auth-container .social-btn {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .auth-container .social-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .auth-container .auth-form input {
-        padding: 12px 16px;
-        font-size: 16px;
-        border-radius: 10px;
-    }
-    
-    .auth-container .auth-button {
-        padding: 12px;
-        font-size: 15px;
-        border-radius: 10px;
-    }
-    
-    .auth-container .forgot-password {
-        font-size: 13px;
-    }
-}
-
-/* ===== ESTILOS PARA VALIDACIONES Y CONTRASEÑAS ===== */
-/* Contenedor de input con validación */
-.input-container {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-/* Contenedor de contraseña con botón de mostrar/ocultar */
-.input-container.password-container {
-    position: relative;
-}
-
-.input-container.password-container input {
-    padding-right: 45px !important;
-}
-
-/* Botón para mostrar/ocultar contraseña */
-.password-toggle {
+/* Iconos de inouts */
+.login-register .input-group .ico {
     position: absolute;
-    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
-    border: none;
+    right: 10px !important;
+    font-size: 1.2rem;
+    color: #999;
+    pointer-events: none;
+}
+
+.login-register .input-group .ico-pass {
+    pointer-events: all;
     cursor: pointer;
-    padding: 6px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    z-index: 10;
-    font-size: 16px;
+    font-size: 27px;
+    padding: 3px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+
+}
+.login-register .input-group .ico-pass:hover {
+    /* color: var(--color1); */
+    background-color: #ddd;
 }
 
-.password-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+
+/* Enlaces */
+.login-register form a {
+    color: var(--color1);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 
-/* Mensajes de error */
-.error-message {
-    color: #e74c3c;
-    font-size: 12px;
-    margin-top: 5px;
-    display: block;
-    font-weight: 500;
-    animation: fadeIn 0.3s ease;
+.login-register form a:hover {
+    color: #764ba2;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Botones */
+.login-register .btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Estilos para inputs con error */
-.input-container input:invalid:not(:placeholder-shown) {
-    border-color: #e74c3c;
-    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+.login-register .btn-primary {
+    background: var(--color1);
+    color: white;
 }
 
-/* Estilos para inputs válidos */
-.input-container input:valid:not(:placeholder-shown) {
-    border-color: #27ae60;
-    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
+.login-register .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Responsive para dispositivos móviles */
+.login-register .btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.login-register .btn-outline:hover {
+    background: white;
+    color: var(--color1);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .input-container {
+    .login-register {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .login-register main {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Ocultar fondo animado en móviles */
+    .login-register .fondo-translate {
+        display: none;
+    }
+    
+    .login-register .content-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: var(--color1);
+    }
+    
+    /* Simplificar secciones para móviles */
+    .login-register .form-section,
+    .login-register .welcome-section {
+        position: static;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding: 30px 20px;
+        border-radius: 15px;
+        margin: 10px 0;
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+    
+    .login-register .form-section {
+        background: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-register .welcome-section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Mostrar solo la sección activa */
+    .login-register .form-section.inactive,
+    .login-register .welcome-section.inactive {
+        display: none;
+    }
+
+    .login-register .form-section h2,
+    .login-register .welcome-section h2 {
+        font-size: 1.8rem;
         margin-bottom: 15px;
     }
-    
-    .password-toggle {
-        right: 12px;
-        font-size: 16px;
+
+    .login-register form {
+        max-width: 100%;
     }
-    
-    .error-message {
-        font-size: 11px;
+
+    /* Ajustar labels flotantes para móviles */
+    .login-register .input-group label {
+        font-size: 0.85rem;
+    }
+
+    .login-register .input-group input:focus + label,
+    .login-register .input-group input:not(:placeholder-shown) + label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-register .content-container {
+        padding: 15px;
+    }
+
+    .login-register .form-section,
+    .login-register .welcome-section {
+        padding: 25px 20px;
+        max-width: 100%;
+        margin: 5px 0;
+    }
+
+    .login-register .form-section h2,
+    .login-register .welcome-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .login-register .opcions-icons {
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .login-register .opcions-icons svg {
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+    }
+
+    .login-register .input-group {
+        margin-bottom: 20px;
+    }
+
+    .login-register .input-group input {
+        padding: 15px 12px 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .login-register .input-group label {
+        font-size: 0.8rem;
+        left: 12px;
+    }
+
+    .login-register .input-group input:focus + label,
+    .login-register .input-group input:not(:placeholder-shown) + label {
+        font-size: 0.65rem;
+    }
+
+    .login-register .btn {
+        padding: 12px;
+        font-size: 0.85rem;
+        margin-top: 5px;
+    }
+
+    .login-register .form-section p,
+    .login-register .welcome-section p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
     }
 }

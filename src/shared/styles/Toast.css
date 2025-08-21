@@ -1,0 +1,74 @@
+/* Contenedor general */
+.Toastify__toast-container {
+  z-index: 9999;
+  padding: 0;
+}
+
+/* Estilo base de cada toast */
+.Toastify__toast {
+  background: #ffffff !important;
+  color: #080c16 !important; /* Texto oscuro */
+  font-family: 'Poppins', sans-serif !important;
+  border-radius: 8px !important;
+  padding: 5px 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cuerpo del toast */
+.Toastify__toast-body {
+  margin-left: 8px !important;
+  display: flex;
+  align-items: center;
+  border: red solid;
+}
+
+/* Botón de cierre */
+.Toastify__close-button {
+  color: #6b7280 !important; /* gris */
+  opacity: 0.6;
+}
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+/* Barra de progreso */
+.Toastify__progress-bar--wrp{
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+}
+.Toastify__progress-bar--bg {
+    height: 2px;
+}
+.Toastify__progress-bar {
+  height: 2px !important;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Colores personalizados por tipo */
+.Toastify__toast--success .Toastify__progress-bar {
+  background: #22c55e !important; /* Verde éxito */
+}
+
+.Toastify__toast--error .Toastify__progress-bar {
+  background: #ef4444 !important; /* Rojo error */
+}
+
+.Toastify__toast--warning .Toastify__progress-bar {
+  background: #f59e0b !important; /* Amarillo warning */
+}
+
+.Toastify__toast--info .Toastify__progress-bar {
+  background: dodgerblue !important; /* Azul info */
+}
+
+/* Stylos de boton de cerrar */
+.Toastify__close-button {
+    display: none;
+}

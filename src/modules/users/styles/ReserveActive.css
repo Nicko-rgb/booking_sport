@@ -1,0 +1,110 @@
+.reserve-active-container {
+    padding: 20px;
+    color: #333;
+    border-radius: 12px;
+}
+
+.reserve-active-container .reserves-section {
+    margin-bottom: 30px;
+}
+
+.reserve-active-container .reserves-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.reserve-active-container .reserves-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.reserve-active-container .reserve-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.reserve-active-container .reserve-card:hover {
+    transform: translateY(-3px);
+}
+
+.reserve-active-container .reserve-card.past {
+    opacity: 0.7;
+    background: #f1f1f1;
+}
+
+.reserve-active-container .reserve-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reserve-active-container .sport-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reserve-active-container .sport-icon {
+    font-size: 1.8rem;
+    color: #2196f3;
+}
+
+.reserve-active-container .status-badge {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.reserve-active-container .status-confirmed {
+    background: var(--tertiary-color);
+    color: var(--text-color);
+}
+
+.reserve-active-container .reserve-details {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.reserve-active-container .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reserve-active-container .detail-icon {
+    color: #555;
+}
+
+.reserve-active-container .reserve-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.reserve-active-container .btn-view {
+    background: #2196f3;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.reserve-active-container .btn-view:hover {
+    background: #1976d2;
+}
+
+.reserve-active-container .empty-msg {
+    color: #777;
+    font-style: italic;
+}

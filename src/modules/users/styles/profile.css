@@ -1,0 +1,172 @@
+.profile_page {
+    background-color: #f9fafb;
+}
+.profile_page main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+    padding: 10px;
+    padding-top: 0;
+}
+
+.profile_page .title_profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 0;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.profile_page main>section {
+    padding: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Stylo de perfil foto, nombre */
+.profile_page .profile {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.profile_page .box_info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile_page .profile img {
+    width: 120px;
+    height: auto;
+}
+.profile_page .box_info h2 {
+    font-size: 1.2rem;
+}
+.profile_page .box_info p {
+    color: var(--light-text);
+    font-size: .9rem;
+}
+
+.profile .box_accions button {
+    padding: 8px 16px;
+    background-color: var(--tertiary-color);
+    font-weight: 600;
+    border-radius: 8px;
+}
+.profile .box_accions button svg {
+    font-size: 1rem;
+}
+.profile .box_accions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 6px #667eea49;
+}
+
+/* Stylo de datos datos estadistica de perfil */
+.profile_page .estadistica_profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.profile_page .estadistica_profile aside {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    box-shadow: 0 0 6px #667eea49;
+    padding: 10px;
+    border-radius: 3px;
+    gap: 6px;
+    color: var(--light-text);
+    cursor: default;
+}
+.profile_page .estadistica_profile h4 {
+    text-align: center;
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--text-color);
+}
+.profile_page .estadistica_profile span {
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.profile_page .estadistica_profile aside svg {
+    background-color: var(--color1);
+    color: white;
+    font-size: 2rem;
+    padding: 5px;
+    border-radius: 6px;
+}
+/* Stylos de menu de opciones de perfil */
+.profile_page .options_menu {
+    display: flex;
+    gap: 16px;
+}
+
+.profile_page .options_menu button {
+    padding: 8px 10px;
+    font-weight: 500;
+    font-size: .8rem;
+    border-radius: 9px;
+}
+.profile_page .options_menu button:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+.profile_page .options_menu svg {
+    font-size: 1rem;
+}
+.profile_page .options_menu .active {
+    background-color: var(--tertiary-color);
+    box-shadow: 0 0 3px var(--primary-color);
+}
+.profile_page .options_menu .active:hover {
+    color: var(--text-color);
+}
+
+/* Desing responsive */
+@media (max-width: 768px) {
+    .profile_page main {
+        padding: 5px;
+        padding-top: 0;
+        padding-bottom: 100px;
+    }
+    .profile_page main>section {
+        padding: 5px;
+        box-shadow: none;
+        border-radius: 0;
+        margin-top: 10px;
+    }
+    .profile_page .box_info {
+        flex-direction: column;
+        width: 100%;
+    }
+    .profile_page .box_info div {
+        text-align: center;
+    }
+    .profile_page .box_accions {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .profile_page .options_menu {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        padding: 10px 0;
+        position: sticky;
+        top: 70px;
+        background-color: white;
+    }
+    .profile_page .options_menu button {
+        padding: 8px 16px;
+    }
+    .profile_page .options_menu span {
+        display: none;
+    }
+}

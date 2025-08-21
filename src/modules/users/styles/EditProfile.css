@@ -2,6 +2,9 @@
 
 .edit-profile-modal-content {
   width: 100%;
+  padding: 2rem ;
+  overflow-y: auto;
+  padding-bottom: 160px;
 }
 
 .edit-profile-description {
