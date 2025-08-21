@@ -1,0 +1,228 @@
+/* History.css */
+
+.history-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* ==== HEADER ==== */
+.history-container .history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.history-container .history-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.history-container .history-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.history-container .stat-item {
+  text-align: center;
+}
+
+.history-container .stat-number {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.history-container .stat-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ==== FILTROS ==== */
+.history-container .history-filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.history-container .search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.history-container .search-icon {
+  margin-right: 8px;
+  color: #777;
+}
+
+.history-container .search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.history-container .filter-group {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.history-container .filter-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.history-container .filter-icon {
+  color: #4caf50;
+}
+
+.history-container .filter-item select {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ==== LISTADO ==== */
+.history-container .history-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.history-container .history-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.history-container .history-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.history-container .history-card-header {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.history-container .sport-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.history-container .sport-icon {
+  font-size: 1.6rem;
+  color: #4caf50;
+}
+
+.history-container .status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+/* ==== DETALLES ==== */
+.history-container .history-details {
+  margin-bottom: 12px;
+}
+
+.history-container .detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.history-container .detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.history-container .detail-icon {
+  color: #4caf50;
+}
+
+/* ==== FECHA RESERVA ==== */
+.history-container .reservation-date {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: #777;
+  text-align: right;
+}
+
+/* ==== EMPTY STATE ==== */
+.history-container .no-history {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-top: 30px;
+}
+
+.history-container .no-history-icon {
+  font-size: 2rem;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.history-container .no-history h4 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.no-history p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .history-container .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .history-container .history-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .history-container .filter-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -56,10 +56,7 @@ export const useAppStore = create(
                 initializeApp: async () => {
                     try {
                         const store = get();
-                        
-
-
-                        // Then initialize auth if available
+                        // Initialize auth if available
                         if (store.initializeAuth) {
                             await store.initializeAuth();
                         }

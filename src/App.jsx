@@ -1,6 +1,9 @@
 import React from 'react'
 import "./index.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import 'react-toastify/dist/ReactToastify.css';
+import './shared/styles/Toast.css'
+import { ToastContainer } from 'react-toastify';
 
 // Pages
 import Home from "./pages/Home";
@@ -9,6 +12,9 @@ import Facilityes from './pages/Facilityes';
 import SpaceSport from "./pages/SpaceSport";
 import LoginRegister from './pages/LoginRegister';
 import Admin from './pages/Admin';
+
+// Toast Example
+import ToastExample from './shared/components/ToastExample';
 
 // Components
 import ScrollToTop from './shared/components/ui/ScrollToTop';
@@ -43,7 +49,9 @@ const App = () => {
                     <Route path="/login" element={<LoginRegister />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path='/admin' element={<Admin />} />
+                    <Route path='/toast-example' element={<ToastExample />} />
                 </Routes>
+                <ToastContainer position="top-right" autoClose={3000} />
             </AuthProvider>
         </BrowserRouter>
     )

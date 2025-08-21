@@ -9,7 +9,7 @@ const EditProfile = ({ onSave, onCancel }) => {
         phone: userData.phone,
         birthDate: userData.birthDate,
         address: userData.address,
-        favoritesSports: userData.favoritesSports ? userData.favoritesSports.split(', ') : []
+        favoriteSports: userData.favoriteSports || []
     })
 
     // Lista de deportes disponibles en la ciudad
@@ -52,20 +52,20 @@ const EditProfile = ({ onSave, onCancel }) => {
 
     const handleSportChange = (sport) => {
         setFormData(prev => {
-            const currentSports = prev.favoritesSports
+            const currentSports = prev.favoriteSports
             const isSelected = currentSports.includes(sport)
 
             if (isSelected) {
                 // Remover deporte si ya está seleccionado
                 return {
                     ...prev,
-                    favoritesSports: currentSports.filter(s => s !== sport)
+                    favoriteSports: currentSports.filter(s => s !== sport)
                 }
             } else {
                 // Agregar deporte si no está seleccionado
                 return {
                     ...prev,
-                    favoritesSports: [...currentSports, sport]
+                    favoriteSports: [...currentSports, sport]
                 }
             }
         })
@@ -126,7 +126,7 @@ const EditProfile = ({ onSave, onCancel }) => {
             // Convertir array de deportes a string para guardar
             const dataToSave = {
                 ...formData,
-                favoritesSports: formData.favoritesSports.join(', ')
+                favoriteSports: formData.favoriteSports
             }
 
             console.log('Datos guardados:', dataToSave)
@@ -149,7 +149,7 @@ const EditProfile = ({ onSave, onCancel }) => {
             phone: userData.phone,
             birthDate: userData.birthDate,
             address: userData.address,
-            favoritesSports: userData.favoritesSports ? userData.favoritesSports.split(', ') : []
+            favoriteSports: userData.favoriteSports || []
         })
         setErrors({})
         if (onCancel) {
@@ -245,7 +245,7 @@ const EditProfile = ({ onSave, onCancel }) => {
                                         <input
                                             type="checkbox"
                                             id={`sport-${sport}`}
-                                            checked={formData.favoritesSports.includes(sport)}
+                                            checked={formData.favoriteSports.includes(sport)}
                                             onChange={() => handleSportChange(sport)}
                                         />
                                         <label htmlFor={`sport-${sport}`} className="sport-label">
@@ -254,10 +254,10 @@ const EditProfile = ({ onSave, onCancel }) => {
                                     </div>
                                 ))}
                             </div>
-                            {formData.favoritesSports.length > 0 && (
+                            {formData.favoriteSports.length > 0 && (
                                 <div className="selected-sports">
                                     <span className="selected-label">Seleccionados: </span>
-                                    <span className="selected-list">{formData.favoritesSports.join(', ')}</span>
+                                    <span className="selected-list">{formData.favoriteSports.join(', ')}</span>
                                 </div>
                             )}
                         </div>

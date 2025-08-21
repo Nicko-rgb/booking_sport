@@ -1,0 +1,223 @@
+/* ===== Preferences Component Styles ===== */
+.preferences-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* Header */
+.preferences-container .preferences-header {
+  margin-bottom: 2rem;
+}
+
+.preferences-container .preferences-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.preferences-container .preferences-header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Sections */
+.preferences-container .preference-section {
+  margin-bottom: 2rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+}
+
+.preferences-container .section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.preferences-container .section-icon {
+  font-size: 1.4rem;
+  color: #2563eb;
+  margin-right: 0.6rem;
+}
+
+.preferences-container .section-header h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Preference items */
+.preferences-container .preference-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preferences-container .preference-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preferences-container .preference-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.preferences-container .preference-icon {
+  font-size: 1.2rem;
+  color: #4b5563;
+}
+
+.preferences-container .preference-title {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+}
+
+.preferences-container .preference-description {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Select Inputs */
+.preferences-container .preference-select {
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  font-size: 0.95rem;
+  transition: border 0.2s ease;
+}
+
+.preferences-container .preference-select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+/* Toggle Switch */
+.preferences-container .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.preferences-container .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.preferences-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #d1d5db;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.preferences-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.preferences-container .toggle-switch input:checked + .slider {
+  background-color: #2563eb;
+}
+
+.preferences-container .toggle-switch input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Sports Grid */
+.preferences-container .sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.preferences-container .sport-checkbox {
+  display: block;
+}
+
+.preferences-container .sport-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.preferences-container .sport-option:hover {
+  border-color: #2563eb;
+  background: #f9fafb;
+}
+
+.preferences-container .sport-icon {
+  font-size: 1.2rem;
+  color: #2563eb;
+}
+
+/* Actions */
+.preferences-container .preferences-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.preferences-container .btn-primary,
+.preferences-container .btn-secondary {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border: none;
+}
+
+.preferences-container .btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.preferences-container .btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.preferences-container .btn-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.preferences-container .btn-secondary:hover {
+  background-color: #e5e7eb;
+}

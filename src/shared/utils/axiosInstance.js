@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const axiosInstance = axios.create({
-    baseURL: API_URL,  // Ya contiene la raíz del backend
+    baseURL: API_URL + '/api',  // Ya contiene la raíz del backend
 });
 
 // Añadir token a cada request
