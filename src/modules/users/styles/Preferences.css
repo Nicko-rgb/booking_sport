@@ -1,223 +1,198 @@
 /* ===== Preferences Component Styles ===== */
 .preferences-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  font-family: 'Inter', sans-serif;
-  color: #333;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    position: relative;
 }
 
 /* Header */
 .preferences-container .preferences-header {
-  margin-bottom: 2rem;
+    margin-bottom: 10px;
 }
 
-.preferences-container .preferences-header h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #222;
-}
 
-.preferences-container .preferences-header p {
-  font-size: 1rem;
-  color: #666;
-}
-
-/* Sections */
+/* Sections asides */
 .preferences-container .preference-section {
-  margin-bottom: 2rem;
-  padding: 1.2rem;
-  border-radius: 12px;
-  background: #fafafa;
-  border: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: #667eea37 0px 2px 12px;
 }
 
-.preferences-container .section-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+.preferences-container .header_aside {
+    padding-bottom: .5rem;
+    margin-bottom: .6rem;
+    border-bottom: 1px solid #667eea37;
 }
 
 .preferences-container .section-icon {
-  font-size: 1.4rem;
-  color: #2563eb;
-  margin-right: 0.6rem;
+    font-size: 1.4rem;
+    margin-right: 0.6rem;
 }
 
-.preferences-container .section-header h4 {
-  font-size: 1.3rem;
-  font-weight: 600;
+.preferences-container .header_aside h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color1);
+    display: flex;
+    align-items: center;
 }
 
 /* Preference items */
 .preferences-container .preference-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .preferences-container .preference-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+
 .preferences-container .preference-info {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
 }
 
 .preferences-container .preference-icon {
-  font-size: 1.2rem;
-  color: #4b5563;
+    width: 15px;
+    height: 15px;
+    color: #4b5563;
 }
 
 .preferences-container .preference-title {
-  font-weight: 600;
-  font-size: 1rem;
-  display: block;
+    font-weight: 600;
+    font-size: .95rem;
+    display: block;
 }
 
 .preferences-container .preference-description {
-  font-size: 0.85rem;
-  color: #6b7280;
+    font-size: 0.85rem;
+    color: var(--light-text);
 }
 
 /* Select Inputs */
 .preferences-container .preference-select {
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  background: #fff;
-  font-size: 0.95rem;
-  transition: border 0.2s ease;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    font-size: 0.95rem;
+    transition: border 0.2s ease;
 }
 
 .preferences-container .preference-select:focus {
-  border-color: #2563eb;
-  outline: none;
+    border-color: var(--color1);
+    outline: none;
 }
 
 /* Toggle Switch */
 .preferences-container .toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 46px;
-  height: 24px;
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
 }
 
 .preferences-container .toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .preferences-container .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #d1d5db;
-  transition: 0.4s;
-  border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d5db;
+    transition: 0.4s;
+    border-radius: 34px;
 }
 
 .preferences-container .slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
 }
 
-.preferences-container .toggle-switch input:checked + .slider {
-  background-color: #2563eb;
+.preferences-container .toggle-switch input:checked+.slider {
+    background-color: var(--color1);
 }
 
-.preferences-container .toggle-switch input:checked + .slider:before {
-  transform: translateX(22px);
+.preferences-container .toggle-switch input:checked+.slider:before {
+    transform: translateX(22px);
 }
 
 /* Sports Grid */
 .preferences-container .sports-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 0.8rem;
-  margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
 }
 
 .preferences-container .sport-checkbox {
-  display: block;
+    display: block;
 }
 
 .preferences-container .sport-option {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.4rem;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fff;
 }
 
 .preferences-container .sport-option:hover {
-  border-color: #2563eb;
-  background: #f9fafb;
+    border-color: #2563eb;
+    background: #f9fafb;
 }
 
 .preferences-container .sport-icon {
-  font-size: 1.2rem;
-  color: #2563eb;
+    font-size: 1.2rem;
+    color: #2563eb;
 }
 
-/* Actions */
-.preferences-container .preferences-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1.5rem;
+/* Responsive desing */
+@media (max-width: 768px) {
+    .preferences-container .preference-section {
+        padding: 1rem .5rem;
+        border-radius: 6px;
+    }
+    .preferences-container .preference-title {
+        font-size: .9rem;
+    }
+    .preferences-container .preference-description {
+        font-size: .8rem;
+    }
+    .preferences-container .toggle-switch {
+        width: 40px;
+    }
+    .preferences-container .toggle-switch input:checked+.slider:before {
+    transform: translateX(16px);
 }
-
-.preferences-container .btn-primary,
-.preferences-container .btn-secondary {
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  border: none;
-}
-
-.preferences-container .btn-primary {
-  background-color: #2563eb;
-  color: #fff;
-}
-
-.preferences-container .btn-primary:hover {
-  background-color: #1d4ed8;
-}
-
-.preferences-container .btn-secondary {
-  background-color: #f3f4f6;
-  color: #374151;
-}
-
-.preferences-container .btn-secondary:hover {
-  background-color: #e5e7eb;
 }

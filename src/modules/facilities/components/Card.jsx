@@ -1,12 +1,11 @@
-// Componente de Tarjeta para mostrar información de un establecimiento.
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import '../styles/cards.css';
+import { IoLocationSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 import { Button1, Button2 } from '../../../shared/components/ui/Buttons';
 
 const Card = ({ facility }) => {
-    const navigate = useNavigate()
-    // Función para renderizar las estrellas de calificación
+    const navigate = useNavigate();
     const renderStars = (rating) => {
         const stars = [];
         const fullStars = Math.floor(rating);
@@ -28,15 +27,6 @@ const Card = ({ facility }) => {
         return stars;
     };
 
-    // Función para obtener el estado de disponibilidad
-    const getAvailabilityStatus = (available, isPremium) => {
-        if (isPremium) return { text: 'Premium', class: 'premium' };
-        if (available) return { text: 'Disponible', class: 'available' };
-        return { text: 'No disponible', class: 'unavailable' };
-    };
-
-    const availability = getAvailabilityStatus(facility.available, facility.isPremium);
-
     // Funcion para ver mas sobre la instalacion
     const handleView = () => {
         console.log('Viendo...');
@@ -44,87 +34,63 @@ const Card = ({ facility }) => {
     }
 
     return (
-        <div className="facility-card">
-            {/* Imagen del establecimiento */}
-            <div className="card-image">
-                <img src={facility.image} alt={facility.name} />
-                <div className={`availability-badge ${availability.class}`}>
-                    {availability.text}
-                </div>
-                {facility.isPremium && (
-                    <div className="premium-badge">
-                        <i className="fas fa-crown"></i>
-                    </div>
-                )}
-            </div>
-
-            {/* Contenido de la tarjeta */}
-            <div className="card-content">
-                {/* Nombre y calificación */}
-                <div className="card-header">
-                    <h3 className="facility-name">{facility.name}</h3>
-                    <div className="rating">
-                        <div className="stars">
-                            {renderStars(facility.rating)}
+        <div className='facility_card'>
+            <aside>
+                {/* Encabezado de card */}
+                <article className='header_article_facility'>
+                    {/* <div className="forma"></div> */}
+                    <img src={facility.image} alt="" />
+                    <div className="info_facility_card">
+                        <h4 className='name_card_facility'>{facility.name}</h4>
+                        <div className='ratings'>
+                            <div className="stars">{renderStars(facility.rating)}</div>
+                            <span>{facility.rating} </span>
                         </div>
-                        <span className="rating-number">({facility.rating})</span>
                     </div>
-                </div>
+                </article>
 
-                {/* Ubicación */}
-                <div className="location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>
-                        {typeof facility.location === 'string' 
-                            ? facility.location 
-                            : facility.location?.address || facility.location?.city || 'Ubicación no disponible'
-                        }
-                    </span>
-                </div>
-
-                {/* Deportes disponibles */}
-                <div className="sports">
-                    <h4>Deportes disponibles:</h4>
+                {/* Cuerpo de card - informacion */}
+                <article className='body_card_facility'>
+                    <p className="adress_facility"><IoLocationSharp /> {facility.location}</p>
+                    {/* Deportes disponibles */}
+                    <h5>Deportes disponibles:</h5>
                     <div className="sports-list">
                         {facility.availableSports.map((sport, index) => (
-                            <span key={index} className="sport-tag">
+                            <span key={index} className="sport_tag">
                                 {sport}
                             </span>
                         ))}
                     </div>
-                </div>
-
-                {/* Servicios */}
-                <div className="services">
-                    <h4>Características:</h4>
-                    <div className="services-list">
+                    {/* Caracteristicas */}
+                    <h5>Características:</h5>
+                    <div className="services_list">
                         {facility.features.map((feature, index) => (
-                            <span key={index} className="service-item">
+                            <span key={index} className="service_tag">
                                 <i className="fas fa-check"></i>
                                 {feature}
                             </span>
                         ))}
                     </div>
-                </div>
 
-                {/* Precio y horarios */}
-                <div className="card-details">
-                    <div className="price">
-                        <span className="price-label">Desde:</span>
-                        <span className="price-amount">s/{facility.pricePerHour}</span>
+                    {/* Precio y horarios */}
+                    <div className="card_details">
+                        <div className="price">
+                            <span className="price-label">Desde:</span>
+                            <span className="price-amount">s/{facility.pricePerHour}</span>
+                        </div>
+                        <div className="schedule">
+                            <i className="fas fa-clock"></i>
+                            <span>{facility.openHours}</span>
+                        </div>
                     </div>
-                    <div className="schedule">
-                        <i className="fas fa-clock"></i>
-                        <span>{facility.openHours}</span>
-                    </div>
-                </div>
-            </div>
+                </article>
+            </aside>
 
-            {/* Botones de acción */}
-            <div className="card-actions">
-                <Button1 text='Ver Detalles' onClick={handleView} />
+            {/* Pie de llamado a la accion - Footer */}
+            <article className='accions_card_facility'>
+                <Button1 onClick={handleView} text='Ver Detalles' />
                 <Button2 text='Reservar' />
-            </div>
+            </article>
         </div>
     )
 }

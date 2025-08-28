@@ -12,6 +12,7 @@ import Facilityes from './pages/Facilityes';
 import SpaceSport from "./pages/SpaceSport";
 import LoginRegister from './pages/LoginRegister';
 import Admin from './pages/Admin';
+import ReservasAdmin from './modules/admin/components/Reservas';
 
 // Toast Example
 import ToastExample from './shared/components/ToastExample';
@@ -49,6 +50,8 @@ const App = () => {
                     <Route path="/login" element={<LoginRegister />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path='/admin' element={<Admin />} />
+                    <Route path='/reservations-admin' element={<ReservasAdmin />} />
+
                     <Route path='/toast-example' element={<ToastExample />} />
                 </Routes>
                 <ToastContainer position="top-right" autoClose={3000} />

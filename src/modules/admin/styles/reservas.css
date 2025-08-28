@@ -1,0 +1,414 @@
+.reservations {
+    display: flex;
+    gap: 3px;
+    /* background-color: aliceblue; */
+    background-color: var(--gris-claro);
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative !important;
+}
+
+.reservations::before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    /* border: var(--gris-claro) solid 5px; */
+}
+
+/* Stylos del menu lateral */
+.reservations .menu_lateral {
+    max-width: 250px;
+    width: 100%;
+    padding: 10px 6px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reservations .menu_lateral section {
+    display: flex;
+    flex-direction: column;
+    border-bottom: var(--color2) solid 1px;
+    position: relative;
+    transition: .3s linear;
+}
+
+/* cabeza del menu lateral */
+.reservations .menu_lateral .header_lateral {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+    padding: 7px 0;
+    padding-bottom: 10px;
+
+    .ico_calendar {
+        width: 25px;
+        height: auto;
+    }
+
+    h4 {
+        font-size: .9rem;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: .8rem;
+        font-weight: 400;
+        color: var(--light-text);
+    }
+
+    .ico_cambio_vista {
+        position: absolute;
+        border-radius: 50%;
+        right: 0;
+        font-size: 1.6rem;
+        padding: 2px;
+        color: var(--color1);
+        cursor: pointer;
+        transition: .3s linear;
+    }
+
+    .ico_cambio_vista:hover {
+        background-color: var(--color2);
+    }
+}
+
+/* Calendario - fechas */
+.reservations .calendars {
+    padding: 5px 0;
+
+    .calendar-navigation {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        svg {
+            /* background: var(--gris-claro); */
+            color: var(--color1);
+            width: 30px;
+            height: 25px;
+            border-radius: 3px;
+            padding: 2px;
+            transition: .3s linear;
+            cursor: pointer;
+        }
+
+        svg:hover {
+            background-color: var(--color2);
+        }
+
+        h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+
+    /* Dias del calendario */
+    .calendar-days-header {
+        display: grid !important;
+        grid-template-columns: repeat(7, 1fr);
+        margin: 0;
+    }
+
+    .day-header {
+        display: flex;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--light-text);
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    /* Fechas del calendario */
+    .calendar_days_body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calendar-week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 1px 2px;
+        gap: 2px;
+        border-radius: 16px;
+    }
+
+    .calendar-week.week-row-selected {
+        background-color: var(--color2);
+    }
+
+    .calendar-day {
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        border-radius: 50%;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .3s linear;
+        color: var(--text-color);
+    }
+}
+
+.reservations .calendar-day:hover {
+    background-color: var(--color2);
+    font-weight: 600;
+    border: none !important;
+}
+
+.reservations .calendar-day.previous-month,
+.reservations .calendar-day.next-month {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.reservations .calendar-day.previous-month:hover {
+    background-color: white;
+    cursor: not-allowed;
+}
+
+.reservations .calendar-day.selected {
+    background-color: var(--color1);
+    color: white;
+    border: none;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* Secciones de menu desplegable */
+.reservations .menu_lateral .filters,
+.reservations .menu_lateral .leyends {
+    padding: 5px 0;
+
+    /* Botones del menu lateral de despliegue */
+    .btn_expand_menus {
+        font-weight: 600;
+        font-size: .8rem;
+        padding: 4px;
+        background-color: transparent;
+        justify-content: space-between;
+
+        svg {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        svg.rotated {
+            transform: rotate(90deg);
+        }
+    }
+
+    .btn_expand_menus:hover {
+        color: var(--color1);
+    }
+
+    .btn_expand_menus.expanded {
+        color: var(--color1);
+    }
+}
+
+
+
+/* menu desplegable de la barra lateral */
+.reservations .menu_lateral .filter,
+.reservations .menu_lateral .leyend {
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s linear;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: .85rem;
+        color: var(--light-text);
+        font-weight: 500;
+        cursor: pointer;
+    }
+}
+
+/* Pie de menu lateral */
+.reservations .footer_lateral {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .users {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 30px;
+
+        svg {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: var(--color1);
+            color: white;
+            border-radius: 50%;
+            padding: 3px;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        svg:nth-child(1) {
+            left: 0;
+            z-index: 3;
+        }
+
+        svg:nth-child(2) {
+            left: 15px;
+            z-index: 2;
+        }
+
+        svg:nth-child(3) {
+            left: 30px;
+            z-index: 1;
+        }
+
+        svg:nth-child(4) {
+            left: 45px;
+            z-index: 0;
+        }
+
+        svg:nth-child(5) {
+            left: 60px;
+            z-index: -1;
+        }
+    }
+}
+
+/* ============================================================================= */
+/* Stylos de la main de reservas */
+.reservations .reservation_main {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Cabeza del main */
+.reservation_main .header_main {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .header_accions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+
+        aside {
+            display: flex;
+            align-items: center;
+            /* border: gray solid 1px; */
+            gap: 4px;
+        }
+
+        .line {
+            height: 25px;
+            border: solid 1px var(--gris-medio);
+        }
+
+        .svgs svg {
+            box-shadow: 0 0 1px 1px var(--color2);
+            border-radius: 4px;
+            font-size: 1.7rem;
+            padding: 4px;
+            transition: .3s linear;
+            cursor: pointer;
+            color: var(--light-text);
+        }
+
+        .svgs svg:hover {
+            background-color: var(--color2);
+        }
+
+        .btns {
+            background-color: var(--gris-claro);
+            padding: 4px;
+            border-radius: 3px;
+
+            button {
+                background-color: white;
+                padding: 2px 8px;
+                font-weight: 500;
+                border-radius: 5px;
+            }
+
+            button:hover {
+                box-shadow: 0 0 1px 1px var(--color2);
+            }
+
+            button.active_view {
+                background-color: var(--color2);
+                color: var(--color1);
+                font-weight: 600;
+            }
+            button.active_sport {
+                background-color: var(--color2);
+                color: var(--color1);
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+
+/* contenido de la main */
+.reservation_main .content_main {
+    flex: 1;
+    position: relative;
+    /* Stylos de modal de detalles */
+    .details_block_reservation {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        box-shadow: 0 0 3px var(--color1);
+        border-radius: 4px;
+        padding: 10px;
+        z-index: 100;
+
+        .header_details {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            color: rgb(26, 28, 40);
+        }
+
+        .btns {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btns button {
+            background-color: rgb(52, 53, 57);
+            color: white;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+    }
+}

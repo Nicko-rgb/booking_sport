@@ -1,10 +1,11 @@
 .profile_page {
     background-color: #f9fafb;
+    min-height: 100vh;
 }
 .profile_page main {
     max-width: 1300px;
     margin: 0 auto;
-    padding-bottom: 200px;
+    padding-bottom: 80px !important;
     padding: 10px;
     padding-top: 0;
 }
@@ -20,7 +21,7 @@
 
 .profile_page main>section {
     padding: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.02), 0 0 10px rgba(0, 0, 0, 0.02);
     margin-top: 20px;
     border-radius: 8px;
     background-color: white;
@@ -71,6 +72,7 @@
     flex-wrap: wrap;
     gap: 16px;
     margin-top: 16px;
+    transition: var(--transition);
 }
 
 .profile_page .estadistica_profile aside {
@@ -110,9 +112,12 @@
 
 .profile_page .options_menu button {
     padding: 8px 10px;
-    font-weight: 500;
+    font-weight: 550;
     font-size: .8rem;
     border-radius: 9px;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 .profile_page .options_menu button:hover {
     color: var(--primary-color);
@@ -123,6 +128,7 @@
 }
 .profile_page .options_menu .active {
     background-color: var(--tertiary-color);
+    border: 1px solid rgba(183, 241, 183, 0.272);
     box-shadow: 0 0 3px var(--primary-color);
 }
 .profile_page .options_menu .active:hover {
@@ -141,6 +147,19 @@
         box-shadow: none;
         border-radius: 0;
         margin-top: 10px;
+    }
+    .profile_page .estadistica_profile {
+        gap: 6px;
+    }
+    .profile_page .estadistica_profile h4 {
+        font-size: .8rem;
+    }
+    .profile_page .estadistica_profile span {
+        font-size: .75rem;
+    }
+    .profile_page .estadistica_profile aside svg {
+        font-size: 1.6rem;
+        padding: 3px;
     }
     .profile_page .box_info {
         flex-direction: column;
@@ -162,10 +181,15 @@
         position: sticky;
         top: 70px;
         background-color: white;
+        z-index: 100;
     }
     .profile_page .options_menu button {
         padding: 8px 16px;
+        /* box-shadow: 2px 2px 6px #c5c5c5, -2px -2px 6px #ffffff; */
     }
+    .profile_page .options_menu button svg {
+        font-size: 1.2rem;
+     }
     .profile_page .options_menu span {
         display: none;
     }

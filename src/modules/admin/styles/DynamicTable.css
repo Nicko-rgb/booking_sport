@@ -1,0 +1,258 @@
+/* Estilos para la tabla de reservas */
+.table_reservation {
+    flex: 1 !important;
+    height: 100%;
+    position: relative;
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+    /* border: red solid 1px; */
+    padding-right: 10px;
+    animation: slideInY .3s linear;
+
+    /* Líneas guía tipo trading */
+    .guide-line-horizontal {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: .5px;
+        background: var(--color2);
+        z-index: 100;
+        pointer-events: none;
+        box-shadow: 0 0 3px var(--color2);
+    }
+
+    .guide-time-label {
+        position: absolute;
+        left: 5px;
+        top: -12px;
+        background: var(--color1);
+        color: white;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+    }
+
+    .guide-line-vertical {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: .5px;
+        background: var(--color2);
+        z-index: 100;
+        pointer-events: none;
+        box-shadow: 0 0 3px var(--color2);
+    }
+
+    /* Celda de tiempo cabeza */
+    .header_time_cell {
+        width: 50px;
+        min-width: 50px;
+        background-color: white;
+        font-weight: 600;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Estilos para el header de la tabla */
+.table_reservation .table-header {
+    display: flex;
+    gap: 2px;
+    z-index: 100;
+
+    /* Celdas de fecha */
+    .date-column-header {
+        width: 100%;
+        color: var(--color1);
+        background-color: white;
+        padding: 4px 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        transition: .3s linear;
+        font-size: .8rem;
+
+        .date-day {
+            opacity: 0.8;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: .3s linear;
+        }
+
+        .date-number {
+            font-weight: 700;
+            margin: 2px 0;
+        }
+
+        .date-number.fecha_hoy {
+            background-color: var(--color1);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .data_header_columna {
+        flex-direction: column !important;
+        gap: 0;
+        padding: 0;
+        line-height: 1;
+        font-size: .7rem;
+
+        .date-number.fecha_hoy {
+            height: 16px;
+            text-align: center;
+        }
+    }
+}
+
+
+
+/* Cuerpo de la tabla */
+.table_reservation .table-body-grid {
+    position: relative;
+    display: flex;
+    gap: 2px;
+    flex: 1;
+
+    .time-column {
+        width: 50px;
+        min-width: 50px;
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+
+        .time-cell {
+            /* padding: 0 8px; */
+            display: flex;
+            align-items: center;
+            background-color: white;
+            justify-content: center;
+            height: 100%;
+
+            .time_text {
+                font-size: 11px;
+                font-weight: 500;
+                color: #495057;
+            }
+        }
+
+    }
+
+    .date-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        /* border: red solid 1px; */
+
+        .date-cell {
+            flex: 1;
+            background-color: white;
+            position: relative;
+            cursor: crosshair;
+            transition: background-color 0.1s ease;
+            min-height: 0;
+        }
+    }
+
+    .table-row {
+        display: flex;
+        border-bottom: 1px solid #f0f0f0 !important;
+        position: relative;
+        flex: 1;
+        min-height: 0;
+    }
+}
+
+
+
+/* Bloques de reservas */
+.table_reservation .reservation-block {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-radius: 4px;
+    z-index: 50;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: slideInY 0.3s linear;
+    padding: 4px;
+
+    .content-block {
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        flex-direction: column;
+        overflow: hidden;
+        .reservation-title {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            svg {
+                background-color: var(--color1);
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                padding: 4px;
+                color: white;
+            }
+            .user_name {
+                font-weight: 500;
+                font-size: .8rem;
+                white-space: nowrap;
+            }
+        }
+
+        .reservation-time {
+            font-size: 10px;
+            opacity: 0.9;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1px;
+        }
+    }
+
+    .content-block_month {
+        padding: 1px;
+        .reservation-title {
+            .user_name {
+                display: none;
+            }
+        }
+        .reservation-time {
+            display: none;
+        }
+    }
+}
+
+/* Estados especiales */
+.reservation-block.confirmed {
+    background: rgb(193, 247, 193);
+    border: 2px solid rgba(183, 242, 183, 0.5);
+}
+
+.reservation-block.pending {
+    background: rgb(255, 247, 193);
+    border: 2px solid rgba(255, 247, 193, 0.5);
+}
+
+.reservation-block.cancelled {
+    background: rgb(255, 193, 193);
+    border: 2px solid rgba(255, 193, 193, 0.5);
+    opacity: 0.7;
+}

@@ -274,17 +274,3 @@
         font-size: 0.9rem;
     }
 }
-
-@media (max-width: 360px) {
-    .facilityes .filters-section h2 {
-        font-size: 1.3rem;
-    }
-
-    .facilityes .filter-group {
-        font-size: 0.8rem;
-    }
-
-    .facilityes .cards-grid {
-        padding: 0 8px;
-    }
-}
