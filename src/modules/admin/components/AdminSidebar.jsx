@@ -5,7 +5,6 @@ import { MdSportsFootball } from 'react-icons/md';
 import { HiLogin } from "react-icons/hi";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 
-
 const AdminSidebar = ({ activeSection, setActiveSection, sidebarOpen, setSidebarOpen }) => {
     // Opciones del menú de administración
     const menuItems = [

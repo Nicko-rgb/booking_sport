@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import Header from '../shared/components/ui/Header';
+import Footer from '../shared/components/ui/Footer';
 import { LuCalendarCheck2 } from "react-icons/lu";
 import { MdOutlineEdit } from "react-icons/md";
 import '../modules/users/styles/profile.css';
 import { FaRegUser } from "react-icons/fa";
-import { LuCalendarCheck, LuHistory } from "react-icons/lu";
+import { LuHistory } from "react-icons/lu";
 import { GoGear } from "react-icons/go";
 import { TbLiveView } from "react-icons/tb";
-import { BsCheckAll } from "react-icons/bs";
 import { HiStatusOnline } from "react-icons/hi";
 import { BiDollar } from "react-icons/bi";
 // Componentes
 import DataUser from '../modules/users/components/DataUser';
-import ReserveActive from '../modules/users/components/ReserveActive';
-import Confirmar from '../modules/users/components/Confirmar';
 import History from '../modules/users/components/History';
 import Preferences from '../modules/users/components/Preferences';
 import EditProfile from '../modules/users/components/EditProfile';
@@ -27,32 +25,19 @@ const Profile = () => {
             id: 0,
             name: 'Informacion Personal',
             component: <DataUser />,
-            icon: <FaRegUser />
+            icon: <FaRegUser strokeWidth={1} />
         },
         {
             id: 1,
-            name: 'Reservas Activas',
-            component: <ReserveActive />,
-            icon: <LuCalendarCheck />
-
+            name: 'Historial',
+            component: <History />,
+            icon: <LuHistory strokeWidth={2.7} />
         },
         {
             id: 2,
-            name: 'Confirmar',
-            component: <Confirmar />,
-            icon: <BsCheckAll />
-        },
-        {
-            id: 3,
-            name: 'Historial',
-            component: <History />,
-            icon: <LuHistory />
-        },
-        {
-            id: 4,
             name: 'Preferencias',
             component: <Preferences />,
-            icon: <GoGear />
+            icon: <GoGear strokeWidth={1.1} />
         }
     ]
 
@@ -121,16 +106,16 @@ const Profile = () => {
                             className={active === tab.id ? 'active' : ''}
                             onClick={() => setActive(tab.id)}
                         >
-                            {tab.icon} <span>{tab.name}</span> 
+                            {tab.icon} <span>{tab.name}</span>
                         </button>
                     ))}
                 </section>
 
                 {/* Renders de componentes */}
-                <section className='content_component'>
-                    {tabs[active]?.component}
-                </section>
+                {tabs[active]?.component}
             </main>
+            <Footer />
+
             {/* Modal Editar Perfil */}
             <Modal
                 isOpen={openEdit}

@@ -1,0 +1,134 @@
+/* Sequential Slide In Animation Styles */
+.sequential-slide-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sequential-slide-item {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sequential-slide-item.visible {
+    animation-name: slideInYSequential;
+}
+
+@keyframes slideInYSequential {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Variantes de dirección */
+.sequential-slide-container.slide-up .sequential-slide-item {
+    transform: translateY(20px);
+}
+
+.sequential-slide-container.slide-up .sequential-slide-item.visible {
+    animation-name: slideInYUpSequential;
+}
+
+@keyframes slideInYUpSequential {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Variante horizontal */
+.sequential-slide-container.slide-left .sequential-slide-item {
+    transform: translateX(-20px);
+}
+
+.sequential-slide-container.slide-left .sequential-slide-item.visible {
+    animation-name: slideInXLeftSequential;
+}
+
+@keyframes slideInXLeftSequential {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sequential-slide-container.slide-right .sequential-slide-item {
+    transform: translateX(20px);
+}
+
+.sequential-slide-container.slide-right .sequential-slide-item.visible {
+    animation-name: slideInXRightSequential;
+}
+
+@keyframes slideInXRightSequential {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Variante para layout horizontal */
+.sequential-slide-container.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Variante con efecto de escala */
+.sequential-slide-container.scale .sequential-slide-item {
+    transform: translateY(-20px) scale(0.9);
+}
+
+.sequential-slide-container.scale .sequential-slide-item.visible {
+    animation-name: slideInYScaleSequential;
+}
+
+@keyframes slideInYScaleSequential {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sequential-slide-item {
+        animation-duration: 0.4s !important;
+    }
+    
+    .sequential-slide-container.horizontal {
+        flex-direction: column;
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .sequential-slide-item {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

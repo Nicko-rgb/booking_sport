@@ -5,7 +5,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 const DataUser = () => {
     return (
-        <div className='data-user'>
+        <section className='data-user'>
             <h4 className='title_profile'><FaRegUser /> Datos Personales</h4>
             <p>Consulta y gestiona tu información y actividad en el sistema. Para una mayor experiencia y búsqueda rápida de espacios deportivos, complete los campos que faltan.</p>
             <section className='datas'>
@@ -51,7 +51,7 @@ const DataUser = () => {
                 <div className="item">Voley</div>
                 <div className="item">Natación</div>
             </section>
-        </div>
+        </section>
     )
 }
 

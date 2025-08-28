@@ -30,7 +30,7 @@ const Home = () => {
                         Encuentra y reserva canchas, gimnasios y espacios deportivos de manera fácil y rápida
                     </p>
                     <div className={Style.heroButtons}>
-                        <Button1 Icon={TbMapPinSearch} onClick={handleExplore} text="Explorar Establecimientos" />
+                        <Button1 Icon={TbMapPinSearch} onClick={handleExplore} text="Get Started" />
                         <Button2 Icon={HiSquaresPlus} text="Conocer más" />
                     </div>
                 </div>

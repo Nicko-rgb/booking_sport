@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../modules/admin/styles/admin.css';
+import { useNavigate } from 'react-router-dom';
 
 // Admin components
 import AdminSidebar from '../modules/admin/components/AdminSidebar';
 import DashboardOverview from '../modules/admin/components/DashboardOverview';
-import ReservationsManagement from '../modules/admin/components/ReservationsManagement';
+import ReservationsManagement from '../modules/admin/components/TableReservas';
+import ReservationsManagement2 from '../modules/admin/components/Reservas';
 import ScheduleManagement from '../modules/admin/components/ScheduleManagement';
 import PricingManagement from '../modules/admin/components/PricingManagement';
 import FacilitySettings from '../modules/admin/components/FacilitySettings';
@@ -14,6 +16,7 @@ import ReportsAnalytics from '../modules/admin/components/ReportsAnalytics';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 const Admin = () => {
+    const navigate = useNavigate();
     // Estado para la sección activa del panel de administración
     const [activeSection, setActiveSection] = useState('dashboard');
 
@@ -26,7 +29,7 @@ const Admin = () => {
             case 'dashboard':
                 return <DashboardOverview />;
             case 'reservations':
-                return <ReservationsManagement />;
+                navigate('/reservations-admin');
             case 'schedules':
                 return <ScheduleManagement />;
             case 'pricing':

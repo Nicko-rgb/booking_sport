@@ -79,7 +79,8 @@ const LoginRegister = () => {
 
                             </div>
                             <a href="#" onClick={handleForgotPasswordClick}>Forgot password?</a>
-                            <button onClick={handleSubmit} type="submit" className="btn btn-primary">Sign In</button>
+                            
+                            <button onClick={handleSubmit} type="submit" className="btn btn-primary">Iniciar Sesión</button>
                         </form>
                     </div>
 
@@ -87,7 +88,7 @@ const LoginRegister = () => {
                     <div className={`welcome-section login-welcome ${isLogin ? 'active' : 'inactive'}`}>
                         <h2>Hello, Friend!</h2>
                         <p>Enter your personal details to use all of site features</p>
-                        <button onClick={handleToggleMode} className="btn btn-outline">Sign Up</button>
+                        <button onClick={handleToggleMode} className="btn btn-outline">Registrarse</button>
                     </div>
 
                     {/* Panel de bienvenida para Register */}
@@ -149,7 +150,7 @@ const LoginRegister = () => {
                                 {showPassword ? <FiEyeOff className='ico-pass ico' onClick={handleShowPassword} /> : <IoEyeOutline className='ico-pass ico' onClick={handleShowPassword} />}
 
                             </div>
-                            <button onClick={handleSubmit} type="submit" className="btn btn-primary">Sign Up</button>
+                            <button onClick={handleSubmit} type="submit" className="btn btn-primary"></button>
                         </form>
                     </div>
                 </div>
